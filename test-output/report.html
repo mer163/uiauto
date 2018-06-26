@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"content="text/html; charset=utf-8" />
+<title>zbwx-自动化测试报告</title>
+<link href="report.css" rel="stylesheet" type="text/css"/>
+<link href="imageshow.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+ <script type="text/javascript" src="loadxmldoc.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="Chart.js"></script>
+<script type="text/javascript">
+function bigimg(i)
+{
+var zoom = parseInt(i.style.zoom,10)||100;
+zoom += event.wheelDelta / 12;
+if(zoom > 0 )
+i.style.zoom=zoom+'%';
+return false;
+} $.ajaxSetup ({ cache: false
+ //关闭AJAX相应的缓存
+ });
+ $(document).ready(function(){$(".passed_button").click(function(){
+if($(this).parent().parent().find("span").css("display")=="none")
+{
+$(this).parent().parent().find("div").load("passed.xml",function(response,status){
+ if (status=="success")
+{var pass_assert_info_attr=$(this).parent().parent().attr("id");
+var str="pass_assert_info[method='";
+var str2="']";
+var str3=str.concat(pass_assert_info_attr).concat(str2);
+  var item=$(response).find(str3).text();
+var div=$(this).parent().parent().find("div");
+div.html("<ol></ol>");
+$(response).find(str3).each(function(){
+var item_text=$(this).text();
+if(item_text.indexOf("pass")>0)
+{
+$('<li class="passed_info_li" ></li>').html(item_text).appendTo('ol');
+}
+else
+{$('<li class="failed_info_li"></li>').html(item_text).appendTo('ol');
+}
+ }); }
+ });
+$(this).parent().parent().find("span").show();
+$(this).parent().parent().find("div").show();
+ $(this).parent().parent().prevAll().find("span").hide();
+ $(this).parent().parent().prevAll().find("div").hide();
+$(this).parent().parent().nextAll().find("span").hide();
+$(this).parent().parent().nextAll().find("div").hide();
+}
+else
+{
+$(this).parent().parent().find("span").hide();
+$(this).parent().parent().find("div").hide();
+}
+}
+);
+$(".failed_button").click(function(){
+if($(this).parent().parent().find("span").css("display")=="none"){
+	$(this).parent().parent().find("div").load("failed.xml",function(response,status){
+if (status=="success")
+{var pass_assert_info_attr=$(this).parent().parent().attr("id");
+var str4="err_assert_info[method='";
+var str5="']";
+var str6=str4.concat(pass_assert_info_attr).concat(str5);
+var item=$(response).find(str6).text();
+var div=$(this).parent().parent().find("div");
+div.html("<ol></ol>");
+$(response).find(str6).each(function(){
+var item_text=$(this).text();
+if(item_text.indexOf("pass")>0)
+{
+$('<li class="passed_info_li" ></li>').html(item_text).appendTo('ol');
+}
+else
+{$('<li class="failed_info_li"></li>').html(item_text).appendTo('ol');
+}
+ }); }
+ });
+$(this).parent().parent().find("span").show();
+$(this).parent().parent().find("div").show();
+$(this).parent().parent().prevAll().find("span").hide();
+$(this).parent().parent().prevAll().find("div").hide();
+$(this).parent().parent().nextAll().find("span").hide();
+$(this).parent().parent().nextAll().find("div").hide();
+}
+else
+{
+$(this).parent().parent().find("span").hide();
+$(this).parent().parent().find("div").hide();
+}
+}
+);
+})
+</script></head>
+<body>
+<div id="content">
+<div id="report_title">
+<div id="logo"><img src="logo1.png"></img></div>
+<div style="clear:both"><div id="time">
+<div style="pading-top:20px">开始时间：2018-06-26 16:26:03</div>
+<div>结束时间：2018-06-26 16:26:03 </div>
+<div>用&nbsp&nbsp&nbsp&nbsp时：8毫秒</div>
+</div>
+</div>
+</div><div  id="header_right" >
+<div id="title">
+<div>zbwx-自动化测试报告</div>
+</div>
+<div id="canvas_div"><canvas id="canvas" height="90" width="90"></canvas>
+</div></div>
+<div id="report_total">
+<table width="100%">
+<tr>
+<td width="84"><div align="center">用例总数</div></td>
+<td width="152" align="center"><div align="center">通过数（pass）</div></td>
+<td width="125" align="center"><div align="center">失败数(failed)</div></td>
+<td width="96" align="center"><div align="center">跳过数(skip)</div></td>
+<td width="91" align="center"><div align="center">通过率</div></td>
+</tr>
+ <tr>
+<td><div align="center"><button id="total_num">1</button></div></td>
+<td><div align="center"><button id="passed_num"value="0">0</button></div></td>
+ <td><div align="center"><button id="failed_num"value="1">1</button></div></td>
+<td><div align="center"><button id="skiped_num"value="0">0</button></div></td>
+<td><div align="center">0.00%</div></td>
+</tr>
+</table>
+<script type="text/javascript">
+var x= $('#failed_num').attr('value');
+var y=$("#passed_num").attr('value');
+var z=$("#skiped_num").attr('value');
+var passed_num=Number(y);
+var failed_num=Number(x);
+var skiped_num=Number(z);
+var pieData = [
+{value: passed_num,
+color:"green"},
+{value : failed_num,
+color : "red"}
+,{
+value : skiped_num,
+color : "yellow"}
+];
+var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+</script>
+<table id="total">
+<tr>
+<td colspan=7 align="left" style="color:green;font-size:14px;font-weight:bold">所有测试用例</td>
+</tr>
+<tr>
+<td width="2%" class="SEQ">序号</td>
+<td width="5%" class="case_funtcion_td">功能模块</td>
+<td width="20%" class="case_name_td">用例名称</td>
+<td width="43%" colspan=2 align="left">测试结果</td>
+<td width="20%" class="case_result_beizhu_td">备注</td>
+<td width="10%" class="case_time">耗时</td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.LoginTest.login">
+<td class="SEQ">1</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">登录测试</td>
+ <td class="case_result_td"><button class="failed_button" id="fullresult_login">f</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_login_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">8毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+</table>
+<table id="skiped">
+<tr>
+<tr>
+<td colspan=7 align="left" style="color:green;font-size:14px;font-weight:bold">跳过测试用例</td>
+</tr>
+<td width="2%" class="SEQ">序号</td>
+<td width="5%" class="case_funtcion_td">功能模块</td>
+<td width="20%" class="case_name_td">用例名称</td>
+<td width="43%" colspan=2 align="left">测试结果</td>
+<td width="20%" class="case_result_beizhu_td">备注</td>
+<td width="10%" class="case_time">耗时</td>
+<tr>
+
+</table>
+<table id="passed">
+<tr>
+<td colspan=7 align="left" style="color:green;font-size:14px;font-weight:bold">成功测试用例</td>
+</tr>
+<tr>
+<td width="2%" class="SEQ">序号</td>
+<td width="5%" class="case_funtcion_td">功能模块</td>
+<td width="20%" class="case_name_td">用例名称</td>
+<td width="43%" colspan=2 align="left">测试结果</td>
+<td width="20%" class="case_result_beizhu_td">备注</td>
+<td width="10%" class="case_time">耗时</td>
+<tr>
+
+</table>
+<table  id="failed">
+<tr>
+<td colspan=7 align="left" style="color:red;font-size:14px;font-weight:bold">失败测试用例</td>
+</tr>
+<tr><td width="2%" class="SEQ">序号</td>
+<td width="5%" class="case_funtcion_td">功能模块</td>
+<td width="20%" class="case_name_td">用例名称</td>
+<td width="43%" colspan=2 align="left">测试结果</td>
+<td width="20%" class="case_result_beizhu_td">备注</td>
+<td width="10%" class="case_time">耗时</td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.LoginTest.login">
+<td class="SEQ">1</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">登录测试</td>
+ <td class="case_result_td" ><button class="failed_button" id="failedresult_login">f</button><br /></td>
+<td  class="case_result_info_td"><span class="failed_info" id="failedresult_login_info" style="display:none" >检查点：<br />
+</span><div class="failed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">8毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+</table>
+</div>
+</div>
+<span style="font-size:14px;margin-top:5px" >温馨提示：点击按钮展开详情</span><div id="footer" >技术支持：Copyright © 2018 ZBWX.Inc</div></body>
+</html>

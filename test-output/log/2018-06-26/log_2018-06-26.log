@@ -1,0 +1,526 @@
+[2018-06-26 15:43:22,977] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 16:04:39,782] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 16:04:39,834] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:04:39,836] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:05:14,611] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 16:05:14,616] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 16:05:14,658] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:05:14,659] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:06:55,092] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 16:06:55,096] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 16:06:55,118] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:06:55,119] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:26:02,996] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 16:26:02,999] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 16:26:03,024] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:26:03,025] ERROR com.zbwx.autotest.ui.utils.TestListener 测试用例: 登录测试--failed
+[2018-06-26 16:26:03,026] INFO  com.zbwx.autotest.ui.utils.TestListener 测试用例:登录测试---end
+[2018-06-26 16:26:03,035] ERROR com.zbwx.autotest.ui.utils.TestListener 0
+[2018-06-26 16:26:03,037] ERROR com.zbwx.autotest.ui.utils.TestListener 测试用例: 登录测试--failed
+[2018-06-26 16:26:03,037] INFO  com.zbwx.autotest.ui.utils.TestListener 测试用例:登录测试---end
+[2018-06-26 16:26:53,310] ERROR com.zbwx.autotest.ui.utils.SendMail 发送邮件失败！
+[2018-06-26 17:26:32,344] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:26:32,349] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:26:32,404] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://android:7912/shell, tag=null}
+[2018-06-26 17:26:32,404] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:26:32,405] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@5db250b4
+[2018-06-26 17:26:32,506] INFO  atx.client.common.OkHttpClientMethod Http Result:<html>
+<head>
+    <title>Charles Error Report</title>
+    <style type="text/css">
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<h1>Charles Error Report</h1>
+<h2>Name lookup failed for remote host</h2>
+<p>Charles failed to resolve the name of the remote host into an IP address. Check that the URL is correct.</p>
+<p>The actual exception reported was:</p>
+<pre>
+java.net.UnknownHostException: android: nodename nor servname provided, or not known
+</pre>
+
+<p>
+<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>
+</p>
+</body>
+</html>
+[2018-06-26 17:26:32,598] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://android:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:26:32,599] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:26:32,599] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"e6b46946f631b8680db499fd5d519a5a","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:26:32,604] INFO  atx.client.common.OkHttpClientMethod Http Result:<html>
+<head>
+    <title>Charles Error Report</title>
+    <style type="text/css">
+body {
+    font-family: Arial,Helvetica,Sans-serif;
+    font-size: 12px;
+    color: #333333;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+<h1>Charles Error Report</h1>
+<h2>Name lookup failed for remote host</h2>
+<p>Charles failed to resolve the name of the remote host into an IP address. Check that the URL is correct.</p>
+<p>The actual exception reported was:</p>
+<pre>
+java.net.UnknownHostException: android
+</pre>
+
+<p>
+<i>Charles Proxy, <a href="http://www.charlesproxy.com/">http://www.charlesproxy.com/</a></i>
+</p>
+</body>
+</html>
+[2018-06-26 17:29:24,355] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:29:24,362] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:29:24,423] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:29:24,423] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:29:24,423] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@5db250b4
+[2018-06-26 17:29:25,189] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=73ms (0ms mobile, 0ms wifi, 73ms not connected)\n"}
+
+[2018-06-26 17:29:25,267] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:29:25,267] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:29:25,268] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"06aaf37a759d8fe23bdd15524753c4fd","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:29:32,148] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"06aaf37a759d8fe23bdd15524753c4fd","result":true}
+
+[2018-06-26 17:29:32,149] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:29:32,149] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:29:32,150] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"92d9746a383252418c22c49cf54eeee4","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 17:29:32,907] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"92d9746a383252418c22c49cf54eeee4","result":{"bounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":"com.ylmall.app.ui:id/my_text","text":"我的","visibleBounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 17:29:32,921] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:29:32,921] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:29:32,921] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"76f931ed12eb769a249750dc69c86be7","method":"click","params":[1382,2511]}
+[2018-06-26 17:29:33,079] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"76f931ed12eb769a249750dc69c86be7","result":true}
+
+[2018-06-26 17:32:18,788] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:32:18,795] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:32:18,861] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:32:18,862] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:32:18,862] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@5db250b4
+[2018-06-26 17:32:19,626] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=74ms (0ms mobile, 0ms wifi, 74ms not connected)\n"}
+
+[2018-06-26 17:32:19,765] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:32:19,765] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:32:19,766] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"8a5d65e79cf8b2f179da76842c23a16e","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:32:19,911] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"8a5d65e79cf8b2f179da76842c23a16e","result":true}
+
+[2018-06-26 17:32:19,912] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:32:19,912] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:32:19,913] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"08abce848c3ce3dd02f3afbe3db4b9d9","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 17:32:20,131] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"08abce848c3ce3dd02f3afbe3db4b9d9","result":{"bounds":{"bottom":232,"left":636,"right":900,"top":135},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":null,"text":"我的","visibleBounds":{"bottom":232,"left":636,"right":900,"top":135},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 17:32:20,144] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:32:20,145] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:32:20,146] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"803869e72158cd5de35b673f82b56782","method":"click","params":[768,183]}
+[2018-06-26 17:32:20,278] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"803869e72158cd5de35b673f82b56782","result":true}
+
+[2018-06-26 17:33:40,727] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:33:40,735] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:33:40,791] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:33:40,792] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:33:40,792] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:33:41,458] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=65ms (0ms mobile, 0ms wifi, 65ms not connected)\n"}
+
+[2018-06-26 17:33:41,536] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:33:41,537] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:33:41,537] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"6d0231d1ae88a021f47be2b274956cbf","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:33:41,678] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"6d0231d1ae88a021f47be2b274956cbf","result":true}
+
+[2018-06-26 17:33:41,679] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:33:41,680] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:33:41,681] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"847843406f01d19ff11d95e765f8cb15","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 17:33:42,414] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"847843406f01d19ff11d95e765f8cb15","result":{"bounds":{"bottom":232,"left":636,"right":900,"top":135},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":null,"text":"我的","visibleBounds":{"bottom":232,"left":636,"right":900,"top":135},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 17:33:42,423] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:33:42,423] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:33:42,424] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"c822fa7da2291690cfb07fa5fa17e3be","method":"click","params":[768,183]}
+[2018-06-26 17:33:42,579] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"c822fa7da2291690cfb07fa5fa17e3be","result":true}
+
+[2018-06-26 17:33:42,610] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:33:42,610] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:33:42,611] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@36902638
+[2018-06-26 17:33:42,651] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:33:42,655] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:33:56,500] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:33:56,505] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:33:56,556] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:33:56,557] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:33:56,557] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:33:57,350] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=85ms (0ms mobile, 0ms wifi, 85ms not connected)\n"}
+
+[2018-06-26 17:33:57,419] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:33:57,419] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:33:57,420] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"6b0a59276973ec5da120a96059a4b835","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:33:57,499] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"6b0a59276973ec5da120a96059a4b835","error":{"code":-32001,"message":"UiAutomation not connected!","data":{"exceptionTypeName":"java.lang.IllegalStateException","message":"UiAutomation not connected!"}}}
+
+[2018-06-26 17:33:57,532] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:33:57,533] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:33:57,533] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@1d2adfbe
+[2018-06-26 17:33:57,579] INFO  atx.client.common.OkHttpClientMethod Http Result:already stopped
+
+[2018-06-26 17:33:57,580] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:34:59,583] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:34:59,586] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:34:59,636] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:34:59,636] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:34:59,637] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:35:00,470] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=56ms (0ms mobile, 0ms wifi, 56ms not connected)\n"}
+
+[2018-06-26 17:35:00,514] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:35:00,515] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:35:00,515] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:35:00,532] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:35:00,573] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:35:00,573] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:35:00,573] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"a4d7be4b7eccd89d2227e3ab82a6902c","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:35:00,620] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"a4d7be4b7eccd89d2227e3ab82a6902c","error":{"code":-32001,"message":"UiAutomation not connected!","data":{"exceptionTypeName":"java.lang.IllegalStateException","message":"UiAutomation not connected!"}}}
+
+[2018-06-26 17:35:00,653] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:35:00,654] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:35:00,654] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@36902638
+[2018-06-26 17:35:00,676] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:35:00,680] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:36:00,317] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:36:00,321] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:36:00,368] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:36:00,368] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:36:00,368] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:36:01,122] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=55ms (0ms mobile, 0ms wifi, 55ms not connected)\n"}
+
+[2018-06-26 17:36:01,161] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:36:01,162] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:01,162] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:36:01,186] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:36:01,205] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:36:01,207] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:01,208] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@74e52303
+[2018-06-26 17:36:01,220] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:36:01,229] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:36:01,230] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:01,230] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"f6a7976c798f254d94d3ce10a56eab63","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:36:01,282] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"f6a7976c798f254d94d3ce10a56eab63","error":{"code":-32001,"message":"UiAutomation not connected!","data":{"exceptionTypeName":"java.lang.IllegalStateException","message":"UiAutomation not connected!"}}}
+
+[2018-06-26 17:36:01,331] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:36:01,331] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:01,331] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@223d2c72
+[2018-06-26 17:36:01,346] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:36:01,347] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:36:35,919] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:36:35,923] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:36:35,976] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:36:35,976] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:36:35,976] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:36:36,710] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=41ms (0ms mobile, 0ms wifi, 41ms not connected)\n"}
+
+[2018-06-26 17:36:36,750] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:36:36,751] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:36,751] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:36:36,763] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:36:36,788] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:36:36,788] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:36,788] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@74e52303
+[2018-06-26 17:36:36,808] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:36:39,823] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:36:39,823] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:39,824] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"5aa455eb6623c46c05bfcde6eeb598ec","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:36:39,842] INFO  atx.client.common.OkHttpClientMethod Http Result:
+[2018-06-26 17:36:39,871] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:36:39,871] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:36:39,871] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@1189dd52
+[2018-06-26 17:36:39,920] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:36:39,920] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:37:05,492] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:37:05,505] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:37:05,571] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:37:05,571] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:37:05,572] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:37:06,256] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=46ms (0ms mobile, 0ms wifi, 46ms not connected)\n"}
+
+[2018-06-26 17:37:06,363] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:37:06,363] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:37:06,364] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:37:06,404] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:37:06,429] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:37:06,430] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:37:06,430] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@74e52303
+[2018-06-26 17:37:06,443] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:37:09,457] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:37:09,458] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:37:09,458] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"201d86de82fee4e4ead1410dc0c007d5","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:37:09,490] INFO  atx.client.common.OkHttpClientMethod Http Result:
+[2018-06-26 17:37:09,521] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:37:09,521] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:37:09,521] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@1189dd52
+[2018-06-26 17:37:09,560] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:37:09,561] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:42:15,870] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:42:15,875] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:42:15,934] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:42:15,935] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:42:15,935] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:42:16,651] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=55ms (0ms mobile, 0ms wifi, 55ms not connected)\n"}
+
+[2018-06-26 17:42:16,711] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:42:16,712] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:42:16,712] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:42:16,753] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:42:16,808] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:42:16,809] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:42:16,809] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@74e52303
+[2018-06-26 17:42:17,644] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:42:20,662] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:42:20,662] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:42:20,663] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"a3282bb22b627fefb39bb56d1977725c","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:42:20,681] INFO  atx.client.common.OkHttpClientMethod Http Result:
+[2018-06-26 17:42:20,711] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:42:20,712] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:42:20,712] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@1189dd52
+[2018-06-26 17:42:20,845] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:42:20,845] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:43:43,872] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:43:43,880] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:43:43,934] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:43:43,934] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:43:43,935] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:43:44,782] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=56ms (0ms mobile, 0ms wifi, 56ms not connected)\n"}
+
+[2018-06-26 17:43:44,848] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:43:44,849] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:43:44,849] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:43:44,878] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:43:44,903] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:43:44,903] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:43:44,904] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@74e52303
+[2018-06-26 17:43:45,013] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:43:48,028] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:43:48,029] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:43:48,030] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"c3dcec967425471d85c7e5f67ae353c3","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:43:48,095] INFO  atx.client.common.OkHttpClientMethod Http Result:
+[2018-06-26 17:43:48,137] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:43:48,138] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:43:48,138] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@1189dd52
+[2018-06-26 17:43:48,200] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:43:48,202] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:47:23,510] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:47:23,516] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:47:23,564] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:47:23,564] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:47:23,565] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:47:24,326] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=57ms (0ms mobile, 0ms wifi, 57ms not connected)\n"}
+
+[2018-06-26 17:47:24,379] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:47:24,379] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:47:24,380] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:47:24,395] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:47:24,422] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:47:24,422] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:47:24,422] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@6aba2b86
+[2018-06-26 17:47:24,438] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:47:27,458] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:47:27,458] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:47:27,459] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"1ec16faf154a664099068e17f3ade4e4","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:47:28,230] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"1ec16faf154a664099068e17f3ade4e4","result":true}
+
+[2018-06-26 17:47:28,243] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:47:28,243] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:47:28,244] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"d458bbf49f32a9b846d9cdc4d9a768b5","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 17:47:30,787] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"d458bbf49f32a9b846d9cdc4d9a768b5","result":{"bounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":"com.ylmall.app.ui:id/my_text","text":"我的","visibleBounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 17:47:30,796] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:47:30,797] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:47:30,797] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"bc2ae1276bd68a86c4f287c7b1e956bf","method":"click","params":[1382,2511]}
+[2018-06-26 17:47:30,974] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"bc2ae1276bd68a86c4f287c7b1e956bf","result":true}
+
+[2018-06-26 17:47:31,015] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:47:31,015] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:47:31,016] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@8f4ea7c
+[2018-06-26 17:47:31,060] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:47:31,063] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:49:56,897] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:49:56,902] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:49:56,946] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:49:56,946] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:49:56,946] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:49:57,740] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=50ms (0ms mobile, 0ms wifi, 50ms not connected)\n"}
+
+[2018-06-26 17:49:57,773] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:49:57,773] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:49:57,773] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:49:57,790] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:49:57,822] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:49:57,822] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:49:57,822] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@74e52303
+[2018-06-26 17:49:57,832] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:50:00,848] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:50:00,848] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:50:00,849] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"673aeb9638d53c9cfe22ff5ddeb1e1b7","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:50:00,895] INFO  atx.client.common.OkHttpClientMethod Http Result:
+[2018-06-26 17:50:00,932] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=DELETE, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:50:00,934] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:50:00,935] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@1189dd52
+[2018-06-26 17:50:00,991] INFO  atx.client.common.OkHttpClientMethod Http Result:Success
+[2018-06-26 17:50:00,992] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 17:52:04,265] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 17:52:04,283] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 17:52:04,341] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 17:52:04,342] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 17:52:04,342] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 17:52:05,846] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=41ms (0ms mobile, 0ms wifi, 41ms not connected)\n"}
+
+[2018-06-26 17:52:05,902] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:52:05,902] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:52:05,902] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 17:52:06,055] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:52:06,077] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 17:52:06,077] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:52:06,078] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@6aba2b86
+[2018-06-26 17:52:06,120] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 17:52:09,134] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:52:09,134] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:52:09,135] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"ebd915e3eaaf7bb97cb548551362fdf4","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 17:52:09,290] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"ebd915e3eaaf7bb97cb548551362fdf4","result":true}
+
+[2018-06-26 17:52:09,292] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:52:09,292] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:52:09,293] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"6f16131efc3cde4bedc37ea9da71a9ce","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 17:52:10,244] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"6f16131efc3cde4bedc37ea9da71a9ce","result":{"bounds":{"bottom":232,"left":636,"right":900,"top":135},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":null,"text":"我的","visibleBounds":{"bottom":232,"left":636,"right":900,"top":135},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 17:52:10,262] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 17:52:10,263] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 17:52:10,263] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"2c75a33a5dbcf389a4355e396fc4bcc1","method":"click","params":[768,183]}
+[2018-06-26 17:52:10,502] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"2c75a33a5dbcf389a4355e396fc4bcc1","result":true}
+
+[2018-06-26 17:52:10,531] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 18:15:55,101] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 18:15:55,106] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 18:15:55,189] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 18:15:55,190] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 18:15:55,199] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@75f32542
+[2018-06-26 18:15:55,994] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=130ms (0ms mobile, 0ms wifi, 130ms not connected)\n"}
+
+[2018-06-26 18:15:56,059] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 18:15:56,060] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:15:56,060] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@3835c46
+[2018-06-26 18:15:56,071] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 18:15:56,102] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 18:15:56,102] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:15:56,103] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@6aba2b86
+[2018-06-26 18:15:56,114] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 18:15:59,132] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 18:15:59,133] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:15:59,133] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"6d51dbfdf131b084ac141cc13fa25ba1","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 18:16:00,212] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"6d51dbfdf131b084ac141cc13fa25ba1","result":true}
+
+[2018-06-26 18:16:00,214] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 18:16:00,214] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:16:00,214] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"d8a1dc7377b521b990fd00d44531300e","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 18:16:00,510] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"d8a1dc7377b521b990fd00d44531300e","result":{"bounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":"com.ylmall.app.ui:id/my_text","text":"我的","visibleBounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 18:16:00,530] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 18:16:00,530] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:16:00,532] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"fe0a7fe468141a46d95c2dad6bdbc9b4","method":"click","params":[1382,2511]}
+[2018-06-26 18:16:00,730] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"fe0a7fe468141a46d95c2dad6bdbc9b4","result":true}
+
+[2018-06-26 18:16:00,751] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------
+[2018-06-26 18:22:36,189] INFO  com.zbwx.autotest.ui.utils.TestBaseCase ------------------开始初始化测试---------------
+[2018-06-26 18:22:36,197] INFO  com.zbwx.autotest.ui.utils.TestBaseCase 读取xml配置：Mobile Driver:AtxDriver；测试设备IP:192.168.0.72
+[2018-06-26 18:22:36,256] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 18:22:36,257] INFO  atx.client.common.OkHttpClientMethod Http Header:Content-Type: application/x-www-form-urlencoded
+
+[2018-06-26 18:22:36,257] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@4fe767f3
+[2018-06-26 18:22:37,086] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"Events injected: 1\n## Network stats: elapsed time=114ms (0ms mobile, 0ms wifi, 114ms not connected)\n"}
+
+[2018-06-26 18:22:37,144] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 18:22:37,145] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:37,145] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@393671df
+[2018-06-26 18:22:37,267] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 18:22:37,293] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/uiautomator, tag=null}
+[2018-06-26 18:22:37,294] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:37,294] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@7c729a55
+[2018-06-26 18:22:37,303] INFO  atx.client.common.OkHttpClientMethod Http Result:already running
+
+[2018-06-26 18:22:40,326] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 18:22:40,326] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:40,326] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"31d2cae5a1394dc89922464ce0e227ad","method":"waitForExists","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"},20000]}
+[2018-06-26 18:22:41,837] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"31d2cae5a1394dc89922464ce0e227ad","result":true}
+
+[2018-06-26 18:22:41,838] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 18:22:41,838] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:41,839] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"58314f92b896958e141b87e5d4ec4b74","method":"objInfo","params":[{"mask":1,"childOrSibling":[],"childOrSiblingSelector":[],"text":"我的"}]}
+[2018-06-26 18:22:42,010] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"58314f92b896958e141b87e5d4ec4b74","result":{"bounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"childCount":0,"className":"android.widget.TextView","contentDescription":null,"packageName":"com.ylmall.app.ui","resourceName":"com.ylmall.app.ui:id/my_text","text":"我的","visibleBounds":{"bottom":2544,"left":1334,"right":1430,"top":2479},"checkable":false,"checked":false,"clickable":false,"enabled":true,"focusable":false,"focused":false,"longClickable":false,"scrollable":false,"selected":false}}
+
+[2018-06-26 18:22:42,022] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/jsonrpc/0, tag=null}
+[2018-06-26 18:22:42,023] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:42,024] INFO  atx.client.common.OkHttpClientMethod Http params:{"jsonrpc":"2.0","id":"39b6502d4772e7e5b4c4f5275ca2c2a0","method":"click","params":[1382,2511]}
+[2018-06-26 18:22:42,239] INFO  atx.client.common.OkHttpClientMethod Http Result:{"jsonrpc":"2.0","id":"39b6502d4772e7e5b4c4f5275ca2c2a0","result":true}
+
+[2018-06-26 18:22:42,261] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 18:22:42,262] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:42,262] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@10e31a9a
+[2018-06-26 18:22:42,341] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":"  FocusedApplication: name='AppWindowToken{3eb61526 token=Token{3c2de081 ActivityRecord{2e0a468 u0 com.ylmall.app.ui/com.yljr.app.ui.MainActivity t2217}}}', dispatchingTimeout=5000.000ms\n"}
+
+[2018-06-26 18:22:42,343] INFO  atx.client.common.OkHttpClientMethod Http info:Request{method=POST, url=http://192.168.0.72:7912/shell, tag=null}
+[2018-06-26 18:22:42,344] INFO  atx.client.common.OkHttpClientMethod Http Header:
+[2018-06-26 18:22:42,344] INFO  atx.client.common.OkHttpClientMethod Http params:okhttp3.FormBody@77847718
+[2018-06-26 18:22:43,120] INFO  atx.client.common.OkHttpClientMethod Http Result:{"error":null,"output":""}
+
+[2018-06-26 18:22:43,121] INFO  com.zbwx.autotest.ui.utils.TestBaseCase -------------结束测试，并关闭退出driver,关闭uiautomator-------------

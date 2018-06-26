@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="4975" started-at="2018-06-26T10:22:37Z" finished-at="2018-06-26T10:22:42Z">
+    <groups>
+    </groups>
+    <test name="登录测试" duration-ms="4975" started-at="2018-06-26T10:22:37Z" finished-at="2018-06-26T10:22:42Z">
+      <class name="com.zbwx.autotest.ui.LoginTest">
+        <test-method status="PASS" signature="setup(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.zbwx.autotest.ui.LoginTest@4206a205]" name="setup" is-config="true" duration-ms="1094" started-at="2018-06-26T18:22:36Z" finished-at="2018-06-26T18:22:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[AtxDriver]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[商品交易]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[ylmall.apk]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[192.168.0.72]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[5.5.1]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[com.ylmall.app.ui]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA['com.ylmall.app.activity.WelcomActivity]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Android]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeclass()[pri:0, instance:com.zbwx.autotest.ui.LoginTest@4206a205]" name="beforeclass" is-config="true" duration-ms="0" started-at="2018-06-26T18:22:37Z" finished-at="2018-06-26T18:22:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeclass -->
+        <test-method status="PASS" signature="login()[pri:0, instance:com.zbwx.autotest.ui.LoginTest@4206a205]" name="login" duration-ms="4953" started-at="2018-06-26T18:22:37Z" description="登录测试" finished-at="2018-06-26T18:22:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.zbwx.autotest.ui.LoginTest@4206a205]" name="tearDown" is-config="true" duration-ms="860" started-at="2018-06-26T18:22:42Z" depends-on-methods="com.zbwx.autotest.ui.LoginTest.openResult" finished-at="2018-06-26T18:22:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="openResult()[pri:0, instance:com.zbwx.autotest.ui.LoginTest@4206a205]" name="openResult" is-config="true" duration-ms="0" started-at="2018-06-26T18:22:42Z" finished-at="2018-06-26T18:22:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openResult -->
+      </class> <!-- com.zbwx.autotest.ui.LoginTest -->
+    </test> <!-- 登录测试 -->
+  </suite> <!-- Suite -->
+</testng-results>
