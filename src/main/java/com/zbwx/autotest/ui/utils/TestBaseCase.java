@@ -4,6 +4,8 @@ import com.zbwx.autotest.ui.utils.Log;
 
 import atx.client.AtxClient;
 import atx.client.adb.AdbDevice;
+import atx.client.adb.AdbDevice;
+import atx.client.adb.Position;
 
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +31,7 @@ public class TestBaseCase {
 //	public static AndroidDriver android_driver;
 	public static AdbDevice device ;
 	public static AtxClient driver = new AtxClient();
+	public static Position position;
 
 	//方法描述
 	public static String description;
@@ -45,14 +48,25 @@ public class TestBaseCase {
 		}
 		else {
 			log.info("读取xml配置：Mobile Driver:"+driverName+"；测试设备IP:" + deviceIp);
+			
 			try {
 				
 				driver =  setDriver(apkName, deviceIp,platformName,sdkVersion,appMainPackage,appActivity);
 				driver.startUiAutomator();
+				//获取设备信息
+				log.info("设备序列号: " + device.getDeviceId());
+				log.info("设备名称: " + device.getDeviceName());
+				int[] resolution = device.getScreenResolution();
+				log.info("设备屏幕分辨率: " + resolution[0] + "x" + resolution[1]);
+				log.info("设备Android版本: " + device.getAndroidVersion());
+				log.info("设备SDK版本: " + device.getSdkVersion());
+				log.info("设备电池状态： " + device.getBatteryStatus());
+				log.info("设备电池温度： " + device.getBatteryTemp());
+				log.info("设备电池电量： " + device.getBatteryLevel());
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.printStackTrace();
-				log.error("appium环境配置失败");
+				log.error("环境配置失败");
 			}
 		}
 
@@ -83,6 +97,7 @@ public class TestBaseCase {
 		des.setPackageName(appPackageName);
 		des.setPlatformName(platformName);
 		des.setRemoteHost(deviceIp);
+		position = Position.getInstance(des);
 		device = new AdbDevice(des);
 		driver.initDriver(des);
 		return driver;

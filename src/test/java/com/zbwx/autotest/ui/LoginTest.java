@@ -11,60 +11,66 @@ import com.zbwx.autotest.ui.utils.TestBaseCase;
 
 import atx.client.model.AtxDriver;
 import atx.client.AtxClient;
+import atx.client.adb.ElementAdb;
+import atx.client.adb.ElementAttribs;
+import atx.client.enums.KeyEventEnum;
 
 import java.io.IOException;
 
 public class LoginTest extends TestBaseCase{
 //	ElementAction action=new ElementAction();
     @BeforeClass
-    public  void  beforeclass() throws IOException {
+    public  void  beforeclass() throws Exception {
 //        StartPage startPage=new StartPage();
 //        action.click(startPage.登录());
 //        LoginPage loginPage=new LoginPage();
 //        action.sleep(2);
 //        action.click(loginPage.使用其他方式登录());
 //        action.sleep(2);
+    	
+    		driver.startUiAutomator();
+		Thread.sleep(3000);
+//		driver.elementByName("我的").click();
     }
     
     
     
     @Test(description = "登录测试")
     public  void login() throws Exception {
-        //调用登录方法(需填写正确的用户名和密码)
-//        new LoginAction("609958331", "zheng@1597919");
-//        action.sleep(5);
-//        //设置检查点
-//        Assertion.VerityTextPresent("通讯录","验证是否登录成功！");
-//        //设置断言 。判断用例是否失败
-//        Assertion.VerityError();
+       
     		driver.startUiAutomator();
     		Thread.sleep(3000);
     		driver.elementByName("我的").click();
+    		if(position.waitForElement(ElementAttribs.TEXT,"粉丝：-- --",3000)) {
+    			ElementAdb e_search = position.findElementById("com.ylmall.app.ui:id/fourth_head_img");
+    			device.click(e_search);
+    		}
+    			
+		if(position.waitForElement(ElementAttribs.TEXT,"获取验证码",3000)) {
+			driver.elementById("com.ylmall.app.ui:id/rightText").click();		//点击密码
+			
+			driver.elementById("com.ylmall.app.ui:id/login_new_tel").click();;
 
+			device.sendText("13910643661");
+//			driver.press(KeyEventEnum.ENTER.getValue());
+			
+			//输入密码
+			driver.elementById("com.ylmall.app.ui:id/login_new_pwd").click();;
+
+			device.sendText("111111");
+//			driver.press(KeyEventEnum.ENTER.getValue());
+			Thread.sleep(3000); 
+			//点击登录
+//			driver.elementByXpath("//android.widget.Button[@text='登 录']").click();
+			driver.elementById("com.ylmall.app.ui:id/login_new_btn").click();
+			
+//			device.click(e_txt);
+//			ElementAdb e_enter = position.findElementByText("确定兑换");
+//			device.click(e_enter);
+		}
     	
     }
-//    //数据驱动案例--start
-//    @DataProvider(name="longinData")
-//    public Object[][] loginData()
-//    {
-//        //读取登录用例测试数据
-//        String filePath="src/main/resources/data/loginData.xls";
-//        //读取第一个sheet，第2行到第5行-第2到第4列之间的数据
-//        return ExcelReadUtil.case_data_excel(0, 1, 2, 1, 3,filePath);
-//    }
-//    @Test(description="登录失败用例:数据驱动例子",dataProvider = "longinData")
-//    public void loginFail (String userName,String password,String message) throws IOException, DocumentException {
-//        //调用登录方法
-//        new  LoginAction(userName,password);
-//        LoginPage loginPage=new LoginPage();
-//        action.sleep(4);
-//        log.info("登录失败信息："+action.getText(loginPage.登录失败提示信息()));
-//        Assertion.VerityCationString(action.getText(loginPage.登录失败提示信息()),message,"验证是否出现预期的错误提示信息:"+message);
-//        action.click(loginPage.登录失败确认按钮());
-//        //设置断言
-//        Assertion.VerityError();
-//    }
-    //数据驱动案例--end
+
     @AfterSuite
     public  void openResult()
     {
