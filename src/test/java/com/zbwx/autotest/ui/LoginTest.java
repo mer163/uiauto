@@ -41,6 +41,7 @@ public class LoginTest extends TestBaseCase{
     		driver.startUiAutomator();
     		Thread.sleep(3000);
     		driver.elementByName("我的").click();
+    		position.findElementByCheckable("");
     		if(position.waitForElement(ElementAttribs.TEXT,"粉丝：-- --",3000)) {
     			ElementAdb e_search = position.findElementById("com.ylmall.app.ui:id/fourth_head_img");
     			device.click(e_search);

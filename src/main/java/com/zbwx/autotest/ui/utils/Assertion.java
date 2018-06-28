@@ -3,6 +3,11 @@ package com.zbwx.autotest.ui.utils;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 
+import atx.client.AtxClient;
+
+import com.zbwx.autotest.ui.model.Locator;
+import com.zbwx.autotest.ui.utils.TestBaseCase;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +15,7 @@ import java.util.List;
 
 /**
  * 断言类，用于设置检查点的方法
- * @author Administrator 郑树恒
+ * @author admin
  *
  */
 public class Assertion extends TestBaseCase {
@@ -28,10 +33,12 @@ public class Assertion extends TestBaseCase {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HHmmssSSS");
 		return formatter.format(date).toString();
 	}
-	private static void snapshotInfo()
+	private static void snapshotInfo() throws Exception
 	{
-		WebDriver driver=(WebDriver) TestBaseCase.driver;
-		ScreenShot screenShot=new ScreenShot(driver);
+//		WebDriver driver=(WebDriver) TestBaseCase.driver;
+		AtxClient driver = TestBaseCase.driver;
+		
+		ScreenShot screenShot=new ScreenShot(TestBaseCase.driver);
 		//设置截图名字
 		Date nowDate=new Date();
 		screenShot.setscreenName(Assertion.formatDate(nowDate));
@@ -70,9 +77,10 @@ public class Assertion extends TestBaseCase {
 	 * 验证actual实际值是否包含预期值exceptStr
 	 * @param actual 实际值
 	 * @param exceptStr 预期值
-	 * @author Administrator 郑树恒
+	 * @author admin
+	 * @throws Exception 
 	 */
-	public  static void VerityCationString(String actual,String exceptStr)
+	public  static void VerityCationString(String actual,String exceptStr) throws Exception
 	{
 		String verityStr="Assert验证：{"+"实际值："+actual+","+"预期值："+exceptStr+"} 实际值是否包含预期值";
 		Boolean flagBoolean=actual.contains(exceptStr);
@@ -96,9 +104,10 @@ public class Assertion extends TestBaseCase {
 	 * @param actual  实际值
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public  static void VerityCationString(String actual,String exceptStr,String Message)
+	public  static void VerityCationString(String actual,String exceptStr,String Message) throws Exception
 	{
 		String verityStr="Assert验证：{"+"实际值："+actual+","+"预期值："+exceptStr+"} 实际值是否包含预期值";
 		Boolean flagBoolean=actual.contains(exceptStr);
@@ -123,9 +132,10 @@ public class Assertion extends TestBaseCase {
 	 * 验证实际值actual与预期值exceptStr是否相等
 	 * @param actual 实际值
 	 * @param exceptStr 预期值
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static void VerityString(String actual,String exceptStr)
+	public static void VerityString(String actual,String exceptStr) throws Exception
 	{
 		String verityStr="Assert验证：{"+"实际值："+actual+","+"预期值"+exceptStr+"} 实际值与预期值是否一致";
 		log.info(verityStr);
@@ -148,9 +158,10 @@ public class Assertion extends TestBaseCase {
 	 * @param actual 实际值
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static void VerityString(String actual,String exceptStr,String Message)
+	public static void VerityString(String actual,String exceptStr,String Message) throws Exception
 	{
 		String verityStr="Assert验证：{"+"实际值"+actual+","+"预期值"+exceptStr+"} 实际值与预期值是否一致";
 		log.info(Message+":"+verityStr);
@@ -176,9 +187,10 @@ public class Assertion extends TestBaseCase {
 	 * @param actual 实际值
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static void VerityNotString(String actual,String exceptStr,String Message)
+	public static void VerityNotString(String actual,String exceptStr,String Message) throws Exception
 	{
 		String verityStr="Assert验证：{"+"实际值"+actual+","+"预期值"+exceptStr+"} 实际值与预期值是否不相等";
 		log.info(Message+":"+verityStr);
@@ -203,9 +215,10 @@ public class Assertion extends TestBaseCase {
 	 * @param actual 实际值
 	 * @param except 预期值
 	 * @param message 信息
+	 * @throws Exception 
 	 */
 	public static void VerityBoolean(Boolean actual,
-									 Boolean except, String message) {
+									 Boolean except, String message) throws Exception {
 
 		String verityStr="Assert验证：{"+"实际值："+actual+","+"预期值："+except+"} 实际值与预期值是否一致";
 		log.info(message+":"+verityStr);
@@ -230,9 +243,10 @@ public class Assertion extends TestBaseCase {
 	/**
 	 * 验证页面是否出现某文本exceptStr
 	 * @param exceptStr 预期值
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityTextPresent(String exceptStr)
+	public static  void VerityTextPresent(String exceptStr) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
@@ -240,12 +254,16 @@ public class Assertion extends TestBaseCase {
 		try {
 			exceptStr="//*[contains(@text,'"+exceptStr+"')]";
 			log.info("定位信息："+exceptStr);
-			driver.findElements(By.xpath(exceptStr));
-			if (driver.findElements(By.xpath(exceptStr)).size()>0) {
-				flag=true;
-			}
-			else {
+//			driver.findElements(By.xpath(exceptStr));
+//			if (driver.findElements(By.xpath(exceptStr)).size()>0) {
+//				flag=true;
+//			}
+			if (driver.elementByName(exceptStr) ==null) {
 				flag=false;
+			}
+			
+			else {
+				flag=true;
 			}
 		} catch (NoSuchElementException e) {
 			// TODO: handle exception
@@ -275,9 +293,10 @@ public class Assertion extends TestBaseCase {
 	 * 验证页面是否出现某文本exceptStr
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityTextPresent(String exceptStr,String Message)
+	public static  void VerityTextPresent(String exceptStr,String Message) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
@@ -286,12 +305,19 @@ public class Assertion extends TestBaseCase {
 			//app查找是否出现某文本用@text属性，如果是web需是text()
 			exceptStr="//*[contains(@text,'"+exceptStr+"')]";
 			System.out.println(exceptStr);
-			List<WebElement> webElements= driver.findElements(By.xpath(exceptStr));
-			if (webElements.size()>0) {
-				flag=true;
-			}
-			else {
+//			List<WebElement> webElements= driver.findElements(By.xpath(exceptStr));
+//			if (webElements.size()>0) {
+//				flag=true;
+//			}
+//			else {
+//				flag=false;
+//			}
+			if (driver.elementByName(exceptStr) ==null) {
 				flag=false;
+			}
+			
+			else {
+				flag=true;
 			}
 		} catch (NoSuchElementException e) {
 			// TODO: handle exception
@@ -320,20 +346,28 @@ public class Assertion extends TestBaseCase {
 	/**
 	 * 验证页面是否没有出现莫文本exceptStr
 	 * @param exceptStr 预期值
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityNotTextPresent(String exceptStr)
+	public static  void VerityNotTextPresent(String exceptStr) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否没有出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
 		log.info(verityStr);
-		try {
-			exceptStr="//*[contains(.,'"+exceptStr+"')]";
-			driver.findElement(By.xpath(exceptStr));
-			flag=false;
-		} catch (NoSuchElementException e) {
-			// TODO: handle exception
+//		try {
+//			exceptStr="//*[contains(.,'"+exceptStr+"')]";
+//			driver.findElement(By.xpath(exceptStr));
+//			flag=false;
+//		} catch (NoSuchElementException e) {
+//			// TODO: handle exception
+//			flag=true;
+//		}
+		if (driver.elementByName(exceptStr) ==null) {
 			flag=true;
+		}
+		
+		else {
+			flag=false;
 		}
 		try {
 			Assert.assertTrue(flag);
@@ -357,22 +391,30 @@ public class Assertion extends TestBaseCase {
 	 * 验证页面是否没有出现莫文本exceptStr
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityNotTextPresent(String exceptStr,String Message)
+	public static  void VerityNotTextPresent(String exceptStr,String Message) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否没有出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
 		log.info(Message+":"+verityStr);
-		try {
-			exceptStr="//*[contains(.,'"+exceptStr+"')]";
-			driver.findElement(By.xpath(exceptStr));
-			flag=false;
-			System.out.println(flag);
-		} catch (NoSuchElementException e) {
-			// TODO: handle exception
+//		try {
+//			exceptStr="//*[contains(.,'"+exceptStr+"')]";
+//			driver.findElement(By.xpath(exceptStr));
+//			flag=false;
+//			System.out.println(flag);
+//		} catch (NoSuchElementException e) {
+//			// TODO: handle exception
+//			flag=true;
+//			System.out.println(flag);
+//		}
+		if (driver.elementByName(exceptStr) ==null) {
 			flag=true;
-			System.out.println(flag);
+		}
+		
+		else {
+			flag=false;
 		}
 		try {
 			Assert.assertTrue(flag);
@@ -397,25 +439,33 @@ public class Assertion extends TestBaseCase {
 	/**
 	 * 验证页面是否出现某文本--精确匹配
 	 * @param exceptStr 预期值 预期值
-	 *  @author Administrator 郑树恒
+	 *  @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityTextPresentPrecision(String exceptStr)
+	public static  void VerityTextPresentPrecision(String exceptStr) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
 		log.info(verityStr);
-		try {
-			//app查找是否出现某文本用@text属性，如果是web需是text()
-			exceptStr="//*[@text=\""+exceptStr+"\"]";
-			System.out.println(exceptStr);
-			driver.findElement(By.xpath(exceptStr));
-			flag=true;
-		} catch (NoSuchElementException e) {
-			// TODO: handle exception
+//		try {
+//			//app查找是否出现某文本用@text属性，如果是web需是text()
+//			exceptStr="//*[@text=\""+exceptStr+"\"]";
+//			System.out.println(exceptStr);
+//			driver.findElement(By.xpath(exceptStr));
+//			flag=true;
+//		} catch (NoSuchElementException e) {
+//			// TODO: handle exception
+//			flag=false;
+//			ElementAction.noSuchElementExceptions.add(e);
+//			e.printStackTrace();
+//			///AssertFailedLog();
+//		}
+		if (driver.elementByName(exceptStr) ==null) {
 			flag=false;
-			ElementAction.noSuchElementExceptions.add(e);
-			e.printStackTrace();
-			///AssertFailedLog();
+		}
+		
+		else {
+			flag=true;
 		}
 		System.out.println(false);
 		try {
@@ -438,22 +488,30 @@ public class Assertion extends TestBaseCase {
 	 * 验证页面是否出现某文本--精确匹配
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityTextPresentPrecision(String exceptStr,String Message)
+	public static  void VerityTextPresentPrecision(String exceptStr,String Message) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
 		log.info(Message+":"+verityStr);
-		try {
-			//app查找是否出现某文本用@text属性，如果是web需是text()
-			exceptStr="//*[@text=\""+exceptStr+"\"]";
-			WebElement webElement=driver.findElement(By.xpath(exceptStr));
-			System.out.println(exceptStr);
-			flag=true;
-		} catch (NoSuchElementException e) {
-			// TODO: handle exception
+//		try {
+//			//app查找是否出现某文本用@text属性，如果是web需是text()
+//			exceptStr="//*[@text=\""+exceptStr+"\"]";
+//			WebElement webElement=driver.findElement(By.xpath(exceptStr));
+//			System.out.println(exceptStr);
+//			flag=true;
+//		} catch (NoSuchElementException e) {
+//			// TODO: handle exception
+//			flag=false;
+//		}
+		if (driver.elementByName(exceptStr) ==null) {
 			flag=false;
+		}
+		
+		else {
+			flag=true;
 		}
 		System.out.println(flag);
 		try {
@@ -479,25 +537,33 @@ public class Assertion extends TestBaseCase {
 	/**
 	 * 验证页面是否没有出现某文本--精确匹配
 	 * @param exceptStr 预期值
-	 * @author Administrator 郑树恒
+	 * @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityNotTextPresentPrecision(String exceptStr)
+	public static  void VerityNotTextPresentPrecision(String exceptStr) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否没有出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
 		log.info(verityStr);
-		try {
-			//app查找是否出现某文本用@text属性，如果是web需是text()
-			exceptStr="//*[@text=\""+exceptStr+"\"]";
-			System.out.println(exceptStr);
-			driver.findElement(By.xpath(exceptStr));
-			flag=false;
-		} catch (NoSuchElementException e) {
-			// TODO: handle exception
+//		try {
+//			//app查找是否出现某文本用@text属性，如果是web需是text()
+//			exceptStr="//*[@text=\""+exceptStr+"\"]";
+//			System.out.println(exceptStr);
+//			driver.findElement(By.xpath(exceptStr));
+//			flag=false;
+//		} catch (NoSuchElementException e) {
+//			// TODO: handle exception
+//			flag=true;
+//			ElementAction.noSuchElementExceptions.add(e);
+//			e.printStackTrace();
+//			///AssertFailedLog();
+//		}
+		if (driver.elementByName(exceptStr) ==null) {
 			flag=true;
-			ElementAction.noSuchElementExceptions.add(e);
-			e.printStackTrace();
-			///AssertFailedLog();
+		}
+		
+		else {
+			flag=false;
 		}
 		System.out.println(false);
 		try {
@@ -520,22 +586,30 @@ public class Assertion extends TestBaseCase {
 	 * 验证是页面否没有出现某文本---精确匹配
 	 * @param exceptStr 预期值
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
+	 * @throws Exception 
 	 */
-	public static  void VerityNotTextPresentPrecision(String exceptStr,String Message)
+	public static  void VerityNotTextPresentPrecision(String exceptStr,String Message) throws Exception
 	{
 		String verityStr="【Assert验证】:"+"页面是否没有出现"+"【"+"预期值："+exceptStr+"】"+"字符串";
 		Boolean flag=false;
 		log.info(Message+":"+verityStr);
-		try {
-			//app查找是否出现某文本用@text属性，如果是web需是text()
-			exceptStr="//*[@text=\""+exceptStr+"\"]";
-			System.out.println(exceptStr);
-			driver.findElement(By.xpath(exceptStr));
-			flag=false;
-		} catch (NoSuchElementException e) {
-			// TODO: handle exception
+//		try {
+//			//app查找是否出现某文本用@text属性，如果是web需是text()
+//			exceptStr="//*[@text=\""+exceptStr+"\"]";
+//			System.out.println(exceptStr);
+//			driver.findElement(By.xpath(exceptStr));
+//			flag=false;
+//		} catch (NoSuchElementException e) {
+//			// TODO: handle exception
+//			flag=true;
+//		}
+		if (driver.elementByName(exceptStr) ==null) {
 			flag=true;
+		}
+		
+		else {
+			flag=false;
 		}
 		System.out.println(flag);
 		try {
@@ -561,146 +635,148 @@ public class Assertion extends TestBaseCase {
 	/**
 	 * 验证浏览器标题是否与预期值exceptTitle相同
 	 * @param exceptTitle 预期标题
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityTitle(String exceptTitle)
-	{
-
-		String title=driver.getTitle();
-		String verityStr="Assert验证:页面title是否与预期值一致{"+"实际网页标题："+title+","+"预期网页标题："+exceptTitle+"}";
-		log.info(verityStr);
-		try {
-			Assert.assertEquals(title, exceptTitle);
-			AssertPassLog();
-			assertInfolList.add(verityStr+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-			e.printStackTrace();
-			//throw e;
-		}
-	}
+//	public static void VerityTitle(String exceptTitle)
+//	{
+//
+//		String title=driver.getTitle();
+//		String verityStr="Assert验证:页面title是否与预期值一致{"+"实际网页标题："+title+","+"预期网页标题："+exceptTitle+"}";
+//		log.info(verityStr);
+//		try {
+//			Assert.assertEquals(title, exceptTitle);
+//			AssertPassLog();
+//			assertInfolList.add(verityStr+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//			e.printStackTrace();
+//			//throw e;
+//		}
+//	}
 
 
 	/**
 	 * 验证浏览器标题是否与预期值exceptTitle相同
 	 * @param exceptTitle 预期标题
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityTitle(String exceptTitle,String Message)
-	{
-
-		String title=driver.getTitle();
-		String verityStr="Assert验证:页面title是否与预期值一致{"+"实际网页标题："+title+","+"预期网页标题："+exceptTitle+"}";
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertEquals(title, exceptTitle);
-			AssertPassLog();
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-			e.printStackTrace();
-			//throw e;
-		}
-	}
+//	public static void VerityTitle(String exceptTitle,String Message)
+//	{
+//
+//		String title=driver.getTitle();
+//		String verityStr="Assert验证:页面title是否与预期值一致{"+"实际网页标题："+title+","+"预期网页标题："+exceptTitle+"}";
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertEquals(title, exceptTitle);
+//			AssertPassLog();
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//			e.printStackTrace();
+//			//throw e;
+//		}
+//	}
 
 	/**
 	 * 验证某元素文本值是否与预期值exceptText一样
 	 * @param locator  元素定位信息
 	 * @param exceptText 预期文本值
-	 * @author Administrator 郑树恒
+	 * @author admin
+	 * @throws Exception 
 	 */
-	public static void VerityText(Locator locator,String exceptText)
-	{
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String text=webElement.getText();
-		String verityStr="Assert验证：某文本值是否与预期值一致{"+"实际值："+text+","+"预期值："+exceptText+"}";
-		log.info(verityStr);
-		try {
-			Assert.assertEquals(text, exceptText);
-			AssertPassLog();
-			assertInfolList.add(verityStr+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertPassLog();
-			errorIndex++;
-			errors.add(e);
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-	}
+//	public static void VerityText(Locator locator,String exceptText) throws Exception
+//	{
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		
+//		String text=webElement.getText();
+//		String verityStr="Assert验证：某文本值是否与预期值一致{"+"实际值："+text+","+"预期值："+exceptText+"}";
+//		log.info(verityStr);
+//		try {
+//			Assert.assertEquals(text, exceptText);
+//			AssertPassLog();
+//			assertInfolList.add(verityStr+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertPassLog();
+//			errorIndex++;
+//			errors.add(e);
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//	}
 	/**
 	 * 验证某元素文本值是否与预期值exceptText一样
 	 * @param locator  元素定位信息
 	 * @param exceptText 预期文本值
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityText(Locator locator,String exceptText,String Message)
-	{
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String text=webElement.getText();
-		String verityStr="Assert验证：某文本值是否与预期值一致{"+"实际值："+text+","+"预期值:"+exceptText+"}";
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertEquals(text, exceptText);
-			AssertPassLog();
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertPassLog();
-			errorIndex++;
-			errors.add(e);
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-	}
+//	public static void VerityText(Locator locator,String exceptText,String Message)
+//	{
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String text=webElement.getText();
+//		String verityStr="Assert验证：某文本值是否与预期值一致{"+"实际值："+text+","+"预期值:"+exceptText+"}";
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertEquals(text, exceptText);
+//			AssertPassLog();
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertPassLog();
+//			errorIndex++;
+//			errors.add(e);
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//	}
 	/**
 	 * 验证某元素某个属性值与预期值exceptAttributeValue 一样
 	 * @param locator 元素定位信息
 	 * @param AttributeName 元素属性名
 	 * @param exceptAttributeValue 预期值
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityAttribute(Locator locator,String AttributeName,String exceptAttributeValue)
-	{
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String attribute=webElement.getAttribute(AttributeName);
-		String verityStr="Assert验证：某属性值是否与预期值一致{"+"实际属性值："+attribute+","+"预期属性值："+exceptAttributeValue+"}";
-		try {
-			Assert.assertEquals(attribute, exceptAttributeValue);
-			log.info(verityStr);
-			AssertPassLog();
-			assertInfolList.add(verityStr+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errorIndex++;
-			errors.add(e);
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-	}
+//	public static void VerityAttribute(Locator locator,String AttributeName,String exceptAttributeValue)
+//	{
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String attribute=webElement.getAttribute(AttributeName);
+//		String verityStr="Assert验证：某属性值是否与预期值一致{"+"实际属性值："+attribute+","+"预期属性值："+exceptAttributeValue+"}";
+//		try {
+//			Assert.assertEquals(attribute, exceptAttributeValue);
+//			log.info(verityStr);
+//			AssertPassLog();
+//			assertInfolList.add(verityStr+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errorIndex++;
+//			errors.add(e);
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//	}
 
 	/**
 	 * 验证某元素某个属性值与预期值exceptAttributeValue 一样
@@ -708,321 +784,321 @@ public class Assertion extends TestBaseCase {
 	 * @param AttributeName 元素属性名
 	 * @param exceptAttributeValue 预期值
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityAttribute(Locator locator,String AttributeName,String exceptAttributeValue,String Message)
-	{
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String attribute=webElement.getAttribute(AttributeName);
-		String verityStr="Assert验证：某属性值是否与预期值一致{"+"实际属性值："+attribute+","+"预期属性值："+exceptAttributeValue+"}";
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertEquals(attribute, exceptAttributeValue);
-			log.info(verityStr);
-			AssertPassLog();
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errorIndex++;
-			errors.add(e);
-
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-	}
+//	public static void VerityAttribute(Locator locator,String AttributeName,String exceptAttributeValue,String Message)
+//	{
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String attribute=webElement.getAttribute(AttributeName);
+//		String verityStr="Assert验证：某属性值是否与预期值一致{"+"实际属性值："+attribute+","+"预期属性值："+exceptAttributeValue+"}";
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertEquals(attribute, exceptAttributeValue);
+//			log.info(verityStr);
+//			AssertPassLog();
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errorIndex++;
+//			errors.add(e);
+//
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//	}
 	/**
 	 * 验证某输入框是否不可编辑
 	 * @param locator 元素定位信息
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VertityNoEdit(Locator locator)
-	{
-		Boolean  status=false;
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String value1=webElement.getAttribute("disabled");
-		String value2=webElement.getAttribute("readOnly");
-		String verityStr="【Assert验证】:文本框是否不可编辑{"+"实际值："+status.toString()+"，"+"预期值：false"+"}";
-		if(value1.equals("true"))
-		{
-			status=true;
-		}
-		else if(value2.equals("true"))
-		{
-			status=true;
-		}
-		else {
-			status=false;
-		}
-		log.info(verityStr);
-		try {
-			Assert.assertTrue(status);
-			AssertPassLog();
-			assertInfolList.add(verityStr+":pass");
-
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errorIndex++;
-			errors.add(e);
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-
-	}
+//	public static void VertityNoEdit(Locator locator)
+//	{
+//		Boolean  status=false;
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String value1=webElement.getAttribute("disabled");
+//		String value2=webElement.getAttribute("readOnly");
+//		String verityStr="【Assert验证】:文本框是否不可编辑{"+"实际值："+status.toString()+"，"+"预期值：false"+"}";
+//		if(value1.equals("true"))
+//		{
+//			status=true;
+//		}
+//		else if(value2.equals("true"))
+//		{
+//			status=true;
+//		}
+//		else {
+//			status=false;
+//		}
+//		log.info(verityStr);
+//		try {
+//			Assert.assertTrue(status);
+//			AssertPassLog();
+//			assertInfolList.add(verityStr+":pass");
+//
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errorIndex++;
+//			errors.add(e);
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//
+//	}
 
 	/**
 	 * 验证某输入框是否不可编辑
 	 * @param locator 元素定位信息
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VertityNoEdit(Locator locator,String Message)
-	{
-		Boolean  status=false;
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String value1=webElement.getAttribute("disabled");
-		String value2=webElement.getAttribute("readOnly");
-		if(value1.equals("true"))
-		{
-			status=true;
-		}
-		else if(value2.equals("true"))
-		{
-			status=true;
-		}
-		else {
-			status=false;
-		}
-		String verityStr="【Assert验证】:文本框是否不可编辑{"+"实际值："+status.toString()+"，"+"预期值：false"+"}";
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertTrue(status);
-			AssertPassLog();
-
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errorIndex++;
-			errors.add(e);
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-
-	}
+//	public static void VertityNoEdit(Locator locator,String Message)
+//	{
+//		Boolean  status=false;
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String value1=webElement.getAttribute("disabled");
+//		String value2=webElement.getAttribute("readOnly");
+//		if(value1.equals("true"))
+//		{
+//			status=true;
+//		}
+//		else if(value2.equals("true"))
+//		{
+//			status=true;
+//		}
+//		else {
+//			status=false;
+//		}
+//		String verityStr="【Assert验证】:文本框是否不可编辑{"+"实际值："+status.toString()+"，"+"预期值：false"+"}";
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertTrue(status);
+//			AssertPassLog();
+//
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errorIndex++;
+//			errors.add(e);
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//
+//	}
 	/**
 	 * 验证某元素可编辑
 	 * @param locator 元素定位信息
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VertityEdit(Locator locator)
-	{
-		Boolean  status=false;
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String value1=webElement.getAttribute("disabled");
-		String value2=webElement.getAttribute("readOnly");
-		String verityStr="【Assert验证】:文本框是否可编辑{"+"实际值："+status.toString()+"，"+"预期值：true"+"}";
-		if(value1.equals("false"))
-		{
-			status=true;
-		}
-		else if(value2.equals("false"))
-		{
-			status=true;
-		}
-		else
-		{
-			status=false;
-		}
-		//AssertLog("true", status.toString());
-		log.info(verityStr);
-		try {
-			Assert.assertTrue(status);
-			AssertPassLog();
-			assertInfolList.add(verityStr+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-	}
+//	public static void VertityEdit(Locator locator)
+//	{
+//		Boolean  status=false;
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String value1=webElement.getAttribute("disabled");
+//		String value2=webElement.getAttribute("readOnly");
+//		String verityStr="【Assert验证】:文本框是否可编辑{"+"实际值："+status.toString()+"，"+"预期值：true"+"}";
+//		if(value1.equals("false"))
+//		{
+//			status=true;
+//		}
+//		else if(value2.equals("false"))
+//		{
+//			status=true;
+//		}
+//		else
+//		{
+//			status=false;
+//		}
+//		//AssertLog("true", status.toString());
+//		log.info(verityStr);
+//		try {
+//			Assert.assertTrue(status);
+//			AssertPassLog();
+//			assertInfolList.add(verityStr+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//	}
 	/**
 	 * 验证某元素可编辑
 	 * @param locator 元素定位信息
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VertityEdit(Locator locator,String Message)
-	{
-		Boolean  status=false;
-		ElementAction action=new ElementAction();
-		WebElement webElement=action.findElement(locator);
-		String value1=webElement.getAttribute("disabled");
-		String value2=webElement.getAttribute("readOnly");
-		String verityStr="【Assert验证】:文本框是否可编辑{"+"实际值："+status.toString()+"，"+"预期值：true"+"}";
-		if(value1.equals("false"))
-		{
-			status=true;
-		}
-		else if(value2.equals("false"))
-		{
-			status=true;
-		}
-		else
-		{
-			status=false;
-		}
-		//AssertLog("true", status.toString());
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertTrue(status);
-			AssertPassLog();
-
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-	}
+//	public static void VertityEdit(Locator locator,String Message)
+//	{
+//		Boolean  status=false;
+//		ElementAction action=new ElementAction();
+//		WebElement webElement=action.findElement(locator);
+//		String value1=webElement.getAttribute("disabled");
+//		String value2=webElement.getAttribute("readOnly");
+//		String verityStr="【Assert验证】:文本框是否可编辑{"+"实际值："+status.toString()+"，"+"预期值：true"+"}";
+//		if(value1.equals("false"))
+//		{
+//			status=true;
+//		}
+//		else if(value2.equals("false"))
+//		{
+//			status=true;
+//		}
+//		else
+//		{
+//			status=false;
+//		}
+//		//AssertLog("true", status.toString());
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertTrue(status);
+//			AssertPassLog();
+//
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//	}
 	//还要修改
 	/**
 	 * 验证alert对话框提示信息是否与预期值一致
 	 * @param expectAlertText alert 提示框预期信息
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityAlertText(String expectAlertText)
-	{
-		Alert alert=driver.switchTo().alert();
-		String  alertText=alert.getText();
-		String verityStr="【Assert验证】:弹出的对话框的文本内容是否一致{"+alertText+","+expectAlertText+"}";
-		log.info("【Assert验证】:弹出的对话框的文本内容是否一致{"+"实际值："+alertText+","+"预期值"+expectAlertText+"}");
-		try {
-			Assert.assertEquals(alertText, expectAlertText);
-			AssertPassLog();
-			assertInfolList.add(verityStr+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-
-	}
+//	public static void VerityAlertText(String expectAlertText)
+//	{
+//		Alert alert=driver.switchTo().alert();
+//		String  alertText=alert.getText();
+//		String verityStr="【Assert验证】:弹出的对话框的文本内容是否一致{"+alertText+","+expectAlertText+"}";
+//		log.info("【Assert验证】:弹出的对话框的文本内容是否一致{"+"实际值："+alertText+","+"预期值"+expectAlertText+"}");
+//		try {
+//			Assert.assertEquals(alertText, expectAlertText);
+//			AssertPassLog();
+//			assertInfolList.add(verityStr+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//
+//	}
 
 	/**
 	 * 验证alert对话框提示信息是否与预期值一致
 	 * @param expectAlertText alert 提示框预期信息
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityAlertText(String expectAlertText,String Message)
-	{
-		Alert alert=driver.switchTo().alert();
-		String  alertText=alert.getText();
-		String verityStr="【Assert验证】:弹出的对话框的文本内容是否一致{"+"实际值："+alertText+","+"预期值："+expectAlertText+"}";
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertEquals(alertText, expectAlertText);
-			AssertPassLog();
-
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-			//throw e;
-		}
-
-	}
+//	public static void VerityAlertText(String expectAlertText,String Message)
+//	{
+//		Alert alert=driver.switchTo().alert();
+//		String  alertText=alert.getText();
+//		String verityStr="【Assert验证】:弹出的对话框的文本内容是否一致{"+"实际值："+alertText+","+"预期值："+expectAlertText+"}";
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertEquals(alertText, expectAlertText);
+//			AssertPassLog();
+//
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//			//throw e;
+//		}
+//
+//	}
 	/**
 	 * 验证当前URL是否与预期Url一致
 	 * @param expectURL 预期URL
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityURL(String expectURL)
-	{
-		String url=driver.getCurrentUrl();
-		String verityStr="【Assert验证】:URL是否与预期的一致{"+"实际值："+url+","+"预期值："+expectURL+"}";
-		log.info(verityStr);
-		try {
-			Assert.assertEquals(url, expectURL);
-			AssertPassLog();
-			//
-			assertInfolList.add(verityStr+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			//throw e;
-			errorIndex++;
-			assertInfolList.add(verityStr+":failed");
-			Assertion.snapshotInfo();
-		}
-	}
+//	public static void VerityURL(String expectURL)
+//	{
+//		String url=driver.getCurrentUrl();
+//		String verityStr="【Assert验证】:URL是否与预期的一致{"+"实际值："+url+","+"预期值："+expectURL+"}";
+//		log.info(verityStr);
+//		try {
+//			Assert.assertEquals(url, expectURL);
+//			AssertPassLog();
+//			//
+//			assertInfolList.add(verityStr+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			//throw e;
+//			errorIndex++;
+//			assertInfolList.add(verityStr+":failed");
+//			Assertion.snapshotInfo();
+//		}
+//	}
 
 	/**
 	 * 验证当前URL是否与预期Url一致
 	 * @param expectURL 预期URL
 	 * @param Message 验证中文描述
-	 * @author Administrator 郑树恒
+	 * @author admin
 	 */
-	public static void VerityURL(String expectURL,String Message)
-	{
-		String url=driver.getCurrentUrl();
-		String verityStr="【Assert验证】:URL是否与预期的一致{"+"实际值："+url+","+"预期值："+expectURL+"}";
-		log.info(Message+":"+verityStr);
-		try {
-			Assert.assertEquals(url, expectURL);
-			AssertPassLog();
-			//
-
-			assertInfolList.add(Message+verityStr+":pass");
-			messageList.add(Message+":pass");
-		} catch (Error e) {
-			// TODO: handle exception
-			AssertFailedLog();
-			errors.add(e);
-			errorIndex++;
-
-			assertInfolList.add(Message+verityStr+":failed");
-			messageList.add(Message+":failed");
-			Assertion.snapshotInfo();
-		}
-	}
+//	public static void VerityURL(String expectURL,String Message)
+//	{
+//		String url=driver.getCurrentUrl(); 
+//		String verityStr="【Assert验证】:URL是否与预期的一致{"+"实际值："+url+","+"预期值："+expectURL+"}";
+//		log.info(Message+":"+verityStr);
+//		try {
+//			Assert.assertEquals(url, expectURL);
+//			AssertPassLog();
+//			//
+//
+//			assertInfolList.add(Message+verityStr+":pass");
+//			messageList.add(Message+":pass");
+//		} catch (Error e) {
+//			// TODO: handle exception
+//			AssertFailedLog();
+//			errors.add(e);
+//			errorIndex++;
+//
+//			assertInfolList.add(Message+verityStr+":failed");
+//			messageList.add(Message+":failed");
+//			Assertion.snapshotInfo();
+//		}
+//	}
 	//断言成功日志内容
 	private static  void AssertPassLog()
 	{
@@ -1046,7 +1122,7 @@ public class Assertion extends TestBaseCase {
 		//有找不到元素的异常也认为用例失败
 		Assert.assertEquals(ElementAction.noSuchElementExceptions.size(), 0);
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		String str1 = "刘兰39", str2 = "http://";
 

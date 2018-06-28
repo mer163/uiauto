@@ -5,6 +5,8 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+
+//import com.zbwx.autotest.ui.model.Locator;
 import com.zbwx.autotest.ui.utils.Locator.*;
 
 import java.io.File;
@@ -17,7 +19,7 @@ import java.util.Iterator;
 
 /**
  * xml读取工具类
- * @author Administrator 郑树恒
+ * @author admin
  *
  */
 public class XmlReadUtil {
