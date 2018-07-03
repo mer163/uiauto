@@ -268,7 +268,7 @@ public class Assertion extends TestBaseCase {
 		} catch (NoSuchElementException e) {
 			// TODO: handle exception
 			flag=false;
-			ElementAction.noSuchElementExceptions.add(e);
+//			ElementAction.noSuchElementExceptions.add(e);
 			e.printStackTrace();
 			///AssertFailedLog();
 		}
@@ -322,7 +322,7 @@ public class Assertion extends TestBaseCase {
 		} catch (NoSuchElementException e) {
 			// TODO: handle exception
 			flag=false;
-			ElementAction.noSuchElementExceptions.add(e);
+//			ElementAction.noSuchElementExceptions.add(e);
 			e.printStackTrace();
 		}
 		try {
@@ -1120,7 +1120,7 @@ public class Assertion extends TestBaseCase {
 	{
 		Assert.assertEquals(errors.size(), 0);
 		//有找不到元素的异常也认为用例失败
-		Assert.assertEquals(ElementAction.noSuchElementExceptions.size(), 0);
+//		Assert.assertEquals(ElementAction.noSuchElementExceptions.size(), 0);
 	}
 	public static void main(String[] args) throws Exception {
 

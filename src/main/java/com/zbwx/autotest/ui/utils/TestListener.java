@@ -35,7 +35,7 @@ public class TestListener  extends TestListenerAdapter{
 		Assertion.errors.clear();
 		Assertion.errorIndex=0;
 		Assertion.messageList.clear();
-		ElementAction.noSuchElementExceptions.clear();
+//		ElementAction.noSuchElementExceptions.clear();
 		log.info("测试用例:"+tr.getMethod().getDescription()+"---start");
 	}
 	@Override

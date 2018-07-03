@@ -6,7 +6,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
 
-import com.zbwx.autotest.ui.utils.ElementAction;
 import com.zbwx.autotest.ui.utils.TestBaseCase;
 
 import atx.client.model.AtxDriver;

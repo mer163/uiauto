@@ -68,6 +68,7 @@ public class TestBaseCase {
 				e.printStackTrace();
 				log.error("环境配置失败");
 			}
+			//
 		}
 
 	}
@@ -85,6 +86,12 @@ public class TestBaseCase {
 		}
 		
 		log.info("-------------结束测试，并关闭退出driver,关闭uiautomator-------------");
+	}
+	
+	@BeforeClass
+	public void beforeClass() {
+		log.info("beforeClass ");
+		
 	}
 	
 	private AtxClient setDriver(String apkName,String deviceIp,String platformName, String sdkVersion, String appPackageName,String appStartActivity) throws MalformedURLException {

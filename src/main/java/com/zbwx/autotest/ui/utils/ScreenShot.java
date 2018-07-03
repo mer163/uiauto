@@ -26,7 +26,7 @@ public class ScreenShot {
 //	}
 	
 	public ScreenShot(AtxClient driver) {
-		this.atx_driver = driver;
+		this.driver = driver;
 	}
 	
 	
