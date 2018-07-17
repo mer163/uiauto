@@ -9,15 +9,24 @@ public class HomePage extends TestBaseCase{
 	
 	private ElementObj home_bottom;
 
-	public ElementObj getHome_bottom() {
-		return home_bottom;
-	}
 
-	public void setHome_bottom() throws Exception {
-		this.home_bottom = driver.elementByName("首页");
+	
+	public HomePage() {
+		initElements();
 	}
 	
+	//初始化页面元素
+	public void initElements() {
+		try {
+			this.home_bottom = driver.elementByClass("首页");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
-	
-	
+	public void login() {
+		
+	}
 }

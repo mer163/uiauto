@@ -37,8 +37,8 @@ public class TestBaseCase {
 	public static String description;
 	public Log log=new Log(this.getClass().getSuperclass());
 	@BeforeSuite
-	@Parameters({"driverName","appName","apkName","deviceIp","sdkVersion","appMainPackage","appActivity","platformName"})
-	public void  setup( String driverName,String appName,String apkName, String deviceIp,String sdkVersion,String appMainPackage,String appActivity,String platformName) throws MalformedURLException {
+	@Parameters({"driverName","appName","apkName","deviceIp","sdkVersion","appMainPackage","appActivity","platformName","install"})
+	public void  setup( String driverName,String appName,String apkName, String deviceIp,String sdkVersion,String appMainPackage,String appActivity,String platformName,String install) throws MalformedURLException {
 
 		log.info("------------------开始初始化测试---------------");
 		
@@ -47,6 +47,26 @@ public class TestBaseCase {
 			log.error("设备ip为空");
 		}
 		else {
+			//获取app路径
+			File classRootPath = new File(System.getProperty("user.dir"));
+			File appDir = new File(classRootPath, "apps");
+			File app = new File(appDir,apkName);
+			log.info("");
+			
+			//判断安装方式 1、卸载后安装
+			if (Integer.parseInt(install)==1) {
+				
+				device.removeApp(appMainPackage);
+				
+			}else if (Integer.parseInt(install)==2) {
+				//覆盖安装
+				
+			}
+			if (apkName !=null || apkName!=""){
+				//安装app
+			}
+			
+			
 			log.info("读取xml配置：Mobile Driver:"+driverName+"；测试设备IP:" + deviceIp);
 			
 			try {
@@ -95,10 +115,7 @@ public class TestBaseCase {
 	}
 	
 	private AtxClient setDriver(String apkName,String deviceIp,String platformName, String sdkVersion, String appPackageName,String appStartActivity) throws MalformedURLException {
-		//获取app路径
-		File classRootPath = new File(System.getProperty("user.dir"));
-		File appDir = new File(classRootPath, "apps");
-		File app = new File(appDir,apkName);
+		
 		
 		atx.client.model.DesiredCapabilities des = new atx.client.model.DesiredCapabilities();
 		des.setPackageName(appPackageName);
