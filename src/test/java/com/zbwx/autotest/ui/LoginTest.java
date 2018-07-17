@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
-
+import com.zbwx.autotest.ui.pageObject.HomePage;
 import com.zbwx.autotest.ui.utils.TestBaseCase;
 
 import atx.client.model.AtxDriver;
@@ -39,35 +39,38 @@ public class LoginTest extends TestBaseCase{
        
     		driver.startUiAutomator();
     		Thread.sleep(3000);
-    		driver.elementByName("我的").click();
-    		position.findElementByCheckable("");
-    		if(position.waitForElement(ElementAttribs.TEXT,"粉丝：-- --",3000)) {
-    			ElementAdb e_search = position.findElementById("com.ylmall.app.ui:id/fourth_head_img");
-    			device.click(e_search);
-    		}
-    			
-		if(position.waitForElement(ElementAttribs.TEXT,"获取验证码",3000)) {
-			driver.elementById("com.ylmall.app.ui:id/rightText").click();		//点击密码
-			
-			driver.elementById("com.ylmall.app.ui:id/login_new_tel").click();;
-
-			device.sendText("13910643661");
-//			driver.press(KeyEventEnum.ENTER.getValue());
-			
-			//输入密码
-			driver.elementById("com.ylmall.app.ui:id/login_new_pwd").click();;
-
-			device.sendText("111111");
-//			driver.press(KeyEventEnum.ENTER.getValue());
-			Thread.sleep(3000); 
-			//点击登录
-//			driver.elementByXpath("//android.widget.Button[@text='登 录']").click();
-			driver.elementById("com.ylmall.app.ui:id/login_new_btn").click();
-			
-//			device.click(e_txt);
-//			ElementAdb e_enter = position.findElementByText("确定兑换");
-//			device.click(e_enter);
-		}
+//    		driver.elementByName("我的").click();
+    		HomePage homepage = new HomePage();
+    		homepage.my.click();
+    		homepage.login();
+    		
+//    		if(position.waitForElement(ElementAttribs.TEXT,"粉丝：-- --",3000)) {
+//    			ElementAdb e_search = position.findElementById("com.ylmall.app.ui:id/fourth_head_img");
+//    			device.click(e_search);
+//    		}
+//    			
+//		if(position.waitForElement(ElementAttribs.TEXT,"获取验证码",3000)) {
+//			driver.elementById("com.ylmall.app.ui:id/rightText").click();		//点击密码
+//			
+//			driver.elementById("com.ylmall.app.ui:id/login_new_tel").click();;
+//
+//			device.sendText("13910643661");
+////			driver.press(KeyEventEnum.ENTER.getValue());
+//			
+//			//输入密码
+//			driver.elementById("com.ylmall.app.ui:id/login_new_pwd").click();;
+//
+//			device.sendText("111111");
+////			driver.press(KeyEventEnum.ENTER.getValue());
+//			Thread.sleep(3000); 
+//			//点击登录
+////			driver.elementByXpath("//android.widget.Button[@text='登 录']").click();
+//			driver.elementById("com.ylmall.app.ui:id/login_new_btn").click();
+//			
+////			device.click(e_txt);
+////			ElementAdb e_enter = position.findElementByText("确定兑换");
+////			device.click(e_enter);
+//		}
     	
     }
 
