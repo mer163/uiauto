@@ -4,7 +4,7 @@
     <parameter name="driverName" value="AtxDriver" />   <!--driver驱动：安卓，IOS-->
     <parameter name="nodeURL" value="127.0.0.1:4723" /> <!--appium-server 地址-->
     <parameter name="appName" value="商品交易" />  <!--app名字-->
-    <parameter name="install" value="1" />  <!--安装方式 1、先卸载再安装  2、覆盖安装  3、不安装-->
+    <parameter name="install" value="3" />  <!--安装方式 1、先卸载再安装  2、覆盖安装  3、不安装-->
     <parameter name="apkName" value="ylmall.apk" />  <!--app包名字-->
     <parameter name="platformName" value="Android" /> <!--app运行平台:安卓，IOS-->
     <parameter name="deviceName" value="127.0.0.1:62001" /> <!--手机或者虚拟机设备名字-->
@@ -24,10 +24,11 @@
     <parameter name="recipients" value="" /> <!-- 测试报告邮件发送：收件人，多个用,号隔开-->
     <parameter name="reportTitle" value="zbwx-自动化测试报告" />  <!--测试报告标题-->
 
-    <listeners>
-        <listener class-name="com.zbwx.autotest.ui.utils.TestListener"/>
-        <listener class-name="com.zbwx.autotest.ui.utils.TestReport"/>
-    </listeners> 
+    <!--  <listeners>
+    <listener class-name="com.zbwx.autotest.ui.utils.TestListener"/>
+    <listener class-name="com.zbwx.autotest.ui.utils.TestReport"/>
+    </listeners>  -->
+    
     <test name="登录测试">
         <classes>
             <class name="com.zbwx.autotest.ui.LoginTest">
