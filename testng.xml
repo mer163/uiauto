@@ -14,20 +14,20 @@
     <parameter name="appActivity" value="'com.ylmall.app.activity.WelcomActivity" /> <!--app 主类名-->
     <parameter name="UserName" value="" /> <!-- 系统登录用户名-->
     <parameter name="PassWord" value="" />  <!-- 系统登录密码-->
-    <parameter name="smtpUserName" value="" />  <!-- 测试报告邮件发送：smtp身份证验证-->
-    <parameter name="smtpPassWord" value="" />  <!-- 测试报告邮件发送：smtp身份证验证-->
-    <parameter name="smtpHost" value="" />  <!-- 测试报告邮件发送：smtp主机地址-->
-    <parameter name="smtpPort" value="" />  <!-- 测试报告邮件发送：smtp主机端口-->
+    <parameter name="smtpUserName" value="automail@zbwxkj.com" />  <!-- 测试报告邮件发送：smtp身份证验证-->
+    <parameter name="smtpPassWord" value="test123@zbwxkj.com" />  <!-- 测试报告邮件发送：smtp身份证验证-->
+    <parameter name="smtpHost" value="smtp.mxhichina.com" />  <!-- 测试报告邮件发送：smtp主机地址-->
+    <parameter name="smtpPort" value="465" />  <!-- 测试报告邮件发送：smtp主机端口-->
     <parameter name="mailTitle" value="zbwx-自动化测试报告" />  <!-- 测试报告邮件发送：邮件标题-->
     <parameter name="logUrl" value="" />  <!-- 测试报告邮件发送：用例运行日志url-->
     <parameter name="reportUrl" value="" />  <!-- 测试报告邮件发送：完整测试报告url-->
-    <parameter name="recipients" value="" /> <!-- 测试报告邮件发送：收件人，多个用,号隔开-->
+    <parameter name="recipients" value="zhicheng.ma@zbwxkj.com" /> <!-- 测试报告邮件发送：收件人，多个用,号隔开-->
     <parameter name="reportTitle" value="zbwx-自动化测试报告" />  <!--测试报告标题-->
 
-    <!--  <listeners>
+    <listeners>
     <listener class-name="com.zbwx.autotest.ui.utils.TestListener"/>
     <listener class-name="com.zbwx.autotest.ui.utils.TestReport"/>
-    </listeners>  -->
+    </listeners> 
     
     <test name="登录测试">
         <classes>
