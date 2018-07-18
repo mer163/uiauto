@@ -1,4 +1,4 @@
-package com.zbwx.autotest.ui.utils;
+package com.zbwx.autotest.ui.base;
 import org.testng.annotations.*;
 import com.zbwx.autotest.ui.utils.Log;
 

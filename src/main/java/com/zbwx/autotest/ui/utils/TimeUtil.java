@@ -2,6 +2,8 @@ package com.zbwx.autotest.ui.utils;
 
 import org.openqa.selenium.JavascriptExecutor;
 
+import com.zbwx.autotest.ui.base.TestBaseCase;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

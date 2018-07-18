@@ -1,8 +1,13 @@
-package com.zbwx.autotest.ui.utils;
+package com.zbwx.autotest.ui.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+
+import com.zbwx.autotest.ui.utils.Locator;
+import com.zbwx.autotest.ui.utils.Log;
+import com.zbwx.autotest.ui.utils.XmlReadUtil;
+import com.zbwx.autotest.ui.utils.YamlReadUtil;
 import com.zbwx.autotest.ui.utils.Locator.ByType;
 
 import atx.client.common.ElementObj;

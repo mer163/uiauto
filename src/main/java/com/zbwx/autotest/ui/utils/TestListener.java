@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
+import com.zbwx.autotest.ui.base.TestBaseCase;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;

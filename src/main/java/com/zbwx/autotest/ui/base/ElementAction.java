@@ -1,3 +1,4 @@
+package com.zbwx.autotest.ui.base;
 //package com.zbwx.autotest.ui.utils;
 //
 //import com.google.common.io.Files;

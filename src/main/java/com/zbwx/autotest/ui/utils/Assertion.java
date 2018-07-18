@@ -5,8 +5,8 @@ import org.testng.Assert;
 
 import atx.client.AtxClient;
 
+import com.zbwx.autotest.ui.base.TestBaseCase;
 import com.zbwx.autotest.ui.model.Locator;
-import com.zbwx.autotest.ui.utils.TestBaseCase;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

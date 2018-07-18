@@ -4,13 +4,13 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.zbwx.autotest.base.DsBase;
+import com.zbwx.autotest.ui.Ylmall;
 
 import atx.client.AtxClient;
 import atx.client.adb.ElementAttribs;
 import atx.client.model.DesiredCapabilities;
 
-public class DsTest extends DsBase {
+public class DsTest extends Ylmall {
 //	static AtxClient driver = new AtxClient();
 //	private static DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 	

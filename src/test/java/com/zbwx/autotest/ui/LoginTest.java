@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 
-import com.zbwx.autotest.ui.pageObject.HomePage;
-import com.zbwx.autotest.ui.utils.TestBaseCase;
+import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.pageobject.HomePage;
 
 import atx.client.model.AtxDriver;
 import atx.client.AtxClient;

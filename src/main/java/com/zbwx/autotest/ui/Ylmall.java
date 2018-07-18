@@ -1,14 +1,14 @@
-package com.zbwx.autotest.base;
+package com.zbwx.autotest.ui;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-import com.zbwx.autotest.ui.utils.TestBaseCase;
+import com.zbwx.autotest.ui.base.TestBaseCase;
 
 import atx.client.adb.ElementAttribs;
 
-public class DsBase extends TestBaseCase {
-
+public class Ylmall extends TestBaseCase{
+	
 	protected static String HOME_PAGE = "首页";
 	protected static String MARKET_PAGE = "商城";
 	protected static String ORDER_PAGE = "定购";
@@ -179,4 +179,6 @@ public class DsBase extends TestBaseCase {
 		driver.elementByDesc(desc).click();
 		mLogPrint("已点击:"+desc);
 	}
+	
+	
 }

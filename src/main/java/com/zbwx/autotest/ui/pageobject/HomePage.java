@@ -1,6 +1,6 @@
-package com.zbwx.autotest.ui.pageObject;
+package com.zbwx.autotest.ui.pageobject;
 
-import com.zbwx.autotest.ui.utils.TestBaseCase;
+import com.zbwx.autotest.ui.base.TestBaseCase;
 
 import atx.client.adb.ElementAdb;
 import atx.client.adb.ElementAttribs;
@@ -36,7 +36,7 @@ public class HomePage extends TestBaseCase{
 			device.click(e_search);
 		}
 			
-	if(position.waitForElement(ElementAttribs.TEXT,"获取验证码",3000)) {
+		if(position.waitForElement(ElementAttribs.TEXT,"获取验证码",3000)) {
 		driver.elementById("com.ylmall.app.ui:id/rightText").click();		//点击密码
 		
 		driver.elementById("com.ylmall.app.ui:id/login_new_tel").click();;
