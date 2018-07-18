@@ -568,295 +568,302 @@ public class TestReport implements IReporter{
 			output.close();*/
 			FileManger fileManger=new FileManger();
 			fileManger.writeWithEncode(path,"utf-8",true,sb.toString());
-
-
-
+			
 			/**
 			 * 发送html邮件
 			 */
 			String reportUrl=null;//完整报表URL
 			String logUrl=null;//日志url
 			String Recipients=null; //邮件收件人地址
+			String sendmail = null; //是否发送邮件
 			try {
 				reportUrl=getTestngParametersValue(Config.path, "reportUrl");
 				logUrl=getTestngParametersValue(Config.path, "logUrl");
 				Recipients=getTestngParametersValue(Config.path, "recipients");
+				sendmail=getTestngParametersValue(Config.path, "sendmail");
 			} catch (DocumentException e) {
 				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
-			System.out.println("报表URL"+reportUrl);
-			System.out.println("日志URL"+logUrl);
-			System.out.println("收件人地址"+Recipients);
-			StringBuffer sb2=new StringBuffer();
-			sb2.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
-			sb2.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n");
-			sb2.append("<meta http-equiv=\"Content-Type\"content=\"text/html; charset=gbk\" />\n");
-			sb2.append("<title>" +
-					reportTitle +
-					"</title>\n");
-			sb2.append("</head>\n");
-			sb2.append("<body>\n");
-			sb2.append("<div id=\"content\">\n");
-			sb2.append("<div id=\"report_title\">\n");
-			sb2.append("<div id=\"logo\"><img src=\"http://www.webdriver.org/template/time_6th_travel/src/logo.png\"></img></div>\n");
-			sb2.append("<div style=\"clear:both\"><div id=\"time\">\n");
-			sb2.append("<div style=\"pading-top:20px\">开始时间："
-					+ this.formatDate(fullResults.get(0).getStartMillis())
-					+ "</div>\n");
-			sb2.append("<div>结束时间："
-					+ this.formatDate(fullResults.get(fullResults.size()-1).getEndMillis())
-					+ " </div>\n");
-			sb2.append("<div>用&nbsp&nbsp&nbsp&nbsp时："
-					+formateTime(fullResults.get(fullResults.size()-1).getEndMillis()-fullResults.get(0).getStartMillis())
-					+ "</div>\n");
-			sb2.append("</div>\n");
+			
+			if(sendmail=="yes") {
+				
+				System.out.println("报表URL"+reportUrl);
+				System.out.println("日志URL"+logUrl);
+				System.out.println("收件人地址"+Recipients);
+				StringBuffer sb2=new StringBuffer();
+				sb2.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
+				sb2.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n");
+				sb2.append("<meta http-equiv=\"Content-Type\"content=\"text/html; charset=gbk\" />\n");
+				sb2.append("<title>" +
+						reportTitle +
+						"</title>\n");
+				sb2.append("</head>\n");
+				sb2.append("<body>\n");
+				sb2.append("<div id=\"content\">\n");
+				sb2.append("<div id=\"report_title\">\n");
+				sb2.append("<div id=\"logo\"><img src=\"http://www.webdriver.org/template/time_6th_travel/src/logo.png\"></img></div>\n");
+				sb2.append("<div style=\"clear:both\"><div id=\"time\">\n");
+				sb2.append("<div style=\"pading-top:20px\">开始时间："
+						+ this.formatDate(fullResults.get(0).getStartMillis())
+						+ "</div>\n");
+				sb2.append("<div>结束时间："
+						+ this.formatDate(fullResults.get(fullResults.size()-1).getEndMillis())
+						+ " </div>\n");
+				sb2.append("<div>用&nbsp&nbsp&nbsp&nbsp时："
+						+formateTime(fullResults.get(fullResults.size()-1).getEndMillis()-fullResults.get(0).getStartMillis())
+						+ "</div>\n");
+				sb2.append("</div>\n");
 
-			sb2.append("</div>\n");
-			sb2.append("</div>");
-			sb2.append("<div  id=\"header_right\" >\n");
-			sb2.append("<div id=\"title\">\n");
-			sb2.append("<div style=\"text-align:center\">" +
-					reportTitle +
-					"</div>\n");
-			sb2.append("</div>\n");
-			sb2.append("</div>\n");
-			sb2.append("<div id=\"report_total\">\n");
-			sb2.append("<div>(<span style=\"color:green\">绿色字体pass用例</span><span style=\"color:red\">红色字体failed用例</span><span style=\"color:gray\">灰色字体skip用例</span>)<span style=\" margin-left:20px\"><a href=\" "
-					+reportUrl
-					+ "\">点击查看完整报表</a></span><span style=\"margin-left:14px\"><a href=\""
-					+logUrl
-					+ "\"></a></span></div>\n");
-			sb2.append("<table width=\"100%\" style=\"width:100%;text-align:left;border-collapse:collapse;border-spacing:0;font-size:12px;\" >\n");
-			sb2.append("<tr>\n"
-					+ "<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"18%\"><div align=\"center\">用例总数</div></td>\n");
-			sb2.append("<td   style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"22%\" align=\"center\"><div align=\"center\">通过数（pass）</div></td>\n");
-			sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"21%\" align=\"center\"><div align=\"center\">失败数(failed)</div></td>\n");
-			sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"21%\" align=\"center\"><div align=\"center\">跳过数(skip)</div></td>\n");
-			sb2.append("<td   style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"18%\" align=\"center\"><div align=\"center\">通过率</div></td>\n</tr>\n");
-			sb2.append(" <tr >\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" ><div align=\"center\">");
-			sb2.append("<label style=\"color:blue\" id=\"total_num\">");
-			sb2.append(passArrayList.size()+failedArrayList.size()+skipArrayList.size());
-			sb2.append("</label>");
-			sb2.append("</div></td>\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
-			sb2.append("<label style=\"color:green\" id=\"passed_num\""
-					+ "value=\""
-					+ passArrayList.size()
-					+ "\">");
-			sb2.append(passArrayList.size());
-			sb2.append("</label>");
-			sb2.append("</div></td>\n <td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
-			sb2.append("<label style=\"color:red\" id=\"failed_num\""
-					+ "value=\""
-					+ failedArrayList.size()
-					+ "\">");
-			sb2.append(failedArrayList.size());
-			sb2.append("</label>");
-			sb2.append("</div></td>\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
-			sb2.append("<label style=\"color:gray\" id=\"skiped_num\""
-					+ "value=\""
-					+skipArrayList.size()
-					+ "\">");
-			sb2.append(skipArrayList.size());
-			sb2.append("</label>");
-			sb2.append("</div></td>\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
-			DecimalFormat dfDecimalFormat1=new DecimalFormat("######0.00");
-			float total1=passArrayList.size()+failedArrayList.size()+skipArrayList.size();
-			float s1=passArrayList.size()/total1;
-			sb2.append(dfDecimalFormat1.format(s1*100));
-			sb2.append("%");
-			sb2.append("</div></td>\n</tr>\n</table>\n");
+				sb2.append("</div>\n");
+				sb2.append("</div>");
+				sb2.append("<div  id=\"header_right\" >\n");
+				sb2.append("<div id=\"title\">\n");
+				sb2.append("<div style=\"text-align:center\">" +
+						reportTitle +
+						"</div>\n");
+				sb2.append("</div>\n");
+				sb2.append("</div>\n");
+				sb2.append("<div id=\"report_total\">\n");
+				sb2.append("<div>(<span style=\"color:green\">绿色字体pass用例</span><span style=\"color:red\">红色字体failed用例</span><span style=\"color:gray\">灰色字体skip用例</span>)<span style=\" margin-left:20px\"><a href=\" "
+						+reportUrl
+						+ "\">点击查看完整报表</a></span><span style=\"margin-left:14px\"><a href=\""
+						+logUrl
+						+ "\"></a></span></div>\n");
+				sb2.append("<table width=\"100%\" style=\"width:100%;text-align:left;border-collapse:collapse;border-spacing:0;font-size:12px;\" >\n");
+				sb2.append("<tr>\n"
+						+ "<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"18%\"><div align=\"center\">用例总数</div></td>\n");
+				sb2.append("<td   style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"22%\" align=\"center\"><div align=\"center\">通过数（pass）</div></td>\n");
+				sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"21%\" align=\"center\"><div align=\"center\">失败数(failed)</div></td>\n");
+				sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"21%\" align=\"center\"><div align=\"center\">跳过数(skip)</div></td>\n");
+				sb2.append("<td   style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"18%\" align=\"center\"><div align=\"center\">通过率</div></td>\n</tr>\n");
+				sb2.append(" <tr >\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" ><div align=\"center\">");
+				sb2.append("<label style=\"color:blue\" id=\"total_num\">");
+				sb2.append(passArrayList.size()+failedArrayList.size()+skipArrayList.size());
+				sb2.append("</label>");
+				sb2.append("</div></td>\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
+				sb2.append("<label style=\"color:green\" id=\"passed_num\""
+						+ "value=\""
+						+ passArrayList.size()
+						+ "\">");
+				sb2.append(passArrayList.size());
+				sb2.append("</label>");
+				sb2.append("</div></td>\n <td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
+				sb2.append("<label style=\"color:red\" id=\"failed_num\""
+						+ "value=\""
+						+ failedArrayList.size()
+						+ "\">");
+				sb2.append(failedArrayList.size());
+				sb2.append("</label>");
+				sb2.append("</div></td>\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
+				sb2.append("<label style=\"color:gray\" id=\"skiped_num\""
+						+ "value=\""
+						+skipArrayList.size()
+						+ "\">");
+				sb2.append(skipArrayList.size());
+				sb2.append("</label>");
+				sb2.append("</div></td>\n<td style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"><div align=\"center\">");
+				DecimalFormat dfDecimalFormat1=new DecimalFormat("######0.00");
+				float total1=passArrayList.size()+failedArrayList.size()+skipArrayList.size();
+				float s1=passArrayList.size()/total1;
+				sb2.append(dfDecimalFormat1.format(s1*100));
+				sb2.append("%");
+				sb2.append("</div></td>\n</tr>\n</table>\n");
 
-			//报表标题
-			/**
-			 * 报表标题
-			 */
-			sb2.append("<table style=\"width:100%;text-align:left;border-collapse:collapse;border-spacing:0;font-size:10px;\">\n");
-			sb2.append("<tr>\n<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"2%\" class=\"SEQ\">序号</td>\n");
-			sb2.append("<td   style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"17%\" class=\"case_funtcion_td\">功能模块</td>\n");
-			sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"22%\" class=\"case_name_td\">用例名称</td>\n");
-			sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"3%\"  align=\"left\">测试结果</td>\n");
-			sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"28%\" class=\"case_result_beizhu_td\">备注</td>\n");
-			sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"28%\" class=\"case_time\">耗时</td>\n");
-			sb2.append("</tr>\n");
+				//报表标题
+				/**
+				 * 报表标题
+				 */
+				sb2.append("<table style=\"width:100%;text-align:left;border-collapse:collapse;border-spacing:0;font-size:10px;\">\n");
+				sb2.append("<tr>\n<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"2%\" class=\"SEQ\">序号</td>\n");
+				sb2.append("<td   style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"17%\" class=\"case_funtcion_td\">功能模块</td>\n");
+				sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"22%\" class=\"case_name_td\">用例名称</td>\n");
+				sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"3%\"  align=\"left\">测试结果</td>\n");
+				sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  width=\"28%\" class=\"case_result_beizhu_td\">备注</td>\n");
+				sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" width=\"28%\" class=\"case_time\">耗时</td>\n");
+				sb2.append("</tr>\n");
 
-			/**
-			 *  失败测试用例展示
-			 */
-			for (int j = 0; j < failedArrayList.size(); j++)
-			{
-				if(sb.length()!=0){
-					sb2.append("\r\n");
-				}
-				float t=failedArrayList.get(j).getEndMillis()-failedArrayList.get(j).getStartMillis();
-				String testMethodFullName=failedArrayList.get(j).getTestClass().getName()+"."+failedArrayList.get(j).getMethod().getMethodName();
-				if (!failedArrayList.get(j).getMethod().getDescription().isEmpty()) {
+				/**
+				 *  失败测试用例展示
+				 */
+				for (int j = 0; j < failedArrayList.size(); j++)
+				{
+					if(sb.length()!=0){
+						sb2.append("\r\n");
+					}
+					float t=failedArrayList.get(j).getEndMillis()-failedArrayList.get(j).getStartMillis();
+					String testMethodFullName=failedArrayList.get(j).getTestClass().getName()+"."+failedArrayList.get(j).getMethod().getMethodName();
+					if (!failedArrayList.get(j).getMethod().getDescription().isEmpty()) {
 
-					if (failedArrayList.get(j).getParameters().length>0) {
-						sb2.append("<tr  style=\"color:red\" id=\""+testMethodFullName+"."+failedArrayList.get(j).getEndMillis()+"\">\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"SEQ\">"+(j+1)+"</td>");
-						Object[] parameters=failedArrayList.get(j).getParameters();
-						if (parameters[0].toString().contains("院")||parameters[0].toString().contains("所")||parameters[0].toString().contains("医")
-								||parameters[0].toString().contains("病")||parameters[0].toString().contains("治")) {
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"case_funtcion_td\">"+failedArrayList.get(j).getTestContext().getName()+"</td>\n");
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"case_name_td\">"+failedArrayList.get(j).getMethod().getDescription()+":"+parameters[0].toString()+"</td>\n");
+						if (failedArrayList.get(j).getParameters().length>0) {
+							sb2.append("<tr  style=\"color:red\" id=\""+testMethodFullName+"."+failedArrayList.get(j).getEndMillis()+"\">\n");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"SEQ\">"+(j+1)+"</td>");
+							Object[] parameters=failedArrayList.get(j).getParameters();
+							if (parameters[0].toString().contains("院")||parameters[0].toString().contains("所")||parameters[0].toString().contains("医")
+									||parameters[0].toString().contains("病")||parameters[0].toString().contains("治")) {
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"case_funtcion_td\">"+failedArrayList.get(j).getTestContext().getName()+"</td>\n");
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"case_name_td\">"+failedArrayList.get(j).getMethod().getDescription()+":"+parameters[0].toString()+"</td>\n");
+							}
+							else {
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+failedArrayList.get(j).getTestContext().getName()+"</td>\n");
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+failedArrayList.get(j).getMethod().getDescription()+"</td>\n");
+							}
 						}
 						else {
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+failedArrayList.get(j).getTestContext().getName()+"</td>\n");
+							sb2.append("<tr  style=\"color:red\" id=\""+testMethodFullName+"\">\n");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(j+1)+"</td>");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"case_funtcion_td\">"+failedArrayList.get(j).getTestContext().getName()+"</td>\n");
 							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+failedArrayList.get(j).getMethod().getDescription()+"</td>\n");
 						}
-					}
-					else {
-						sb2.append("<tr  style=\"color:red\" id=\""+testMethodFullName+"\">\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(j+1)+"</td>");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\"  class=\"case_funtcion_td\">"+failedArrayList.get(j).getTestContext().getName()+"</td>\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+failedArrayList.get(j).getMethod().getDescription()+"</td>\n");
-					}
-					sb2.append(" ")
-							.append("<td class=\"case_result_td\" ><label class=\"failed_label\" id=\"failedresult_"+failedArrayList.get(j).getMethod().getMethodName()+"\">"+this.getStatus(failedArrayList.get(j).getStatus())+"</label><br /></td>"+"\n");
-					if (failedArrayList.get(j).getParameters().length>0) {
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据："+failedArrayList.get(j).getParameters()[0]+"</td>\n");
-					}
-					else {
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据：无"+"</td>\n");
-					}
-					sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_time_td\">"+formateTime((long) t)+"</td>\n");
-					//点击失败按钮，弹出失败信息
-
-					sb2.append("<td colspan=\"3\" style=\"display:none\">")
-							.append("</td>\n")
-							.append("</tr>\n");
-				}
-
-
-			}
-			//失败结果展示--end
-			//成功结果展示--start
-			/**
-			 * 成功结果展示
-			 */
-			for (int i =0; i <passArrayList.size(); i++)
-			{
-				if(sb.length()!=0){
-					sb2.append("\r\n");
-				}
-				float t=passArrayList.get(i).getEndMillis()-passArrayList.get(i).getStartMillis();
-				String testMethodFullName=passArrayList.get(i).getTestClass().getName()+"."+passArrayList.get(i).getMethod().getMethodName();
-				if (!passArrayList.get(i).getMethod().getDescription().isEmpty()) {
-					if (passArrayList.get(i).getParameters().length>0) {
-						sb2.append("<tr style=\"color:green\" id=\""+testMethodFullName+"."+passArrayList.get(i).getEndMillis()+"\">\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(i+failedArrayList.size()+1)+"</td>");
-						Object[] parameters=passArrayList.get(i).getParameters();
-						if (parameters[0].toString().contains("院")||parameters[0].toString().contains("所")||parameters[0].toString().contains("医")
-								||parameters[0].toString().contains("病")||parameters[0].toString().contains("治")) {
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+passArrayList.get(i).getTestContext().getName()+"</td>\n");
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+passArrayList.get(i).getMethod().getDescription()+":"+parameters[0].toString()+"</td>\n");
+						sb2.append(" ")
+								.append("<td class=\"case_result_td\" ><label class=\"failed_label\" id=\"failedresult_"+failedArrayList.get(j).getMethod().getMethodName()+"\">"+this.getStatus(failedArrayList.get(j).getStatus())+"</label><br /></td>"+"\n");
+						if (failedArrayList.get(j).getParameters().length>0) {
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据："+failedArrayList.get(j).getParameters()[0]+"</td>\n");
 						}
 						else {
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据：无"+"</td>\n");
+						}
+						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_time_td\">"+formateTime((long) t)+"</td>\n");
+						//点击失败按钮，弹出失败信息
+
+						sb2.append("<td colspan=\"3\" style=\"display:none\">")
+								.append("</td>\n")
+								.append("</tr>\n");
+					}
+
+
+				}
+				//失败结果展示--end
+				//成功结果展示--start
+				/**
+				 * 成功结果展示
+				 */
+				for (int i =0; i <passArrayList.size(); i++)
+				{
+					if(sb.length()!=0){
+						sb2.append("\r\n");
+					}
+					float t=passArrayList.get(i).getEndMillis()-passArrayList.get(i).getStartMillis();
+					String testMethodFullName=passArrayList.get(i).getTestClass().getName()+"."+passArrayList.get(i).getMethod().getMethodName();
+					if (!passArrayList.get(i).getMethod().getDescription().isEmpty()) {
+						if (passArrayList.get(i).getParameters().length>0) {
+							sb2.append("<tr style=\"color:green\" id=\""+testMethodFullName+"."+passArrayList.get(i).getEndMillis()+"\">\n");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(i+failedArrayList.size()+1)+"</td>");
+							Object[] parameters=passArrayList.get(i).getParameters();
+							if (parameters[0].toString().contains("院")||parameters[0].toString().contains("所")||parameters[0].toString().contains("医")
+									||parameters[0].toString().contains("病")||parameters[0].toString().contains("治")) {
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+passArrayList.get(i).getTestContext().getName()+"</td>\n");
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+passArrayList.get(i).getMethod().getDescription()+":"+parameters[0].toString()+"</td>\n");
+							}
+							else {
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+passArrayList.get(i).getTestContext().getName()+"</td>\n");
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+passArrayList.get(i).getMethod().getDescription()+"</td>\n");
+							}
+						}
+						else {
+							sb2.append("<tr  style=\"color:green\"  id=\""+testMethodFullName+"\">\n");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(i+failedArrayList.size()+1)+"</td>");
 							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+passArrayList.get(i).getTestContext().getName()+"</td>\n");
 							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+passArrayList.get(i).getMethod().getDescription()+"</td>\n");
 						}
-					}
-					else {
-						sb2.append("<tr  style=\"color:green\"  id=\""+testMethodFullName+"\">\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(i+failedArrayList.size()+1)+"</td>");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+passArrayList.get(i).getTestContext().getName()+"</td>\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+passArrayList.get(i).getMethod().getDescription()+"</td>\n");
-					}
-					sb2.append(" ")
-							.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_td\"><label class=\"passed_label\" id=\"passedresult_"+passArrayList.get(i).getMethod().getMethodName()+"\">"+this.getStatus(passArrayList.get(i).getStatus())+"</label><br /></td>"+"\n");
+						sb2.append(" ")
+								.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_td\"><label class=\"passed_label\" id=\"passedresult_"+passArrayList.get(i).getMethod().getMethodName()+"\">"+this.getStatus(passArrayList.get(i).getStatus())+"</label><br /></td>"+"\n");
 
-					if (passArrayList.get(i).getParameters().length>0) {
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据："+passArrayList.get(i).getParameters()[0]+"</td>\n");
-					}
-					else {
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据：无"+"</td>\n");
-					}
+						if (passArrayList.get(i).getParameters().length>0) {
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据："+passArrayList.get(i).getParameters()[0]+"</td>\n");
+						}
+						else {
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据：无"+"</td>\n");
+						}
 
-					sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_time_td\">"+formateTime((long) t)+"</td>\n");
-					sb2.append("</tr>\n");
+						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_time_td\">"+formateTime((long) t)+"</td>\n");
+						sb2.append("</tr>\n");
+					}
 				}
-			}
-			if(sb.length()!=0){
-				sb2.append("\r\n");
-			}
-          /* sb2.append("</table>\n");*/
-			//成功结果展示--end
-
-			//--跳过结果展示--start
-			/**
-			 * 跳过结果展示
-			 */
-			for (int j =  0; j < skipArrayList.size(); j++)
-			{
 				if(sb.length()!=0){
 					sb2.append("\r\n");
 				}
-				float t=skipArrayList.get(j).getEndMillis()-skipArrayList.get(j).getStartMillis();
-				String testMethodFullName=skipArrayList.get(j).getTestClass().getName()+"."+skipArrayList.get(j).getMethod().getMethodName();
-				if (!skipArrayList.get(j).getMethod().getDescription().isEmpty()) {
-					if (skipArrayList.get(j).getParameters().length>0) {
-						sb2.append("<tr style=\"color:gray\" id=\""+testMethodFullName+"."+skipArrayList.get(j).getEndMillis()+"\">\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(j+failedArrayList.size()+passArrayList.size()+1)+"</td>");
-						Object[] parameters=skipArrayList.get(j).getParameters();
-						if (parameters[0].toString().contains("院")||parameters[0].toString().contains("所")||parameters[0].toString().contains("医")
-								||parameters[0].toString().contains("病")||parameters[0].toString().contains("治")) {
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+skipArrayList.get(j).getTestContext().getName()+"</td>\n");
-							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+skipArrayList.get(j).getMethod().getDescription()+":"+parameters[0].toString()+"</td>\n");
+	          /* sb2.append("</table>\n");*/
+				//成功结果展示--end
+
+				//--跳过结果展示--start
+				/**
+				 * 跳过结果展示
+				 */
+				for (int j =  0; j < skipArrayList.size(); j++)
+				{
+					if(sb.length()!=0){
+						sb2.append("\r\n");
+					}
+					float t=skipArrayList.get(j).getEndMillis()-skipArrayList.get(j).getStartMillis();
+					String testMethodFullName=skipArrayList.get(j).getTestClass().getName()+"."+skipArrayList.get(j).getMethod().getMethodName();
+					if (!skipArrayList.get(j).getMethod().getDescription().isEmpty()) {
+						if (skipArrayList.get(j).getParameters().length>0) {
+							sb2.append("<tr style=\"color:gray\" id=\""+testMethodFullName+"."+skipArrayList.get(j).getEndMillis()+"\">\n");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(j+failedArrayList.size()+passArrayList.size()+1)+"</td>");
+							Object[] parameters=skipArrayList.get(j).getParameters();
+							if (parameters[0].toString().contains("院")||parameters[0].toString().contains("所")||parameters[0].toString().contains("医")
+									||parameters[0].toString().contains("病")||parameters[0].toString().contains("治")) {
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+skipArrayList.get(j).getTestContext().getName()+"</td>\n");
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+skipArrayList.get(j).getMethod().getDescription()+":"+parameters[0].toString()+"</td>\n");
+							}
+							else {
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+skipArrayList.get(j).getTestContext().getName()+"</td>\n");
+								sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+skipArrayList.get(j).getMethod().getDescription()+"</td>\n");
+							}
+
 						}
 						else {
+							sb2.append("<tr style=\"color:gray\" id=\""+testMethodFullName+"\">\n");
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(j+fullResults.size()+passArrayList.size()+1)+"</td>");
 							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+skipArrayList.get(j).getTestContext().getName()+"</td>\n");
 							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+skipArrayList.get(j).getMethod().getDescription()+"</td>\n");
 						}
+						sb2.append(" ");
+						if (skipArrayList.get(j).getParameters().length>0) {
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据："+skipArrayList.get(j).getParameters()[0]+"</td>\n");
+						}
+						else {
+							sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据：无"+"</td>\n");
+						}
 
+						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_time_td\">"+formateTime((long) t)+"</td>\n")
+								.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" colspan=\"3\" style=\"display:none\">"+""+"</td>\n")
+								.append("</tr>\n");
 					}
-					else {
-						sb2.append("<tr style=\"color:gray\" id=\""+testMethodFullName+"\">\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"SEQ\">"+(j+fullResults.size()+passArrayList.size()+1)+"</td>");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_funtcion_td\">"+skipArrayList.get(j).getTestContext().getName()+"</td>\n");
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_name_td\">"+skipArrayList.get(j).getMethod().getDescription()+"</td>\n");
-					}
-					sb2.append(" ");
-					if (skipArrayList.get(j).getParameters().length>0) {
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据："+skipArrayList.get(j).getParameters()[0]+"</td>\n");
-					}
-					else {
-						sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_result_beizhu_td\">"+"输入数据：无"+"</td>\n");
-					}
-
-					sb2.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" class=\"case_time_td\">"+formateTime((long) t)+"</td>\n")
-							.append("<td  style=\"border:1.5px;border-color:gray; word-break:break-all;border-style: solid;height:20px;\" colspan=\"3\" style=\"display:none\">"+""+"</td>\n")
-							.append("</tr>\n");
 				}
-			}
-			if(sb.length()!=0){
-				sb2.append("\r\n");
+				if(sb.length()!=0){
+					sb2.append("\r\n");
+				}
+
+				sb2.append("</table>\n");
+				//--跳过结果--end
+				sb2.append("</table>\n</div>\n");
+				sb2.append("</div>\n"
+						+ "<div id=\"footer\" style=\"font-size:14px\" >技术支持：Copyright © 2018 ZBWX.Inc</div>");
+				sb2.append("</body>\n</html>\n");
+				System.out.println("收件人地址："+Recipients);
+				SendMail sendMail=new SendMail();
+				String smtpUserName="";
+				String smtpPassWord="";
+				String smtpHost="";
+				String smtpPort="";
+				String mailTitle="";
+				try {
+					smtpUserName=getTestngParametersValue(Config.path,"smtpUserName");
+					smtpPassWord=getTestngParametersValue(Config.path,"smtpPassWord");
+					smtpHost=getTestngParametersValue(Config.path,"smtpHost");
+					smtpHost=getTestngParametersValue(Config.path,"smtpHost");
+					mailTitle=getTestngParametersValue(Config.path,"mailTitle");
+				} catch (DocumentException e) {
+					e.printStackTrace();
+				}
+				
+				sendMail.sendmessage(smtpUserName,smtpPassWord, smtpHost, smtpPort, smtpUserName,Recipients,mailTitle, sb2.toString());
+				//--发送html报表邮件--结束
 			}
 
-			sb2.append("</table>\n");
-			//--跳过结果--end
-			sb2.append("</table>\n</div>\n");
-			sb2.append("</div>\n"
-					+ "<div id=\"footer\" style=\"font-size:14px\" >技术支持：Copyright © 2018 ZBWX.Inc</div>");
-			sb2.append("</body>\n</html>\n");
-			System.out.println("收件人地址："+Recipients);
-			SendMail sendMail=new SendMail();
-			String smtpUserName="";
-			String smtpPassWord="";
-			String smtpHost="";
-			String smtpPort="";
-			String mailTitle="";
-			try {
-				smtpUserName=getTestngParametersValue(Config.path,"smtpUserName");
-				smtpPassWord=getTestngParametersValue(Config.path,"smtpPassWord");
-				smtpHost=getTestngParametersValue(Config.path,"smtpHost");
-				smtpHost=getTestngParametersValue(Config.path,"smtpHost");
-				mailTitle=getTestngParametersValue(Config.path,"mailTitle");
-			} catch (DocumentException e) {
-				e.printStackTrace();
-			}
-			sendMail.sendmessage(smtpUserName,smtpPassWord, smtpHost, smtpPort, smtpUserName,Recipients,mailTitle, sb2.toString());
-			//--发送html报表邮件--结束
+			
 
 
 
