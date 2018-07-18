@@ -14,6 +14,7 @@
     <parameter name="appActivity" value="'com.ylmall.app.activity.WelcomActivity" /> <!--app 主类名-->
     <parameter name="UserName" value="" /> <!-- 系统登录用户名-->
     <parameter name="PassWord" value="" />  <!-- 系统登录密码-->
+    <parameter name="sendmail" value="no" />  <!-- 是否发送邮件：yes发送，no不发送-->
     <parameter name="smtpUserName" value="automail@zbwxkj.com" />  <!-- 测试报告邮件发送：smtp身份证验证-->
     <parameter name="smtpPassWord" value="test123@zbwxkj.com" />  <!-- 测试报告邮件发送：smtp身份证验证-->
     <parameter name="smtpHost" value="smtp.mxhichina.com" />  <!-- 测试报告邮件发送：smtp主机地址-->
