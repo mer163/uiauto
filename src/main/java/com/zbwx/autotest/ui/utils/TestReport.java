@@ -837,7 +837,7 @@ public class TestReport implements IReporter{
 			//--跳过结果--end
 			sb2.append("</table>\n</div>\n");
 			sb2.append("</div>\n"
-					+ "<div id=\"footer\" style=\"font-size:14px\" >技术支持：Copyright © 2018 zbwx.Inc</div>");
+					+ "<div id=\"footer\" style=\"font-size:14px\" >技术支持：Copyright © 2018 ZBWX.Inc</div>");
 			sb2.append("</body>\n</html>\n");
 			System.out.println("收件人地址："+Recipients);
 			SendMail sendMail=new SendMail();
