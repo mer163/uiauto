@@ -1,41 +1,64 @@
 package com.zbwx.autotest.ui.pageobject;
 
 import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.utils.Assertion;
 
-import atx.client.common.ElementObj;
+import atx.client.adb.ElementAdb;
+import atx.client.adb.ElementAttribs;
 
 public class QuotationPage extends TestBaseCase {
-
-	public ElementObj AllCommodity;
-	public ElementObj CommodityName_AZHJ;
-	public ElementObj Order_Botton;
-	public ElementObj NowPriceOrder;
-	public ElementObj SettlementPriceOrder;
-	public ElementObj Pieces_1;
-	public ElementObj Pieces_20;
-	public ElementObj Pieces_40;
-	public ElementObj Pieces_100;
-	public ElementObj Recharge_Botton;
-	public ElementObj MyOrder;
-	public ElementObj home_botton;
+	public ElementAdb returnButton;//返回按钮
+	public ElementAdb messageButton;//消息按钮(图标)
+	public ElementAdb commodity_Ni;//果礼镍
+	public ElementAdb commodity_Cu;//果礼铜
+	public ElementAdb commodity_ClearWine;//日本清酒
+	public ElementAdb k_Timeshare;//分时线
+	public ElementAdb k_M5;//M5
+	public ElementAdb k_M15;//M15
+	public ElementAdb k_H1;//H1
+	public ElementAdb k_D1;//D1
+	public ElementAdb orderButton;//定购按钮
+	
+	public QuotationPage(){
+		initElementsQP();
+	}
+	
 	//初始化页面元素
-	public void initElements() {
+	public void initElementsQP() {
 		try {
-			this.home_botton = driver.elementByName("首页");
-			this.AllCommodity = driver.elementByName("全部商品点这里 >");
-			this.CommodityName_AZHJ = driver.elementByName("澳洲红酒");
-			this.Order_Botton = driver.elementByName("定购");
-			this.NowPriceOrder = driver.elementByName("现价定购");
-			this.SettlementPriceOrder = driver.elementByName("结算价定购");
-			this.Pieces_1 = driver.elementByName("1件");
-			this.Pieces_20 = driver.elementByName("20件");
-			this.Pieces_40 = driver.elementByName("40件");
-			this.Pieces_100 = driver.elementByName("100件");
-			this.Recharge_Botton = driver.elementByName("充值");
-			this.MyOrder = driver.elementById("com.ylmall.app.ui:id/order_dingzhi");
+			this.returnButton = position.findElementById("com.ylmall.app.ui:id/leftBtn");
+			this.messageButton = position.findElementById("com.ylmall.app.ui:id/rightBtn");
+			this.commodity_Ni = position.findElementByText("果礼镍");
+			this.commodity_Cu = position.findElementByText("果礼铜");
+			this.commodity_ClearWine = position.findElementByText("日本清酒");
+			this.k_Timeshare = position.findElementById("com.ylmall.app.ui:id/newcfd_line_fen");
+			this.k_M5 = position.findElementById("com.ylmall.app.ui:id/newcfd_line_5");
+			this.k_M15 = position.findElementById("com.ylmall.app.ui:id/newcfd_line_15");
+			this.k_H1 = position.findElementById("com.ylmall.app.ui:id/newcfd_line_60");
+			this.k_D1 = position.findElementById("com.ylmall.app.ui:id/newcfd_line_day");
+			this.orderButton = position.findElementById("com.ylmall.app.ui:id/newcfd_fragdeal_xiadan");
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}	
+	
+	/**
+	 * 进入行情页面
+	 * @throws Exception
+	 */
+	public void mOpenQuotationPage() throws Exception{
+		mWaitOpenApp();
+		device.click(position.findElementById("com.ylmall.app.ui:id/tv_allproduct"));//首页点击‘全部商品点这里>’
+		device.click(position.findElementByText("果礼镍"));;//商品列表点击‘果礼镍’
+		Assertion.VerityNotTextPresentPrecision("行情");
+	}
+	
+	/**
+	 * 等待打开APP
+	 */
+	public void mWaitOpenApp(){
+		position.waitForElement(ElementAttribs.TEXT, "客服", 10000);
 	}
 }

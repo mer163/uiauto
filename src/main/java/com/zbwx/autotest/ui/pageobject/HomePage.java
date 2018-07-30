@@ -15,35 +15,11 @@ import atx.client.enums.AttributeMask;
 public class HomePage extends TestBaseCase{
 	
 	
-	public ElementAdb home_bottom;
-	public ElementAdb my;
-	
-	public ElementAdb btn_homeSearch;
-	public static ElementAdb img_homeService;
-	public static ElementAdb img_homeMessage;
-	
-	public static  ElementAdb vp_homeCbLoopViewPager;
-	public static  ElementAdb tv_homeMoreylName;
-	
-	public static  ElementAdb mBack;
-	public static  ElementAdb tv_homeAllProduct;
-	public static  ElementAdb tv_homeNie;
-	public static  ElementAdb tv_homeTong;
-	public static  ElementAdb tv_homeYin;
-	public static  ElementAdb tv_homeJapan;
-	public static  ElementAdb tv_homeEngland;
-	public static  ElementAdb tv_homeEurope;
-	
-	public static  ElementAdb ll_homeShow1;
-	public static  ElementAdb ll_homeShow2;
-	public static  ElementAdb ll_homeShow3;
-	
-	public static  ElementAdb img_homeFind1;
-	public static  ElementAdb img_homeFind2;
-	
-	public static  ElementAdb ll_homeBuyZhiNan;
-	public static  ElementAdb ll_homeStoreInfo;
-	public static ElementAdb ll_homeGongGao;
+	public ElementObj home_bottom;
+	public ElementObj my;
+	public ElementObj CU;
+	public ElementObj more;
+
 	
 	public HomePage() {
 		initElements();
@@ -52,43 +28,10 @@ public class HomePage extends TestBaseCase{
 	//初始化页面元素
 	public void initElements() {
 		try {
-			
-			this.home_bottom = position.findElementByText("首页");
-			this.my = position.findElementByText("我的");
-			this.btn_homeSearch=position.findElementById(TestBaseCase.mAppMainPackage+":id/tv_search");//首页搜索
-			this.img_homeService=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_kefu");//首页客服
-			
-			this.img_homeMessage=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_tixing");//首页消息
-			//轮播
-			this.vp_homeCbLoopViewPager=position.findElementById(TestBaseCase.mAppMainPackage+":id/cbLoopViewPager");//轮播
-			//播报
-			
-			this.tv_homeMoreylName=position.findElementByText("更多");//首页更多
-			
-			//返回
-			this.mBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-
-			//首页热门商品
-			this.tv_homeAllProduct=position.findElementById(TestBaseCase.mAppMainPackage+":id/tv_allproduct");//首页全部商品点这里
-			this.tv_homeNie=position.findElementById(TestBaseCase.mAppMainPackage+":id/ll_item");//首页果礼镍
-			this.tv_homeTong=position.findElementByText("果礼铜");//首页果礼铜
-			this.tv_homeYin=position.findElementByText("果礼银");//首页果礼银
-			this.tv_homeJapan=position.findElementByText("日本清酒");//首页日本清酒
-			this.tv_homeEngland=position.findElementByText("英国香水");//首页英国香水
-			this.tv_homeEurope=position.findElementByText("欧洲红酒");//首页欧洲红酒
-			
-			//商城精选	新品上架
-			this.ll_homeShow1=position.findElementById(TestBaseCase.mAppMainPackage+":id/ll_show1");
-			this.ll_homeShow2=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_show2");
-			this.ll_homeShow3=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_show3");
-			//商城精选	发现好货
-			this.img_homeFind1=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_find1");
-			this.img_homeFind2=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_find2");
-			//为您推荐
-			this.ll_homeBuyZhiNan=position.findElementById(TestBaseCase.mAppMainPackage+":id/ll_buyzhinan");
-			this.ll_homeStoreInfo=position.findElementById(TestBaseCase.mAppMainPackage+":id/ll_storeinfo");
-			this.ll_homeGongGao=position.findElementById(TestBaseCase.mAppMainPackage+":id/ll_gonggao");
-			
+			this.home_bottom = driver.elementByName("首页");
+			this.my = driver.elementByName("我的");
+			this.CU= driver.elementByName("果礼铜");
+			this.more=driver.elementById("com.ylmall.app.ui:id/tv_moreyl");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
