@@ -1,5 +1,7 @@
 package com.zbwx.autotest.ui.base;
 import org.testng.annotations.*;
+
+import com.beust.testng.TestNG;
 import com.zbwx.autotest.ui.utils.Log;
 
 import atx.client.AtxClient;
@@ -33,6 +35,8 @@ public class TestBaseCase {
 	public static AtxClient driver = new AtxClient();
 	public static Position position;
 
+	public static String mAppMainPackage;
+	
 	//方法描述
 	public static String description;
 	public Log log=new Log(this.getClass().getSuperclass());
@@ -40,6 +44,8 @@ public class TestBaseCase {
 	@Parameters({"driverName","appName","apkName","deviceIp","sdkVersion","appMainPackage","appActivity","platformName","install"})
 	public void  setup( String driverName,String appName,String apkName, String deviceIp,String sdkVersion,String appMainPackage,String appActivity,String platformName,String install) throws MalformedURLException {
 
+		mAppMainPackage=appMainPackage;
+		
 		log.info("------------------开始初始化测试---------------");
 		
 		if(deviceIp.equals("")||deviceIp.isEmpty())
