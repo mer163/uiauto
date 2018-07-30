@@ -11,6 +11,8 @@ public class HomePage extends TestBaseCase{
 	
 	public ElementObj home_bottom;
 	public ElementObj my;
+	public ElementObj CU;
+	public ElementObj more;
 
 	
 	public HomePage() {
@@ -20,9 +22,10 @@ public class HomePage extends TestBaseCase{
 	//初始化页面元素
 	public void initElements() {
 		try {
-			this.home_bottom = driver.elementByClass("首页");
+			this.home_bottom = driver.elementByName("首页");
 			this.my = driver.elementByName("我的");
-			
+			this.CU= driver.elementByName("果礼铜");
+			this.more=driver.elementById("com.ylmall.app.ui:id/tv_moreyl");
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
