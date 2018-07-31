@@ -156,6 +156,16 @@ public class TestBaseCase {
 		}while(!position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/tv_allproduct", 3000));
 	}
 	
+	/**
+	 * 以ID点击页面返回按钮
+	 */
+	public void mClickReturnButton(){
+		if(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/baseweb_back", 3000)){
+			device.click(position.findElementById("com.ylmall.app.ui:id/baseweb_back"));
+		}else {
+			device.click(position.findElementById("com.ylmall.app.ui:id/leftBtn"));
+		}
+	}
 //	public static void main(String args[])
 //	{
 ////		WebDriver driver2=new FirefoxDriver();
