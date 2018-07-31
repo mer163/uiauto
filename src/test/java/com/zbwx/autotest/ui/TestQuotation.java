@@ -25,7 +25,6 @@ public class TestQuotation extends  TestBaseCase {
     public void testOpenQuotation() throws Exception {
 		QuotationPage qPage =new QuotationPage();
 		qPage.mOpenQuotationPage();		
-		QuotationPage qPage1 = new QuotationPage();
 		Assertion.VerityTextPresentPrecision("商品列表", "验证返回键");
 		mReturnHomePage();
     }
@@ -49,7 +48,7 @@ public class TestQuotation extends  TestBaseCase {
 		QuotationPage qPage1 = new QuotationPage();
 		device.click(qPage1.messageButton);
 		Assertion.VerityTextPresentPrecision("消息中心", "已进入消息中心页面...");
-		device.click(position.findElementById("com.ylmall.app.ui:id/leftBtn"));
+		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("行情", "已返回行情页面...");
 		mReturnHomePage();
 	}
@@ -113,6 +112,8 @@ public class TestQuotation extends  TestBaseCase {
 		QuotationPage qp = new QuotationPage();
 		device.click(qp.orderButton);
 		Assertion.VerityTextPresentPrecision("现价定购", "是否进入定购页面");
+		mClickReturnButton();
+		Assertion.VerityTextPresentPrecision("行情", "已返回行情页面...");
 		mReturnHomePage();
 	}	
 }
