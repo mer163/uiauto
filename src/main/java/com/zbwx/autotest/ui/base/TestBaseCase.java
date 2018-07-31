@@ -6,6 +6,7 @@ import com.zbwx.autotest.ui.utils.Log;
 
 import atx.client.AtxClient;
 import atx.client.adb.AdbDevice;
+import atx.client.adb.ElementAttribs;
 import atx.client.adb.AdbDevice;
 import atx.client.adb.Position;
 
@@ -134,6 +135,26 @@ public class TestBaseCase {
 		
 	}
 	
+	/**
+	 * 等待打开APP
+	 */
+	public void mWaitOpenApp(){
+		position.waitForElement(ElementAttribs.TEXT, "客服", 10000);
+	}
+	
+	/**
+	 * 任意页面点击物理返回键，回到首页
+	 */
+	public void mReturnHomePage(){
+		do{
+			if(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/first_img", 2000)){
+				device.click(position.findElementById("com.ylmall.app.ui:id/first_img"));
+				break;
+			}else{
+				driver.press("back");
+			}
+		}while(!position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/tv_allproduct", 3000));
+	}
 	
 //	public static void main(String args[])
 //	{
