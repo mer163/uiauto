@@ -35,14 +35,6 @@
             <class name="com.zbwx.autotest.ui.TestQuotation">
                 <methods>
                     <include name="testOpenQuotation"/>
-                    <include name="testSwitchCommodity"/>
-                    <include name="testClickMessage"/>
-                    <include name="testK_lineSelectM5"/>
-                    <include name="testK_lineSelectM15"/>
-                    <include name="testK_lineSelectH1"/>
-                    <include name="testK_lineSelectD1"/>
-                    <include name="testK_lineSelectTimeshare"/>
-                    <include name="testClickOrder"/>
                 </methods>
             </class>
         </classes>
