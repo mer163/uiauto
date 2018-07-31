@@ -8,8 +8,8 @@
     <parameter name="apkName" value="ylmall.apk" />  <!--app包名字-->
     <parameter name="platformName" value="Android" /> <!--app运行平台:安卓，IOS-->
     <parameter name="deviceName" value="127.0.0.1:62001" /> <!--手机或者虚拟机设备名字-->
-    <parameter name="deviceIp" value="192.168.0.72" /> <!--手机设备ip-->
-    <parameter name="sdkVersion" value="5.5.1" /><!--安卓,IOS SDK版本-->
+    <parameter name="deviceIp" value="192.168.0.159" /> <!--手机设备ip-->
+    <parameter name="sdkVersion" value="5.1" /><!--安卓,IOS SDK版本-->
     <parameter name="appMainPackage" value="com.ylmall.app.ui" /><!--app主包名-->
     <parameter name="appActivity" value="'com.ylmall.app.activity.WelcomActivity" /> <!--app 主类名-->
     <parameter name="UserName" value="" /> <!-- 系统登录用户名-->
@@ -32,9 +32,17 @@
     
     <test name="登录测试">
         <classes>
-            <class name="com.zbwx.autotest.ui.LoginTest">
+            <class name="com.zbwx.autotest.ui.TestQuotation">
                 <methods>
-                    <include name="login"/>
+                    <include name="testOpenQuotation"/>
+                    <include name="testSwitchCommodity"/>
+                    <include name="testClickMessage"/>
+                    <include name="testK_lineSelectM5"/>
+                    <include name="testK_lineSelectM15"/>
+                    <include name="testK_lineSelectH1"/>
+                    <include name="testK_lineSelectD1"/>
+                    <include name="testK_lineSelectTimeshare"/>
+                    <include name="testClickOrder"/>
                 </methods>
             </class>
         </classes>

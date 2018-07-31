@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="deviceIp" value="192.168.0.72"/>
+  <parameter name="deviceIp" value="192.168.0.159"/>
   <parameter name="mailTitle" value="zbwx-自动化测试报告"/>
   <parameter name="UserName" value=""/>
   <parameter name="apkName" value="ylmall.apk"/>
   <parameter name="appName" value="商品交易"/>
-  <parameter name="smtpPort" value=""/>
+  <parameter name="smtpPort" value="465"/>
   <parameter name="reportTitle" value="zbwx-自动化测试报告"/>
   <parameter name="nodeURL" value="127.0.0.1:4723"/>
-  <parameter name="smtpPassWord" value=""/>
+  <parameter name="smtpPassWord" value="test123@zbwxkj.com"/>
   <parameter name="reportUrl" value=""/>
   <parameter name="deviceName" value="127.0.0.1:62001"/>
   <parameter name="appMainPackage" value="com.ylmall.app.ui"/>
   <parameter name="PassWord" value=""/>
   <parameter name="appActivity" value="&#039;com.ylmall.app.activity.WelcomActivity"/>
-  <parameter name="smtpHost" value=""/>
-  <parameter name="smtpUserName" value=""/>
-  <parameter name="recipients" value=""/>
+  <parameter name="smtpHost" value="smtp.mxhichina.com"/>
+  <parameter name="install" value="3"/>
+  <parameter name="smtpUserName" value="automail@zbwxkj.com"/>
+  <parameter name="recipients" value="zhicheng.ma@zbwxkj.com"/>
   <parameter name="driverName" value="AtxDriver"/>
-  <parameter name="sdkVersion" value="5.5.1"/>
+  <parameter name="sdkVersion" value="5.1"/>
+  <parameter name="sendmail" value="no"/>
   <parameter name="platformName" value="Android"/>
   <parameter name="logUrl" value=""/>
+  <listeners>
+    <listener class-name="com.zbwx.autotest.ui.utils.TestListener"/>
+    <listener class-name="com.zbwx.autotest.ui.utils.TestReport"/>
+  </listeners>
   <test name="登录测试(failed)">
     <classes>
-      <class name="com.zbwx.autotest.ui.LoginTest">
+      <class name="com.zbwx.autotest.ui.TestQuotation">
         <methods>
-          <include name="login"/>
-          <include name="beforeclass"/>
-          <include name="openResult"/>
+          <include name="beforeClass"/>
           <include name="setup"/>
+          <include name="testClickMessage"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.zbwx.autotest.ui.LoginTest -->
+      </class> <!-- com.zbwx.autotest.ui.TestQuotation -->
     </classes>
   </test> <!-- 登录测试(failed) -->
 </suite> <!-- Failed suite [Suite] -->

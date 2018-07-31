@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<passed>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testOpenQuotation">
+<span class="pass_span">验证返回键:failed</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testOpenQuotation">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114628630.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114628630.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114628630.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testSwitchCommodity">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114653225.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114653225.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114653225.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testSwitchCommodity">
+<span class="pass_span">成功切换商品后价格会有变动...:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testClickMessage">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114748989.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114748989.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114748989.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testClickMessage">
+<span class="pass_span">已进入消息中心页面...:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testClickMessage">
+<span class="pass_span">已返回行情页面...:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM5">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114818391.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114818391.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114818391.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM5">
+<span class="pass_span">切换成功:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM15">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114849942.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114849942.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114849942.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM15">
+<span class="pass_span">切换成功:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectH1">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114921256.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114921256.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114921256.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectH1">
+<span class="pass_span">切换成功:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectD1">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 114943353.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 114943353.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 114943353.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectD1">
+<span class="pass_span">切换成功:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectTimeshare">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 115007012.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 115007012.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 115007012.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectTimeshare">
+<span class="pass_span">切换成功:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectTimeshare">
+<span class="pass_span">切换成功:pass</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testClickOrder">
+<span class="pass_span">&lt;a class="clickbox" href="#url"&gt;
+&lt;img src="snapshot/2018-07-31 115043346.jpg" height="100" width="100" alt="" /&gt;
+&lt;b class="lightbox"&gt;
+&lt;b class="light"&gt;&lt;/b&gt;
+&lt;b class="box"&gt;
+&lt;img src="snapshot/2018-07-31 115043346.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;
+&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;/b&gt;
+&lt;/b&gt;
+&lt;/a&gt;
+&lt;br class="clear" /&gt;
+&lt;a class="clickbox" href="#url"&gt;点击查看大图&lt;b class="lightbox"&gt;&lt;b class="light"&gt;&lt;/b&gt;&lt;b class="box"&gt;&lt;img src="snapshot/2018-07-31 115043346.jpg" height="530" width="1024" onmousewheel="return bigimg(this)" alt="" /&gt;&lt;span&gt;滚动鼠标缩放大小,点击X关闭当前图片，返回报表界面.&lt;br /&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/b&gt;&lt;/b&gt; &lt;/a&gt;
+&lt;/br&gt;&lt;div id="close"&gt;&lt;/div&gt;
+</span></br>
+</pass_assert_info>
+<pass_assert_info   method="com.zbwx.autotest.ui.TestQuotation.testClickOrder">
+<span class="pass_span">是否进入定购页面:pass</span></br>
+</pass_assert_info>
+</passed>

@@ -99,9 +99,9 @@ $(this).parent().parent().find("div").hide();
 <div id="report_title">
 <div id="logo"><img src="logo1.png"></img></div>
 <div style="clear:both"><div id="time">
-<div style="pading-top:20px">开始时间：2018-06-26 16:26:03</div>
-<div>结束时间：2018-06-26 16:26:03 </div>
-<div>用&nbsp&nbsp&nbsp&nbsp时：8毫秒</div>
+<div style="pading-top:20px">开始时间：2018-07-31 11:44:46</div>
+<div>结束时间：2018-07-31 11:50:52 </div>
+<div>用&nbsp&nbsp&nbsp&nbsp时：6分5秒967毫秒</div>
 </div>
 </div>
 </div><div  id="header_right" >
@@ -120,11 +120,11 @@ $(this).parent().parent().find("div").hide();
 <td width="91" align="center"><div align="center">通过率</div></td>
 </tr>
  <tr>
-<td><div align="center"><button id="total_num">1</button></div></td>
-<td><div align="center"><button id="passed_num"value="0">0</button></div></td>
- <td><div align="center"><button id="failed_num"value="1">1</button></div></td>
+<td><div align="center"><button id="total_num">9</button></div></td>
+<td><div align="center"><button id="passed_num"value="9">9</button></div></td>
+ <td><div align="center"><button id="failed_num"value="0">0</button></div></td>
 <td><div align="center"><button id="skiped_num"value="0">0</button></div></td>
-<td><div align="center">0.00%</div></td>
+<td><div align="center">100.00%</div></td>
 </tr>
 </table>
 <script type="text/javascript">
@@ -158,15 +158,111 @@ var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pi
 <td width="10%" class="case_time">耗时</td>
 </tr>
 
-<tr id="com.zbwx.autotest.ui.LoginTest.login">
+<tr id="com.zbwx.autotest.ui.TestQuotation.testOpenQuotation">
 <td class="SEQ">1</td><td class="case_funtcion_td">登录测试</td>
-<td class="case_name_td">登录测试</td>
- <td class="case_result_td"><button class="failed_button" id="fullresult_login">f</button><br />
+<td class="case_name_td">进入行情页面</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testOpenQuotation">p</button><br />
 </td>
-<td  class="case_result_info_td"><span class="full_info" id="fullresult_login_info" style="display:none" >检查点：<br />
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testOpenQuotation_info" style="display:none" >检查点：<br />
 </span><div class="full_info_div"></div></td>
 <td class="case_result_beizhu_td">输入数据：无</td>
-<td class="case_time_td">8毫秒</td>
+<td class="case_time_td">1分46秒277毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testSwitchCommodity">
+<td class="SEQ">2</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面切换商品</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testSwitchCommodity">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testSwitchCommodity_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">52秒539毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testClickMessage">
+<td class="SEQ">3</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面点击消息按钮</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testClickMessage">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testClickMessage_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">35秒131毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM5">
+<td class="SEQ">4</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择M5</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testK_lineSelectM5">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testK_lineSelectM5_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">28秒324毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM15">
+<td class="SEQ">5</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择M15</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testK_lineSelectM15">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testK_lineSelectM15_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">32秒656毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectH1">
+<td class="SEQ">6</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择H1</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testK_lineSelectH1">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testK_lineSelectH1_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">29秒397毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectD1">
+<td class="SEQ">7</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择D1</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testK_lineSelectD1">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testK_lineSelectD1_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">21秒609毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectTimeshare">
+<td class="SEQ">8</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择‘分时线’</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testK_lineSelectTimeshare">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testK_lineSelectTimeshare_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">26秒282毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testClickOrder">
+<td class="SEQ">9</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面点击定购按钮</td>
+ <td class="case_result_td"><button class="passed_button" id="fullresult_testClickOrder">p</button><br />
+</td>
+<td  class="case_result_info_td"><span class="full_info" id="fullresult_testClickOrder_info" style="display:none" >检查点：<br />
+</span><div class="full_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">33秒713毫秒</td>
 <td colspan="3" style="display:none"></td>
 </tr>
 
@@ -198,6 +294,114 @@ var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pi
 <td width="10%" class="case_time">耗时</td>
 <tr>
 
+<tr id="com.zbwx.autotest.ui.TestQuotation.testOpenQuotation">
+<td class="SEQ">1</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">进入行情页面</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testOpenQuotation">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testOpenQuotation_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">1分46秒277毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testSwitchCommodity">
+<td class="SEQ">2</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面切换商品</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testSwitchCommodity">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testSwitchCommodity_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">52秒539毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testClickMessage">
+<td class="SEQ">3</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面点击消息按钮</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testClickMessage">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testClickMessage_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">35秒131毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM5">
+<td class="SEQ">4</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择M5</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testK_lineSelectM5">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testK_lineSelectM5_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">28秒324毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectM15">
+<td class="SEQ">5</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择M15</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testK_lineSelectM15">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testK_lineSelectM15_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">32秒656毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectH1">
+<td class="SEQ">6</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择H1</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testK_lineSelectH1">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testK_lineSelectH1_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">29秒397毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectD1">
+<td class="SEQ">7</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择D1</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testK_lineSelectD1">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testK_lineSelectD1_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">21秒609毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testK_lineSelectTimeshare">
+<td class="SEQ">8</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面K线选择‘分时线’</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testK_lineSelectTimeshare">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testK_lineSelectTimeshare_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">26秒282毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
+<tr id="com.zbwx.autotest.ui.TestQuotation.testClickOrder">
+<td class="SEQ">9</td><td class="case_funtcion_td">登录测试</td>
+<td class="case_name_td">行情页面点击定购按钮</td>
+ <td class="case_result_td"><button class="passed_button" id="passedresult_testClickOrder">p</button><br /></td>
+<td  class="case_result_info_td"><span class="passed_info" id="passedresult_testClickOrder_info" style="display:none" >检查点：<br />
+</span>
+<div class="passed_info_div"></div></td>
+<td class="case_result_beizhu_td">输入数据：无</td>
+<td class="case_time_td">33秒713毫秒</td>
+<td colspan="3" style="display:none"></td>
+</tr>
+
 </table>
 <table  id="failed">
 <tr>
@@ -209,17 +413,6 @@ var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pi
 <td width="43%" colspan=2 align="left">测试结果</td>
 <td width="20%" class="case_result_beizhu_td">备注</td>
 <td width="10%" class="case_time">耗时</td>
-</tr>
-
-<tr id="com.zbwx.autotest.ui.LoginTest.login">
-<td class="SEQ">1</td><td class="case_funtcion_td">登录测试</td>
-<td class="case_name_td">登录测试</td>
- <td class="case_result_td" ><button class="failed_button" id="failedresult_login">f</button><br /></td>
-<td  class="case_result_info_td"><span class="failed_info" id="failedresult_login_info" style="display:none" >检查点：<br />
-</span><div class="failed_info_div"></div></td>
-<td class="case_result_beizhu_td">输入数据：无</td>
-<td class="case_time_td">8毫秒</td>
-<td colspan="3" style="display:none"></td>
 </tr>
 </table>
 </div>
