@@ -4,7 +4,6 @@ import com.zbwx.autotest.ui.base.TestBaseCase;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import atx.client.adb.ElementAdb;
-import atx.client.adb.ElementAttribs;
 
 public class QuotationPage extends TestBaseCase {
 	public ElementAdb returnButton;//返回按钮
