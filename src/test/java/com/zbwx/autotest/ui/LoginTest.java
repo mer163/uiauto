@@ -41,7 +41,7 @@ public class LoginTest extends TestBaseCase{
     		Thread.sleep(3000);
 //    		driver.elementByName("我的").click();
     		HomePage homepage = new HomePage();
-    		homepage.my.click();
+    		//homepage.my.click();
     		homepage.login();
     		
 //    		if(position.waitForElement(ElementAttribs.TEXT,"粉丝：-- --",3000)) {
