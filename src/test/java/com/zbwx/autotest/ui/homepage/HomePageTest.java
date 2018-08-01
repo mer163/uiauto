@@ -19,10 +19,15 @@ import com.zbwx.autotest.ui.base.TestBaseCase;
 import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.pageobject.QuotationPage;
 import com.zbwx.autotest.ui.utils.Assertion;
-
+/**
+ * 
+ * @author zbwx
+ * @date 2018年8月1日
+ * 首页测试
+ */
 public class HomePageTest extends TestBaseCase{
     
-//	public static HomePage mHomePage = new HomePage();
+
 	
 	@BeforeClass
 	public void beforeclass() throws Exception{
@@ -85,14 +90,6 @@ public class HomePageTest extends TestBaseCase{
 	@Test(description = "首页盈利播报")
 	public void testHomePageMoreylName()  throws Exception{
 		Thread.sleep(3000);
-		/*ElementAdb mBBaoOne =position.findElementByText("恭喜****4419果礼镍0.08吨盈利+511.28");
-		Thread.sleep(3000);
-		ElementAdb mBBaoTwo = position.findElementByText("恭喜****2998祖玛香水盈利+7.30");
-		if (mBBaoOne!=mBBaoTwo) {
-			Thread.sleep(3000);
-			device.click(mHomePage.tv_homeMoreylName);
-		}*/
-		
 		ArrayList<ElementAdb> buoBao0 = position.findElementsByText("恭喜****4419果礼镍0.08吨盈利+511.28");
 		Thread.sleep(3000);
 		ArrayList<ElementAdb> buoBao1 = position.findElementsByText("恭喜****2998祖玛香水盈利+7.30");
