@@ -162,8 +162,10 @@ public class TestBaseCase {
 	public void mClickReturnButton(){
 		if(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/baseweb_back", 3000)){
 			device.click(position.findElementById("com.ylmall.app.ui:id/baseweb_back"));
-		}else {
+		}else if (position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/leftBtn", 3000)) {
 			device.click(position.findElementById("com.ylmall.app.ui:id/leftBtn"));
+		}else if (position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/leftBtn_mykaquan", 3000)) {
+			device.click(position.findElementById("com.ylmall.app.ui:id/leftBtn_mykaquan"));
 		}
 	}
 //	public static void main(String args[])
