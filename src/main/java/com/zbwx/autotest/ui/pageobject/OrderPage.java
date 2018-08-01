@@ -19,7 +19,12 @@ public class OrderPage extends TestBaseCase {
 	public ElementAdb k_D1;//D1
 	public ElementAdb orderButton;//定购按钮
 	public ElementAdb rechargeButton;//充值按钮
-	public ElementAdb myOorder;//我的订单按钮
+	public ElementAdb myOrder;//我的订单按钮
+	public ElementAdb type_10;//10KG
+	public ElementAdb type_80;//80KG
+	public ElementAdb type_400;//400KG
+	public ElementAdb presentPriceOrder;//现价定购
+	public ElementAdb settlementPriceOrder;//结算价定购
 	
 	public OrderPage(){
 		initElementsOP();
@@ -39,7 +44,13 @@ public class OrderPage extends TestBaseCase {
 			this.k_D1 = position.findElementById("com.ylmall.app.ui:id/newcfd_line_day");
 			this.orderButton = position.findElementById("com.ylmall.app.ui:id/newcfd_fragdeal_xiadan");
 			this.rechargeButton = position.findElementById("com.ylmall.app.ui:id/order_chongzhi");
-			this.myOorder = position.findElementById("com.ylmall.app.ui:id/order_dingzhi");
+			this.myOrder = position.findElementById("com.ylmall.app.ui:id/order_dingzhi");
+			this.type_10 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup1");
+			this.type_10 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup2");
+			this.type_10 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup3");
+			this.presentPriceOrder = position.findElementById("com.ylmall.app.ui:id/below_order_buyup");
+			this.settlementPriceOrder = position.findElementById("com.ylmall.app.ui:id/below_order_tobuy");
+			
 		}catch(Exception e){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
