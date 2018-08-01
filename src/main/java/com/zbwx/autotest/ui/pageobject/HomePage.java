@@ -204,32 +204,32 @@ public class HomePage extends TestBaseCase{
 		device.click(ll_homeShow1);//新品上架
 		Thread.sleep(3000);
 		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
-			driver.press("BACK");			
+			mReturn();			
 		}
 		Thread.sleep(3000);
 		device.click(ll_homeShow2);
 		Thread.sleep(3000);
 		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
-			driver.press("BACK");			
+			mReturn();			
 		}
 		Thread.sleep(3000);
 		device.click(ll_homeShow3);
 		Thread.sleep(3000);
 		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
-			driver.press("BACK");			
+			mReturn();			
 		}
 		Thread.sleep(3000);
 		//发现好货
 		device.click(img_homeFind1);
 		Thread.sleep(3000);
 		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
-			driver.press("BACK");			
+			mReturn();			
 		}
 		Thread.sleep(3000);
 		device.click(img_homeFind2);
 		Thread.sleep(3000);
 		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
-			driver.press("BACK");			
+			mReturn();			
 		}
 	}
 
