@@ -1,8 +1,5 @@
 package com.zbwx.autotest.ui;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -128,8 +125,47 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.myOorder);
+		device.click(o.myOrder);
 		Assertion.VerityTextPresentPrecision("我的订单", "跳转我的订单页面...");
+		mClickReturnButton();
+		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
+		mReturnHomePage();
+	}
+	
+	@Test(description = "定购页面选择商品种类")
+	public void testSelectType() throws Exception{
+		OrderPage order = new OrderPage();
+		order.mOpenOrderPage();
+		OrderPage o = new OrderPage();
+		Assertion.VerityTextPresentPrecision("果礼镍0.01吨", "默认选择10KG...");
+		device.click(o.type_80);
+		Assertion.VerityTextPresentPrecision("果礼镍0.08吨", "选择80KG...");
+		device.click(o.type_400);
+		Assertion.VerityTextPresentPrecision("果礼镍0.4吨", "选择400KG...");
+		device.click(o.type_10);
+		Assertion.VerityTextPresentPrecision("果礼镍0.01吨", "选择10KG...");
+		mReturnHomePage();
+	}
+	
+	@Test(description = "点击现价购买按钮")
+	public void testPresentPriceOrder() throws Exception{
+		OrderPage order = new OrderPage();
+		order.mOpenOrderPage();
+		OrderPage o = new OrderPage();
+		device.click(o.presentPriceOrder);
+		Assertion.VerityTextPresentPrecision("下单", "是否进入下单页面");
+		mClickReturnButton();
+		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
+		mReturnHomePage();
+	}
+	
+	@Test(description = "点击结算价购买按钮")
+	public void testSettlementPriceOrder() throws Exception{
+		OrderPage order = new OrderPage();
+		order.mOpenOrderPage();
+		OrderPage o = new OrderPage();
+		device.click(o.settlementPriceOrder);
+		Assertion.VerityTextPresentPrecision("下单", "是否进入下单页面");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
 		mReturnHomePage();
