@@ -43,7 +43,7 @@ public class HomePage extends TestBaseCase{
 	
 	public static  ElementAdb ll_homeBuyZhiNan;
 	public static  ElementAdb ll_homeStoreInfo;
-	public static ElementAdb ll_homeGongGao;
+	public static  ElementAdb ll_homeGongGao;
 	
 	public HomePage() {
 		initElements();
@@ -134,12 +134,141 @@ public class HomePage extends TestBaseCase{
 //		Assertion.VerityTextPresentPrecision("热门商品", "当前处在首页");
 		
 		Thread.sleep(3000);
-		if (driver.waitForElement(AttributeMask.TEXT, "搜索") != null) {
+		if (position.waitForElement(ElementAttribs.TEXT, "搜索", 3000)) {
 			ElementAdb mSearchBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/img_left");
 			device.click(mSearchBack);
 		}
 	}
+	public void hotCommodity() throws Exception{
+		
+		device.click(tv_homeAllProduct);
+		if (position.waitForElement(ElementAttribs.TEXT,"商品列表", 3000)) {
+			ElementAdb mAllProductBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mAllProductBack);
+		}		
+		Thread.sleep(3000);
+	
+		device.click(tv_homeNie);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"定购", 3000)) {
+			ElementAdb mNieBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mNieBack);
+		}		
+		Thread.sleep(3000);
+		
+	    device.click(tv_homeTong);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"定购", 3000)) {
+			ElementAdb mTongBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mTongBack);
+		}
+		Thread.sleep(3000);
+		
+		device.click(tv_homeYin);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"定购", 3000)) {
+			ElementAdb mYinBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mYinBack);
+		}		
+		Thread.sleep(3000);
+		
+		device.click(tv_homeJapan);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"定购", 3000)) {
+			ElementAdb mJapanBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mJapanBack);
+		}		
+		Thread.sleep(3000);
+		
+		device.click(tv_homeEngland);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"定购", 3000)) {
+			ElementAdb mEnglandBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mEnglandBack);
+		}		
+		Thread.sleep(3000);
+		
 
+		position.waitForElement(ElementAttribs.TEXT, "热门商品", 3000);
+		device.click(tv_homeEurope);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"定购", 3000)) {
+			ElementAdb mEuropeBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mEuropeBack);
+		}
+	}
 
+	public void mallSeclect() throws Exception{
+		
+		position.waitForElement(ElementAttribs.TEXT, "客服", 3000);
+		device.click(ll_homeShow1);//新品上架
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
+			driver.press("BACK");			
+		}
+		Thread.sleep(3000);
+		device.click(ll_homeShow2);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
+			driver.press("BACK");			
+		}
+		Thread.sleep(3000);
+		device.click(ll_homeShow3);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
+			driver.press("BACK");			
+		}
+		Thread.sleep(3000);
+		//发现好货
+		device.click(img_homeFind1);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
+			driver.press("BACK");			
+		}
+		Thread.sleep(3000);
+		device.click(img_homeFind2);
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.RESOURCE_ID, TestBaseCase.mAppMainPackage+":id/baseweb_webview", 3000)) {
+			driver.press("BACK");			
+		}
+	}
+
+	public void mallSeclectMethod() {
+		
+	}
+	public void forYouTuiJian()throws Exception{
+		
+		device.click(ll_homeBuyZhiNan);//购买指南
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"特朗普乱挥贸易大棒致全球市场闪崩，黄金日元意外迎来第二春",3000)) {
+			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/zixun_item_title"));
+		}
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"资讯",3000)) {
+			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
+		}
+		Thread.sleep(3000);
+		
+		device.click(ll_homeStoreInfo);//商城情报
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"7月27日-汇市日报",3000)) {
+			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/zixun_item_context"));
+		}
+		Thread.sleep(3000);
+		if (position.findElementByText("资讯") != null) {
+			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
+		}
+		
+		device.click(ll_homeGongGao);//公告
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"今日最新中国银行汇率",3000)) {
+			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/zixun_item_context"));
+		}
+		Thread.sleep(3000);
+		if (position.waitForElement(ElementAttribs.TEXT,"资讯",3000)) {
+			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
+		}
+		
+	}
 	
 }
