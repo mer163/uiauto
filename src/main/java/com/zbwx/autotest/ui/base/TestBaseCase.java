@@ -166,6 +166,15 @@ public class TestBaseCase {
 			device.click(position.findElementById("com.ylmall.app.ui:id/leftBtn"));
 		}
 	}
+	/**
+	 * 返回上一个页面
+	 */
+	public void mReturn(){
+
+		driver.press("back");
+
+	}
+	
 //	public static void main(String args[])
 //	{
 ////		WebDriver driver2=new FirefoxDriver();
