@@ -114,7 +114,7 @@ public class TestOrder extends TestBaseCase {
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
 		device.click(o.rechargeButton);
-		Assertion.VerityTextPresentPrecision("充值", "跳转充值页面...");
+		Assertion.VerityTextPresentPrecision("充值查询", "跳转充值页面...");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
 		mReturnHomePage();		
