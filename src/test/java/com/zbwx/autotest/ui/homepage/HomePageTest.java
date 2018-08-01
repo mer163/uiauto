@@ -2,10 +2,11 @@ package com.zbwx.autotest.ui.homepage;
 
 
 
+import java.util.ArrayList;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.testng.annotations.Test;
-
 
 import atx.client.adb.AdbDevice;
 import atx.client.adb.ElementAdb;
@@ -16,11 +17,12 @@ import atx.client.enums.AttributeMask;
 
 import com.zbwx.autotest.ui.base.TestBaseCase;
 import com.zbwx.autotest.ui.pageobject.HomePage;
+import com.zbwx.autotest.ui.pageobject.QuotationPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 public class HomePageTest extends TestBaseCase{
     
-	public static HomePage mHomePage = new HomePage();
+//	public static HomePage mHomePage = new HomePage();
 	
 	@BeforeClass
 	public void beforeclass() throws Exception{
@@ -33,13 +35,14 @@ public class HomePageTest extends TestBaseCase{
 		HomePage mHomePage1 = new HomePage();
 		Thread.sleep(3000);
 		Assertion.VerityTextPresentPrecision("热门商品", "当前处在首页");
-		device.click(mHomePage1.img_homeService);
+		HomePage mHomePage2 = new HomePage();
+		device.click(mHomePage2.img_homeService);
 		
 		Thread.sleep(3000);
 		
 		if (position.waitForElement(ElementAttribs.TEXT, "交易规则",3000)) {
-//			ElementAdb mServiceBack = position.findElementById("com.ylmall.app.ui:id/leftBtn");
-			device.click(mHomePage1.mBack);
+			ElementAdb mServiceBack = position.findElementById("com.ylmall.app.ui:id/leftBtn");
+			device.click(mServiceBack);
 			
 		}
 	
@@ -55,23 +58,23 @@ public class HomePageTest extends TestBaseCase{
 	}
 	@Test(description = "点击消息")
 	public void testHomePageMessage()  throws Exception{
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		HomePage mHomePage3 = new HomePage();
 		device.click(mHomePage3.img_homeMessage);
 		Thread.sleep(3000);
 		if (position.findElementByText("公告提醒") != null) {
-//			ElementAdb mMessageBack =position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mHomePage3.mBack);
+			ElementAdb mMessageBack =position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mMessageBack);
 		}
 	}
 	@Test(description = "首页轮播")
 	public void testHomePageViewPager()  throws Exception{
 		Thread.sleep(3000);
-		HomePage mHomePage3 = new HomePage();
+		HomePage mHomePage4 = new HomePage();
 		for (int i = 0; i < 3; i++) {
 			Thread.sleep(3000);
 			if (position.findElementByText("热门商品") != null) {
-				device.click(mHomePage3.vp_homeCbLoopViewPager);
+				device.click(mHomePage4.vp_homeCbLoopViewPager);
 				Thread.sleep(3000);
 				
 			}
@@ -89,15 +92,20 @@ public class HomePageTest extends TestBaseCase{
 			Thread.sleep(3000);
 			device.click(mHomePage.tv_homeMoreylName);
 		}*/
+		
+		ArrayList<ElementAdb> buoBao0 = position.findElementsByText("恭喜****4419果礼镍0.08吨盈利+511.28");
+		Thread.sleep(3000);
+		ArrayList<ElementAdb> buoBao1 = position.findElementsByText("恭喜****2998祖玛香水盈利+7.30");
+		Assertion.VerityBoolean(buoBao0.equals(buoBao1), false, "播报切换成功");
+		
 		HomePage mHomePage3 = new HomePage();
-		if (position.waitForElement(ElementAttribs.TEXT, "热门商品", 3000)) {
-			
+		if (position.waitForElement(ElementAttribs.TEXT, "热门商品", 3000)) {			
 			device.click(mHomePage3.tv_homeMoreylName);
 		}
 		Thread.sleep(3000);
 		if (position.waitForElement(ElementAttribs.TEXT, "排名", 3000)) {
-//			ElementAdb mMoreylBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mHomePage3.mBack);
+			ElementAdb mMoreylBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
+			device.click(mMoreylBack);
 		}
 	}
 	
@@ -105,65 +113,9 @@ public class HomePageTest extends TestBaseCase{
 	public void testHomeHotCommodity()  throws Exception{
 		Thread.sleep(3000);
 		HomePage mHomePage3 = new HomePage();
+		mHomePage3.hotCommodity();
+		Assertion.VerityTextPresentPrecision("热门商品", "已返回首页");
 		
-		device.click(mHomePage3.tv_homeAllProduct);
-		Thread.sleep(3000);
-		if (position.findElementByText ("商品列表") != null) {
-			ElementAdb mAllProductBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mAllProductBack);
-		}
-		
-		Thread.sleep(3000);
-	
-		device.click(mHomePage3.tv_homeNie);
-		Thread.sleep(3000);
-		if (position.findElementByText("定购") != null) {
-			ElementAdb mNieBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mNieBack);
-		}
-		
-		Thread.sleep(3000);
-	    device.click(mHomePage3.tv_homeTong);
-		Thread.sleep(3000);
-		if (position.findElementByText("定购") != null) {
-			ElementAdb mTongBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mTongBack);
-		}
-		
-		Thread.sleep(3000);
-		device.click(mHomePage3.tv_homeYin);
-		Thread.sleep(3000);
-		if (position.findElementByText("定购") != null) {
-			ElementAdb mYinBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mYinBack);
-		}
-		
-		Thread.sleep(3000);
-		
-		device.click(mHomePage3.tv_homeJapan);
-		Thread.sleep(3000);
-		if (position.findElementByText("定购") != null) {
-			ElementAdb mJapanBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mJapanBack);
-		}
-		
-		Thread.sleep(3000);
-		
-		device.click(mHomePage3.tv_homeEngland);
-		Thread.sleep(3000);
-		if (position.findElementByText("定购") != null) {
-			ElementAdb mEnglandBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mEnglandBack);
-		}
-		
-		Thread.sleep(3000);
-		
-		device.click(mHomePage3.tv_homeEurope);
-		Thread.sleep(3000);
-		if (position.findElementByText("定购") != null) {
-			ElementAdb mEuropeBack =  position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mEuropeBack);
-		}
 	}
 	
 	@Test(description = "商城精选")
@@ -171,8 +123,8 @@ public class HomePageTest extends TestBaseCase{
 		//新品上架
 		Thread.sleep(3000);
 		HomePage mHomePage3 = new HomePage();
-		device.click(mHomePage3.ll_homeShow1);
-		Thread.sleep(3000);
+		mHomePage3.mallSeclect();
+		Assertion.VerityTextPresentPrecision("热门商品", "已返回首页");
 		
 	}
    
@@ -181,40 +133,8 @@ public class HomePageTest extends TestBaseCase{
 		
 		Thread.sleep(3000);
 		HomePage mHomePage3 = new HomePage();
-		device.click(mHomePage3.ll_homeBuyZhiNan);//购买指南
-		
-		Thread.sleep(3000);
-		if (position.findElementByText( "特朗普乱挥贸易大棒致全球市场闪崩，黄金日元意外迎来第二春") != null) {
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/zixun_item_title"));
-		}
-		Thread.sleep(3000);
-		if (position.findElementByText("资讯") != null) {
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
-		}
-		Thread.sleep(3000);
-		
-		device.click(mHomePage3.ll_homeStoreInfo);//商城情报
-		
-		Thread.sleep(3000);
-		if (position.findElementByText("7月27日-汇市日报") != null) {
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/zixun_item_context"));
-		}
-		Thread.sleep(3000);
-		if (position.findElementByText("资讯") != null) {
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
-		}
-		
-		device.click(mHomePage3.ll_homeGongGao);//公告
-		
-		Thread.sleep(3000);
-		if (position.findElementByText("今日最新中国银行汇率") != null) {
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/zixun_item_context"));
-		}
-		Thread.sleep(3000);
-		if (position.findElementByText("资讯") != null) {
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
-		}
-		
+		mHomePage3.forYouTuiJian();
+		Assertion.VerityTextPresentPrecision("首页", "已返回首页");
 	}
 	
 	@AfterClass
