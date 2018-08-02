@@ -258,7 +258,7 @@ public class Assertion extends TestBaseCase {
 //			if (driver.findElements(By.xpath(exceptStr)).size()>0) {
 //				flag=true;
 //			}
-			if (driver.elementByName(exceptStr) ==null) {
+			if (driver.findElementByName(exceptStr) ==null) {
 				flag=false;
 			}
 			
@@ -312,7 +312,7 @@ public class Assertion extends TestBaseCase {
 //			else {
 //				flag=false;
 //			}
-			if (driver.elementByName(exceptStr) ==null) {
+			if (driver.findElementByName(exceptStr) ==null) {
 				flag=false;
 			}
 			
@@ -362,7 +362,7 @@ public class Assertion extends TestBaseCase {
 //			// TODO: handle exception
 //			flag=true;
 //		}
-		if (driver.elementByName(exceptStr) ==null) {
+		if (driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
@@ -409,7 +409,7 @@ public class Assertion extends TestBaseCase {
 //			flag=true;
 //			System.out.println(flag);
 //		}
-		if (driver.elementByName(exceptStr) ==null) {
+		if (driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
@@ -460,7 +460,7 @@ public class Assertion extends TestBaseCase {
 //			e.printStackTrace();
 //			///AssertFailedLog();
 //		}
-		if (driver.elementByName(exceptStr) ==null) {
+		if (driver.findElementByName(exceptStr) ==null) {
 			flag=false;
 		}
 		
@@ -506,7 +506,7 @@ public class Assertion extends TestBaseCase {
 //			// TODO: handle exception
 //			flag=false;
 //		}
-		if (driver.elementByName(exceptStr) ==null) {
+		if (driver.findElementByName(exceptStr) ==null) {
 			flag=false;
 		}
 		
@@ -558,7 +558,7 @@ public class Assertion extends TestBaseCase {
 //			e.printStackTrace();
 //			///AssertFailedLog();
 //		}
-		if (driver.elementByName(exceptStr) ==null) {
+		if (driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
@@ -604,7 +604,7 @@ public class Assertion extends TestBaseCase {
 //			// TODO: handle exception
 //			flag=true;
 //		}
-		if (driver.elementByName(exceptStr) ==null) {
+		if (driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
