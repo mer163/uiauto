@@ -3,11 +3,12 @@ package com.zbwx.autotest.ui.pageobject.homeobject;
 import atx.client.adb.ElementAdb;
 import atx.client.adb.ElementAttribs;
 import atx.client.common.ElementObj;
+import atx.client.model.AndroidElement;
 
 import com.zbwx.autotest.ui.base.TestBaseCase;
 
 public class HomePageSearch extends TestBaseCase{
-	public ElementObj btn_homeSearch;
+	public AndroidElement btn_homeSearch;
 
 	public ElementAdb et_search;
 	public ElementAdb img_right;
@@ -19,7 +20,7 @@ public class HomePageSearch extends TestBaseCase{
 	public void initElement() {
 		
 		try {
-			this.btn_homeSearch=driver.elementById(TestBaseCase.mAppMainPackage+":id/tv_search");//首页搜索
+			this.btn_homeSearch=driver.findElementById(TestBaseCase.mAppMainPackage+":id/tv_search");//首页搜索
 			this.et_search=position.findElementById(TestBaseCase.mAppMainPackage+":id/et_search");//点击输入框
 			this.img_right=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_right");//点击搜索
 			this.img_left=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_left");//点击返回
