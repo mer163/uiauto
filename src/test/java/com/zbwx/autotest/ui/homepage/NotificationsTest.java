@@ -35,30 +35,36 @@ public class NotificationsTest extends TestBaseCase{
 		if (position.waitForElement(ElementAttribs.RESOURCE_ID,TestBaseCase.mAppMainPackage+":id/item_message_time",3000)) {
 			device.click(mHomePageNotifications2.mMessageBack);
 		}
-		
+		mReturnHomePage();
 	}
 	
 	@Test(description = "消息中心提现提醒")
 	public void testNotificationsTX() throws Exception{
 		HomePageNotifications mHomePageNotifications = new HomePageNotifications();
-		mHomePageNotifications.newCentre();
+		mHomePageNotifications.newClick();
+		HomePageNotifications mHomePageNotifications1 = new HomePageNotifications();
+		mHomePageNotifications1.newCentre();
 		HomePageNotifications mHomePageNotifications2 = new HomePageNotifications();
 		device.click(mHomePageNotifications2.mTixianContainer);
 		Thread.sleep(3000);
 		Assertion.VerityTextPresentPrecision("充值提现提醒", "进入充值提现提醒页面");
 		HomePageNotifications mHomePageNotifications3 = new HomePageNotifications();
 		device.click(mHomePageNotifications3.mMessageBack);
+		mReturnHomePage();
 	}
 	@Test(description = "消息中心成交提醒")
 	public void testNotificationsCJ() throws Exception{
 		HomePageNotifications mHomePageNotifications = new HomePageNotifications();
-		mHomePageNotifications.newCentre();
+		mHomePageNotifications.newClick();
+		HomePageNotifications mHomePageNotifications3 = new HomePageNotifications();
+		mHomePageNotifications3.newCentre();
 		HomePageNotifications mHomePageNotifications1 = new HomePageNotifications();
 		device.click(mHomePageNotifications1.mDealContainer);
 		Assertion.VerityTextPresentPrecision("成交提醒", "进入成交提醒页面");
 		Thread.sleep(3000);
 		HomePageNotifications mHomePageNotifications2 = new HomePageNotifications();
 		device.click(mHomePageNotifications2.mMessageBack);
+		mReturnHomePage();
 	}
 	@AfterClass
 	public void afterClassResult() {
