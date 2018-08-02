@@ -60,7 +60,7 @@ public class Ylmall extends TestBaseCase{
 	public void mFirstStartApp(int time) throws Exception{
 		//首次启动时权限确定	
 		while (position.waitForElement(ElementAttribs.TEXT, "允许", time)) {
-			driver.elementByName("允许").click();
+			driver.findElementByName("允许").click();
 		}
 		//跳过引导图
 		while (position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylaijiaoyi.app.ui:id/viewPager", 2000)) {
@@ -89,19 +89,19 @@ public class Ylmall extends TestBaseCase{
 		mAssert("3秒内未找到页面切换栏...", position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylaijiaoyi.app.ui:id/linearLayout", 3000));
 		switch (PageName) {
 		case "首页":
-			driver.elementById("com.ylaijiaoyi.app.ui:id/first_img").click();
+			driver.findElementById("com.ylaijiaoyi.app.ui:id/first_img").click();
 			break;
 		case "商城":
-			driver.elementById("com.ylaijiaoyi.app.ui:id/mall_img").click();
+			driver.findElementById("com.ylaijiaoyi.app.ui:id/mall_img").click();
 			break;
 		case "定购":
-			driver.elementById("com.ylaijiaoyi.app.ui:id/deal_img").click();
+			driver.findElementById("com.ylaijiaoyi.app.ui:id/deal_img").click();
 			break;
 		case "发现":
-			driver.elementById("com.ylaijiaoyi.app.ui:id/quanzi_img").click();
+			driver.findElementById("com.ylaijiaoyi.app.ui:id/quanzi_img").click();
 			break;
 		case "我的":
-			driver.elementById("com.ylaijiaoyi.app.ui:id/my_img").click();
+			driver.findElementById("com.ylaijiaoyi.app.ui:id/my_img").click();
 			break;
 		default:
 			mAssert("输入错误,只可输入：首页/商城/定购/发现/我的", false);
@@ -158,7 +158,7 @@ public class Ylmall extends TestBaseCase{
 	 */
 	public void mClickId(String id,int time) throws Exception{
 		mAssert(time+"毫秒未找到:"+id, mCheckId(id, time));
-		driver.elementById(id).click();
+		driver.findElementById(id).click();
 		mLogPrint("已点击:"+id);
 	}
 	
@@ -170,13 +170,13 @@ public class Ylmall extends TestBaseCase{
 	 */
 	public void mClickText(String text,int time) throws Exception{
 		mAssert(time+"毫秒内未找到:"+text, mCheckText(text, time));
-		driver.elementByName(text).click();
+		driver.findElementByName(text).click();
 		mLogPrint("已点击:"+text);
 	}
 	
 	public void mClickDesc(String desc,int time) throws Exception{
 		mAssert(time+"毫秒未找到:"+desc, mCheckDesc(desc, time));
-		driver.elementByDesc(desc).click();
+		driver.findElementByDesc(desc).click();
 		mLogPrint("已点击:"+desc);
 	}
 	

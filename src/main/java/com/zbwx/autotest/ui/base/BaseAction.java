@@ -11,6 +11,7 @@ import com.zbwx.autotest.ui.utils.YamlReadUtil;
 import com.zbwx.autotest.ui.utils.Locator.ByType;
 
 import atx.client.common.ElementObj;
+import atx.client.model.AndroidElement;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -213,19 +214,19 @@ public class BaseAction extends TestBaseCase{
 	 * @throws Exception 
 	 * @throws NoSuchElementException
 	 */
-	public ElementObj getElement(Locator locator) throws Exception
+	public AndroidElement getElement(Locator locator) throws Exception
 	{
 		/**
 		 * locator.getElement(),获取对象库对象定位信息
 		 */
 		//locator=getLocator(locatorMap.get(key));
 //		WebElement webElement;
-		ElementObj webElement;
+		AndroidElement webElement;
 		switch (locator.getType())
 		{
 			case xpath :
 				//log.info("find element By xpath");
-				webElement=driver.elementByXpath(locator.getElement());
+				webElement=driver.findElementByXpath(locator.getElement());
 //				webElement=driver.findElement(By.xpath(locator.getElement()));
 				
 				/**
@@ -235,7 +236,7 @@ public class BaseAction extends TestBaseCase{
 			case id:
 				//log.info("find element By xpath");
 //				webElement=driver.findElement(By.id(locator.getElement()));
-				webElement=driver.elementById(locator.getElement());
+				webElement=driver.findElementById(locator.getElement());
 				break;
 //			case cssSelector:
 //				//log.info("find element By cssSelector");
@@ -245,11 +246,11 @@ public class BaseAction extends TestBaseCase{
 			case name:
 				//log.info("find element By name");
 //				webElement=driver.findElement(By.name(locator.getElement()));
-				webElement=driver.elementByName(locator.getElement());
+				webElement=driver.findElementByName(locator.getElement());
 				break;
 			case className:
 				//log.info("find element By className");
-				webElement = driver.elementByClass(locator.getElement());
+				webElement = driver.findElementByClass(locator.getElement());
 //				webElement=driver.findElement(By.className(locator.getElement()));
 				break;
 //			case linkText:
@@ -267,7 +268,7 @@ public class BaseAction extends TestBaseCase{
 			default :
 				//log.info("find element By xpath");
 //				webElement=driver.findElement(By.xpath(locator.getElement()));
-				webElement=driver.elementByXpath(locator.getElement());
+				webElement=driver.findElementByXpath(locator.getElement());
 				break;
 
 		}

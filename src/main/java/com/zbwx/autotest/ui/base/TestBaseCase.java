@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBaseCase {
 //	public static AndroidDriver android_driver;
 	public static AdbDevice device ;
-	public static AtxClient driver = new AtxClient();
+	public static AtxClient driver ;
 	public static Position position;
 
 	public static String mAppMainPackage;
@@ -130,7 +130,8 @@ public class TestBaseCase {
 		des.setRemoteHost(deviceIp);
 		position = Position.getInstance(des);
 		device = new AdbDevice(des);
-		driver.initDriver(des);
+		driver = new AtxClient(des);
+//		driver.initDriver(des);
 		return driver;
 		
 	}
