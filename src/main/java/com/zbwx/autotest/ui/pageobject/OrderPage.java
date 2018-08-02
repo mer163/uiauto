@@ -46,8 +46,8 @@ public class OrderPage extends TestBaseCase {
 			this.rechargeButton = position.findElementById("com.ylmall.app.ui:id/order_chongzhi");
 			this.myOrder = position.findElementById("com.ylmall.app.ui:id/order_dingzhi");
 			this.type_10 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup1");
-			this.type_10 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup2");
-			this.type_10 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup3");
+			this.type_80 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup2");
+			this.type_400 = position.findElementById("com.ylmall.app.ui:id/tv_typegroup3");
 			this.presentPriceOrder = position.findElementById("com.ylmall.app.ui:id/below_order_buyup");
 			this.settlementPriceOrder = position.findElementById("com.ylmall.app.ui:id/below_order_tobuy");
 			
