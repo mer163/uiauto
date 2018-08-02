@@ -19,6 +19,7 @@ public class Order_xiadanPage extends TestBaseCase {
 	public ElementAdb rechargeButton;//充值按钮
 	public ElementAdb presentPriceOrder;//现价定购按钮
 	public ElementAdb settlementPriceOrder;//结算价定购按钮
+	public ElementAdb orderNumber;//购买手数
 	
 	public Order_xiadanPage(){
 		initElementsXD();
@@ -36,6 +37,7 @@ public class Order_xiadanPage extends TestBaseCase {
 			this.rechargeButton = position.findElementById("com.ylmall.app.ui:id/below_order_pay");
 			this.presentPriceOrder = position.findElementByText("现价定购");
 			this.settlementPriceOrder = position.findElementByText("结算价定购");
+			this.orderNumber = position.findElementById("com.ylmall.app.ui:id/below_order_edit");
 			
 		}catch (Exception e){
 			// TODO Auto-generated catch block
@@ -82,7 +84,17 @@ public class Order_xiadanPage extends TestBaseCase {
 		device.click(position.findElementById("com.ylmall.app.ui:id/deal_img"));
 		device.click(position.findElementById("com.ylmall.app.ui:id/order_dingzhi"));
 		ArrayList<String> costText = position.getTextById("com.ylmall.app.ui:id/mogen_chicang_zongchengben");
-		return costText;
-		
+		return costText;		
+	}
+	
+	/**
+	 * 下单页面，获取当前购买手数
+	 * @return
+	 * @throws Exception
+	 */
+	public ArrayList<String> mGegOrderNumber() throws Exception{
+		Assertion.VerityTextPresentPrecision("下单", "当前是否在下单页面...");
+		ArrayList<String> text = position.getTextById("com.ylmall.app.ui:id/below_order_edit");
+		return text;		
 	}
 }
