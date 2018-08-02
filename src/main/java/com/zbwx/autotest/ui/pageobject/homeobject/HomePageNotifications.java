@@ -3,12 +3,13 @@ package com.zbwx.autotest.ui.pageobject.homeobject;
 import atx.client.adb.ElementAdb;
 import atx.client.adb.ElementAttribs;
 import atx.client.common.ElementObj;
+import atx.client.model.AndroidElement;
 
 import com.zbwx.autotest.ui.base.TestBaseCase;
 
 public class HomePageNotifications extends TestBaseCase{
  
-	public static ElementObj img_homeMessage;
+	public static AndroidElement img_homeMessage;
 	
 	public static ElementAdb mNoticeContainer;
 	public static ElementAdb mTixianContainer;
@@ -23,7 +24,7 @@ public class HomePageNotifications extends TestBaseCase{
 	public void initElements() {
 		
 		try {
-			this.img_homeMessage=driver.elementById(TestBaseCase.mAppMainPackage+":id/img_tixing");//首页消息
+			this.img_homeMessage=driver.findElementById(TestBaseCase.mAppMainPackage+":id/img_tixing");//首页消息
 			
 			this.mNoticeContainer=position.findElementById(TestBaseCase.mAppMainPackage+":id/notice_container");//公告提醒			
 			
