@@ -37,13 +37,14 @@ public class ServiceTest extends TestBaseCase{
 			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/tx_back"));
 		}
 		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
+		mReturnHomePage();
 	}
 	
 	@Test(description = "客服中心交易规则")
 	public void testServiceCentreGuiZe() throws Exception{
 				
-		/*HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();*/
+		HomePageService mHomePageService = new HomePageService();
+		mHomePageService.kefuClick();
 		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
 		HomePageService mHomePageService1 = new HomePageService();
 		device.click(mHomePageService1.mKeFuGuiZe);
@@ -52,12 +53,12 @@ public class ServiceTest extends TestBaseCase{
 			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
 		}
 		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		
+		mReturnHomePage();
 	}
 	@Test(description = "客服中心找回密码")
 	public void testServiceCentreFindMiMa() throws Exception{
-	/*	HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();*/
+		HomePageService mHomePageService = new HomePageService();
+		mHomePageService.kefuClick();
 		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
 		HomePageService mHomePageService1 = new HomePageService();
 		device.click(mHomePageService1.mPassWordFind);
@@ -66,12 +67,12 @@ public class ServiceTest extends TestBaseCase{
 			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn"));
 		}
 		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		
+		mReturnHomePage();
 	}
 	@Test(description = "客服中心购物攻略")
 	public void testServiceCentreGongLue() throws Exception{		
-		/*HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();*/
+		HomePageService mHomePageService = new HomePageService();
+		mHomePageService.kefuClick();
 		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
 		HomePageService mHomePageService1 = new HomePageService();
 		for (int i = 0; i < 3; i++) {
@@ -97,13 +98,13 @@ public class ServiceTest extends TestBaseCase{
 		device.click(mHomePageService6.mKeFuBack);
 		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
 		device.click(mHomePageService1.mHelpGuide1);
-		
+		mReturnHomePage();
 	}
 	
 	@Test(description = "客服中心基本面分析")
 	public void testServiceCentreJiBenFenXi() throws Exception{
-		/*HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();*/
+		HomePageService mHomePageService = new HomePageService();
+		mHomePageService.kefuClick();
 		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
 		HomePageService mHomePageService1 = new HomePageService();
 		for (int i = 0; i < 3; i++) {
@@ -133,12 +134,12 @@ public class ServiceTest extends TestBaseCase{
 		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
 		homePageService2.keFuSecondaryListJB();
 		device.click(mHomePageService1.mHelpGuide6);
-		
+		mReturnHomePage();
 	}
 	@Test(description = "客服中心技术分析")
 	public void testServiceCentreJiShuFenXi() throws Exception{
-		/*HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();*/
+		HomePageService mHomePageService = new HomePageService();
+		mHomePageService.kefuClick();
 		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
 		HomePageService mHomePageService1 = new HomePageService();
 		for (int i = 0; i < 3; i++) {
@@ -165,7 +166,7 @@ public class ServiceTest extends TestBaseCase{
 		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
 		homePageService2.keFuSecondaryListJS();
 		device.click(mHomePageService1.mHelpGuide7);
-		
+		mReturnHomePage();
 	}
 	@AfterClass
 	public void afterClassResult() {
