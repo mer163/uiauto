@@ -132,7 +132,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 		mReturnHomePage();
 	}
 	
-	@Test(description = "结算价购买")//未验证，等测试环境验证
+	@Test(description = "现价购买")//未验证，等测试环境验证
 	public void testPresentPriceOrder() throws Exception{
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		ArrayList<String> text1 = order_xd.mGegCost();//获取下单前订单页面总成本text
