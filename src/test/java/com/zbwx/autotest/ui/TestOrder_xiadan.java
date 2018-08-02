@@ -76,6 +76,58 @@ public class TestOrder_xiadan extends TestBaseCase {
 		mReturnHomePage();
 	}
 	
+	@Test(description = "手动输入购买手数")
+	public void testSendOrderNumber() throws Exception{
+		Order_xiadanPage order_xd = new Order_xiadanPage();
+		order_xd.mOpenOrder_xiadan();
+		Order_xiadanPage o1 = new Order_xiadanPage();
+		ArrayList<String> oNum1 = o1.mGegOrderNumber();
+		device.click(o1.orderNumber);
+		device.clearText("111");
+		device.click(o1.orderNumber);
+		device.sendText("2");
+		Order_xiadanPage o2 = new Order_xiadanPage();
+		ArrayList<String> oNum2 = o2.mGegOrderNumber();
+		Assertion.VerityBoolean(oNum1.equals(oNum2), false, "是否设置成功...");
+		mReturnHomePage();
+	}
+	
+	@Test(description = "购买手数点击减按钮")
+	public void testClickSubtractOrderNumber() throws Exception{
+		Order_xiadanPage order_xd = new Order_xiadanPage();
+		order_xd.mOpenOrder_xiadan();
+		Order_xiadanPage o = new Order_xiadanPage();
+		device.click(o.orderNumber);
+		device.clearText("111");
+		device.click(o.orderNumber);
+		device.sendText("2");
+		Order_xiadanPage o1 = new Order_xiadanPage();
+		ArrayList<String> oNum1 = o1.mGegOrderNumber();
+		device.click(o1.orderNumber_subtract);
+		Order_xiadanPage o2 = new Order_xiadanPage();
+		ArrayList<String> oNum2 = o2.mGegOrderNumber();
+		Assertion.VerityBoolean(oNum1.equals(oNum2), false, "是否设置成功...");
+		mReturnHomePage();
+	}
+	
+	@Test(description = "购买手数点击加按钮")
+	public void testClickAddOrderNumber() throws Exception{
+		Order_xiadanPage order_xd = new Order_xiadanPage();
+		order_xd.mOpenOrder_xiadan();
+		Order_xiadanPage o = new Order_xiadanPage();
+		device.click(o.orderNumber);
+		device.clearText("111");
+		device.click(o.orderNumber);
+		device.sendText("2");
+		Order_xiadanPage o1 = new Order_xiadanPage();
+		ArrayList<String> oNum1 = o1.mGegOrderNumber();
+		device.click(o1.orderNumber_add);
+		Order_xiadanPage o2 = new Order_xiadanPage();
+		ArrayList<String> oNum2 = o2.mGegOrderNumber();
+		Assertion.VerityBoolean(oNum1.equals(oNum2), false, "是否设置成功...");
+		mReturnHomePage();
+	}
+	
 	@Test(description = "设置止盈")
 	public void testSetStopProfit() throws Exception{
 		Order_xiadanPage order_xd = new Order_xiadanPage();
@@ -115,6 +167,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage o = new Order_xiadanPage();
 		device.click(o.presentPriceOrder);
 		Assertion.VerityTextPresentPrecision("确认订单", "是否弹出弹框");
+		driver.sleep(1500);
 		device.click(position.findElementById("com.ylmall.app.ui:id/dialog_cancle"));
 		Assertion.VerityTextPresentPrecision("止盈", "是否返回下单页面...");
 		mReturnHomePage();
@@ -127,6 +180,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage o = new Order_xiadanPage();
 		device.click(o.settlementPriceOrder);
 		Assertion.VerityTextPresentPrecision("确认订单", "是否弹出弹框");
+		driver.sleep(1500);
 		device.click(position.findElementById("com.ylmall.app.ui:id/dialog_cancle"));
 		Assertion.VerityTextPresentPrecision("止盈", "是否返回下单页面...");
 		mReturnHomePage();
