@@ -103,22 +103,22 @@ public class HomePage extends TestBaseCase{
 		}
 			
 		if(position.waitForElement(ElementAttribs.TEXT,"获取验证码",3000)) {
-		driver.elementById("com.ylmall.app.ui:id/rightText").click();		//点击密码
+		driver.findElementById("com.ylmall.app.ui:id/rightText").click();		//点击密码
 		
-		driver.elementById("com.ylmall.app.ui:id/login_new_tel").click();;
+		driver.findElementById("com.ylmall.app.ui:id/login_new_tel").click();;
 
 		device.sendText("15210034889");
 //		driver.press(KeyEventEnum.ENTER.getValue());
 		
 		//输入密码
-		driver.elementById("com.ylmall.app.ui:id/login_new_pwd").click();;
+		driver.findElementById("com.ylmall.app.ui:id/login_new_pwd").click();;
 
 		device.sendText("654321");
 //		driver.press(KeyEventEnum.ENTER.getValue());
 		Thread.sleep(3000); 
 		//点击登录
 //		driver.elementByXpath("//android.widget.Button[@text='登 录']").click();
-		driver.elementById("com.ylmall.app.ui:id/login_new_btn").click();
+		driver.findElementById("com.ylmall.app.ui:id/login_new_btn").click();
 		
 //		device.click(e_txt);
 //		ElementAdb e_enter = position.findElementByText("确定兑换");
