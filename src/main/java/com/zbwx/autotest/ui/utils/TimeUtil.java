@@ -1,8 +1,9 @@
 package com.zbwx.autotest.ui.utils;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import org.openqa.selenium.JavascriptExecutor;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.base.BaseTest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +12,7 @@ import java.util.Date;
 /**
  * Created by zhengshuheng on 2016/8/28.
  */
-public class TimeUtil extends TestBaseCase {
+public class TimeUtil  {
     /**
      * 时间控件不可编辑处理
      * @param inputName
@@ -32,7 +33,7 @@ public class TimeUtil extends TestBaseCase {
                 + date
                 + "\");"
                 + "})";
-        ((JavascriptExecutor) driver).executeScript(js);
+        ((JavascriptExecutor) BaseAction.driver).executeScript(js);
         System.out.println(js);
     }
     /**

@@ -586,11 +586,11 @@ public class TestReport implements IReporter{
 				e.printStackTrace();
 			}
 			
-			if(sendmail=="yes") {
+			if(sendmail.equals("yes")) {
 				
-				System.out.println("报表URL"+reportUrl);
-				System.out.println("日志URL"+logUrl);
-				System.out.println("收件人地址"+Recipients);
+//				System.out.println("报表URL"+reportUrl);
+//				System.out.println("日志URL"+logUrl);
+//				System.out.println("收件人地址"+Recipients);
 				StringBuffer sb2=new StringBuffer();
 				sb2.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 				sb2.append("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n");
@@ -842,7 +842,7 @@ public class TestReport implements IReporter{
 				sb2.append("</div>\n"
 						+ "<div id=\"footer\" style=\"font-size:14px\" >技术支持：Copyright © 2018 ZBWX.Inc</div>");
 				sb2.append("</body>\n</html>\n");
-				System.out.println("收件人地址："+Recipients);
+//				System.out.println("收件人地址："+Recipients);
 				SendMail sendMail=new SendMail();
 				String smtpUserName="";
 				String smtpPassWord="";

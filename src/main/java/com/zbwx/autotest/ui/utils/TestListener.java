@@ -1,10 +1,10 @@
 package com.zbwx.autotest.ui.utils;
 
+import com.zbwx.autotest.ui.base.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -44,7 +44,7 @@ public class TestListener  extends TestListenerAdapter{
 	public void onTestFailure( ITestResult  tr)
 	{
 		//this.handAssertion(tr);
-		TestBaseCase testBaseCase=(TestBaseCase) tr.getInstance();
+		BaseTest testBaseCase=(BaseTest) tr.getInstance();
 //		WebDriver driver=testBaseCase.driver;
 //		ScreenShot screenShot=new ScreenShot(driver);
 //		//设置截图名字
@@ -140,7 +140,7 @@ public class TestListener  extends TestListenerAdapter{
 	}
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		TestBaseCase testBaseCase=(TestBaseCase) tr.getInstance();
+		BaseTest testBaseCase=(BaseTest) tr.getInstance();
 //		WebDriver driver=testBaseCase.driver;
 //		ScreenShot screenShot=new ScreenShot(driver);
 //		//设置截图名字

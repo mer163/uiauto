@@ -2,13 +2,16 @@ package com.zbwx.autotest.ui.pageobject;
 
 import java.util.ArrayList;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.base.BaseAction;
+import com.zbwx.autotest.ui.base.BasePage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import atx.client.adb.ElementAdb;
 import atx.client.adb.ElementAttribs;
 
-public class Order_xiadanPage extends TestBaseCase {
+import static com.zbwx.autotest.ui.base.BaseAction.mWaitOpenApp;
+
+public class Order_xiadanPage extends BasePage {
 
 	public ElementAdb messageButton;//消息按钮
 	public ElementAdb selectOrderButton;//下拉选择商品
@@ -28,16 +31,16 @@ public class Order_xiadanPage extends TestBaseCase {
 	
 	public void initElementsXD(){
 		try{
-			this.messageButton = position.findElementById("com.ylmall.app.ui:id/rightBtn");
-			this.selectOrderButton = position.findElementById("com.ylmall.app.ui:id/below_order_big_type_image");
-			this.selectCoupon = position.findElementById("com.ylmall.app.ui:id/below_order_coupon_text");
-			this.selectType = position.findElementById("com.ylmall.app.ui:id/below_order_small_type_iamge");
-			this.orderNumber_add = position.findElementById("com.ylmall.app.ui:id/below_order_add");
-			this.orderNumber_subtract = position.findElementById("com.ylmall.app.ui:id/below_order_move");
-			this.rechargeButton = position.findElementById("com.ylmall.app.ui:id/below_order_pay");
-			this.presentPriceOrder = position.findElementByText("现价定购");
-			this.settlementPriceOrder = position.findElementByText("结算价定购");
-			this.orderNumber = position.findElementById("com.ylmall.app.ui:id/below_order_edit");
+			this.messageButton = BaseAction.position.findElementById("com.ylmall.app.ui:id/rightBtn");
+			this.selectOrderButton = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_big_type_image");
+			this.selectCoupon = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_coupon_text");
+			this.selectType = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_small_type_iamge");
+			this.orderNumber_add = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_add");
+			this.orderNumber_subtract = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_move");
+			this.rechargeButton = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_pay");
+			this.presentPriceOrder = BaseAction.position.findElementByText("现价定购");
+			this.settlementPriceOrder = BaseAction.position.findElementByText("结算价定购");
+			this.orderNumber = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_edit");
 			
 		}catch (Exception e){
 			// TODO Auto-generated catch block
@@ -52,10 +55,10 @@ public class Order_xiadanPage extends TestBaseCase {
 	 */
 	public void mOpenOrder_xiadan() throws Exception{
 		mWaitOpenApp();
-		position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
-		device.click(position.findElementById("com.ylmall.app.ui:id/deal_img"));
-		device.click(position.findElementByText("果礼镍"));
-		device.click(position.findElementByText("现价定购"));
+		BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/deal_img"));
+		BaseAction.device.click(BaseAction.position.findElementByText("果礼镍"));
+		BaseAction.device.click(BaseAction.position.findElementByText("现价定购"));
 		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
 		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
 	}
@@ -66,10 +69,10 @@ public class Order_xiadanPage extends TestBaseCase {
 	 */
 	public void mOpenOrder_xiadan_JS() throws Exception{
 		mWaitOpenApp();
-		position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
-		device.click(position.findElementById("com.ylmall.app.ui:id/deal_img"));
-		device.click(position.findElementByText("果礼镍"));
-		device.click(position.findElementByText("结算价定购"));
+		BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/deal_img"));
+		BaseAction.device.click(BaseAction.position.findElementByText("果礼镍"));
+		BaseAction.device.click(BaseAction.position.findElementByText("结算价定购"));
 		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
 		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
 	}
@@ -80,10 +83,10 @@ public class Order_xiadanPage extends TestBaseCase {
 	 */
 	public ArrayList<String> mGegCost(){
 		mWaitOpenApp();
-		position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
-		device.click(position.findElementById("com.ylmall.app.ui:id/deal_img"));
-		device.click(position.findElementById("com.ylmall.app.ui:id/order_dingzhi"));
-		ArrayList<String> costText = position.getTextById("com.ylmall.app.ui:id/mogen_chicang_zongchengben");
+		BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/deal_img"));
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/order_dingzhi"));
+		ArrayList<String> costText = BaseAction.position.getTextById("com.ylmall.app.ui:id/mogen_chicang_zongchengben");
 		return costText;		
 	}
 	
@@ -94,7 +97,7 @@ public class Order_xiadanPage extends TestBaseCase {
 	 */
 	public ArrayList<String> mGegOrderNumber() throws Exception{
 		Assertion.VerityTextPresentPrecision("下单", "当前是否在下单页面...");
-		ArrayList<String> text = position.getTextById("com.ylmall.app.ui:id/below_order_edit");
+		ArrayList<String> text = BaseAction.position.getTextById("com.ylmall.app.ui:id/below_order_edit");
 		return text;		
 	}
 }

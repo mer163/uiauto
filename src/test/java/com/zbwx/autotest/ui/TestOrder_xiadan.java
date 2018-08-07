@@ -2,18 +2,22 @@ package com.zbwx.autotest.ui;
 
 import java.util.ArrayList;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.base.BaseTest;
 import com.zbwx.autotest.ui.pageobject.Order_xiadanPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
-public class TestOrder_xiadan extends TestBaseCase {
+import static com.zbwx.autotest.ui.base.BaseAction.mClickReturnButton;
+import static com.zbwx.autotest.ui.base.BaseAction.mReturnHomePage;
+
+public class TestOrder_xiadan extends BaseTest {
 
 	@BeforeClass
 	public void beforeClass(){
-		driver.startUiAutomator();
+		BaseAction.driver.startUiAutomator();
 	}
 	
 	@Test(description = "下单页面点击返回按钮")
@@ -30,7 +34,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage oxd = new Order_xiadanPage();
-		device.click(oxd.messageButton);
+		BaseAction.device.click(oxd.messageButton);
 		Assertion.VerityTextPresentPrecision("消息中心", "是否进入消息中心页面");
 		mClickReturnButton();
 		Assertion.VerityTextPresent("止盈", "是否返回下单页面");
@@ -42,11 +46,11 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage oxd = new Order_xiadanPage();
-		ArrayList<String> str1 = position.getTextById("com.ylmall.app.ui:id/below_order_center_price");
-		device.click(oxd.selectOrderButton);
-		device.click(position.findElementByText("果礼铜"));
+		ArrayList<String> str1 = BaseAction.position.getTextById("com.ylmall.app.ui:id/below_order_center_price");
+		BaseAction.device.click(oxd.selectOrderButton);
+		BaseAction.device.click(BaseAction.position.findElementByText("果礼铜"));
 		Order_xiadanPage oxd1 = new Order_xiadanPage();
-		ArrayList<String> str2 = position.getTextById("com.ylmall.app.ui:id/below_order_center_price");
+		ArrayList<String> str2 = BaseAction.position.getTextById("com.ylmall.app.ui:id/below_order_center_price");
 		Assertion.VerityBoolean(str1.equals(str2), false, "最新价格有无变动...");
 		mReturnHomePage();
 	}
@@ -56,7 +60,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage oxd = new Order_xiadanPage();
-		device.click(oxd.selectCoupon);
+		BaseAction.device.click(oxd.selectCoupon);
 		Assertion.VerityTextPresentPrecision("我的卡券", "是否进入我的卡券页面");
 		mClickReturnButton();
 		Assertion.VerityTextPresent("止盈", "是否返回下单页面");
@@ -68,8 +72,8 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.selectType);
-		device.click(position.findElementByText("果礼镍0.08吨"));
+		BaseAction.device.click(o.selectType);
+		BaseAction.device.click(BaseAction.position.findElementByText("果礼镍0.08吨"));
 		Order_xiadanPage o1 = new Order_xiadanPage();
 		Assertion.VerityTextPresentPrecision("果礼镍0.08吨", "是否成功选择...");
 		Assertion.VerityTextPresentPrecision("200.0", "价格是否更新...");
@@ -82,10 +86,10 @@ public class TestOrder_xiadan extends TestBaseCase {
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o1 = new Order_xiadanPage();
 		ArrayList<String> oNum1 = o1.mGegOrderNumber();
-		device.click(o1.orderNumber);
-		device.clearText("111");
-		device.click(o1.orderNumber);
-		device.sendText("2");
+		BaseAction.device.click(o1.orderNumber);
+		BaseAction.device.clearText("111");
+		BaseAction.device.click(o1.orderNumber);
+		BaseAction.device.sendText("2");
 		Order_xiadanPage o2 = new Order_xiadanPage();
 		ArrayList<String> oNum2 = o2.mGegOrderNumber();
 		Assertion.VerityBoolean(oNum1.equals(oNum2), false, "是否设置成功...");
@@ -97,13 +101,13 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.orderNumber);
-		device.clearText("111");
-		device.click(o.orderNumber);
-		device.sendText("2");
+		BaseAction.device.click(o.orderNumber);
+		BaseAction.device.clearText("111");
+		BaseAction.device.click(o.orderNumber);
+		BaseAction.device.sendText("2");
 		Order_xiadanPage o1 = new Order_xiadanPage();
 		ArrayList<String> oNum1 = o1.mGegOrderNumber();
-		device.click(o1.orderNumber_subtract);
+		BaseAction.device.click(o1.orderNumber_subtract);
 		Order_xiadanPage o2 = new Order_xiadanPage();
 		ArrayList<String> oNum2 = o2.mGegOrderNumber();
 		Assertion.VerityBoolean(oNum1.equals(oNum2), false, "是否设置成功...");
@@ -115,13 +119,13 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.orderNumber);
-		device.clearText("111");
-		device.click(o.orderNumber);
-		device.sendText("2");
+		BaseAction.device.click(o.orderNumber);
+		BaseAction.device.clearText("111");
+		BaseAction.device.click(o.orderNumber);
+		BaseAction.device.sendText("2");
 		Order_xiadanPage o1 = new Order_xiadanPage();
 		ArrayList<String> oNum1 = o1.mGegOrderNumber();
-		device.click(o1.orderNumber_add);
+		BaseAction.device.click(o1.orderNumber_add);
 		Order_xiadanPage o2 = new Order_xiadanPage();
 		ArrayList<String> oNum2 = o2.mGegOrderNumber();
 		Assertion.VerityBoolean(oNum1.equals(oNum2), false, "是否设置成功...");
@@ -132,7 +136,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 	public void testSetStopProfit() throws Exception{
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
-		device.click(position.findElementByText("16.0"));
+		BaseAction.device.click(BaseAction.position.findElementByText("16.0"));
 		Order_xiadanPage o = new Order_xiadanPage();
 		Assertion.VerityTextPresentPrecision("200%", "是否设置成功...");
 		mReturnHomePage();		
@@ -142,7 +146,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 	public void testSetStopLoss() throws Exception{
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
-		device.click(position.findElementByText("2.4"));
+		BaseAction.device.click(BaseAction.position.findElementByText("2.4"));
 		Order_xiadanPage o = new Order_xiadanPage();
 		Assertion.VerityTextPresentPrecision("30%", "是否设置成功...");
 		mReturnHomePage();		
@@ -153,7 +157,7 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.rechargeButton);
+		BaseAction.device.click(o.rechargeButton);
 		Assertion.VerityTextPresentPrecision("充值查询", "是否跳转至充值页面...");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("止盈", "是否返回下单页面...");
@@ -165,10 +169,10 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.presentPriceOrder);
+		BaseAction.device.click(o.presentPriceOrder);
 		Assertion.VerityTextPresentPrecision("确认订单", "是否弹出弹框");
-		driver.sleep(1500);
-		device.click(position.findElementById("com.ylmall.app.ui:id/dialog_cancle"));
+		BaseAction.driver.sleep(1500);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/dialog_cancle"));
 		Assertion.VerityTextPresentPrecision("止盈", "是否返回下单页面...");
 		mReturnHomePage();
 	}
@@ -178,10 +182,10 @@ public class TestOrder_xiadan extends TestBaseCase {
 		Order_xiadanPage order_xd = new Order_xiadanPage();
 		order_xd.mOpenOrder_xiadan_JS();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.settlementPriceOrder);
+		BaseAction.device.click(o.settlementPriceOrder);
 		Assertion.VerityTextPresentPrecision("确认订单", "是否弹出弹框");
-		driver.sleep(1500);
-		device.click(position.findElementById("com.ylmall.app.ui:id/dialog_cancle"));
+		BaseAction.driver.sleep(1500);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/dialog_cancle"));
 		Assertion.VerityTextPresentPrecision("止盈", "是否返回下单页面...");
 		mReturnHomePage();
 	}
@@ -193,8 +197,8 @@ public class TestOrder_xiadan extends TestBaseCase {
 		mReturnHomePage();
 		order_xd.mOpenOrder_xiadan();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.presentPriceOrder);
-		device.click(position.findElementById("com.ylmall.app.ui:id/dialog_ok"));
+		BaseAction.device.click(o.presentPriceOrder);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/dialog_ok"));
 		mReturnHomePage();
 		ArrayList<String> text2 = order_xd.mGegCost();
 		Assertion.VerityBoolean(text1.equals(text2), false, "总成本是否更改...");//购买成功后总成本会有更改
@@ -207,8 +211,8 @@ public class TestOrder_xiadan extends TestBaseCase {
 		mReturnHomePage();
 		order_xd.mOpenOrder_xiadan_JS();
 		Order_xiadanPage o = new Order_xiadanPage();
-		device.click(o.settlementPriceOrder);
-		device.click(position.findElementById("com.ylmall.app.ui:id/dialog_ok"));
+		BaseAction.device.click(o.settlementPriceOrder);
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/dialog_ok"));
 		mReturnHomePage();
 		ArrayList<String> text2 = order_xd.mGegCost();
 		Assertion.VerityBoolean(text1.equals(text2), false, "总成本是否更改...");//购买成功后总成本会有更改

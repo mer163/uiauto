@@ -1,5 +1,9 @@
 package com.zbwx.autotest.ui.base;
 
+import atx.client.AtxClient;
+import atx.client.adb.AdbDevice;
+import atx.client.adb.ElementAttribs;
+import atx.client.adb.Position;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -21,12 +25,17 @@ import java.util.concurrent.TimeUnit;
 /**
  *
  */
-public class BaseAction extends TestBaseCase{
+public class BaseAction {
 
 	protected HashMap<String,Locator>  locatorMap;
 	public String path=null;
 	public InputStream path_inputStream_1;
 	public InputStream path_inputStream_2;
+
+	public static AtxClient driver;
+	public static Position position;
+	public static AdbDevice device;
+
 	Log log=new Log(this.getClass());
 
 	public  void setXmlObjectPath(String path)
@@ -51,6 +60,53 @@ public class BaseAction extends TestBaseCase{
 
 
 	}
+
+
+
+	/**
+	 * 等待打开APP
+	 */
+	public static void mWaitOpenApp(){
+		BaseAction.position.waitForElement(ElementAttribs.TEXT, "客服", 10000);
+	}
+
+	/**
+	 * 任意页面点击物理返回键，回到首页
+	 */
+	public static void mReturnHomePage(){
+		do{
+			if(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/first_img", 2000)){
+				BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/first_img"));
+				break;
+			}else{
+				BaseAction.driver.press("back");
+			}
+		}while(!BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/tv_allproduct", 3000));
+	}
+
+	/**
+	 * 以ID点击页面返回按钮
+	 */
+	public static void mClickReturnButton(){
+		if(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/baseweb_back", 3000)){
+			BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/baseweb_back"));
+		}else if (BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/leftBtn", 3000)) {
+			BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/leftBtn"));
+		}else if (BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/leftBtn_mykaquan", 3000)) {
+			BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/leftBtn_mykaquan"));
+		}
+	}
+	/**
+	 * 返回上一个页面
+	 */
+	public static void mReturn(){
+
+		BaseAction.driver.press("back");
+
+	}
+
+
+
 	public void getLocatorMap()
 	{
 		XmlReadUtil xmlReadUtil=new XmlReadUtil();
@@ -226,8 +282,8 @@ public class BaseAction extends TestBaseCase{
 		{
 			case xpath :
 				//log.info("find element By xpath");
-				webElement=driver.findElementByXpath(locator.getElement());
-//				webElement=driver.findElement(By.xpath(locator.getElement()));
+				webElement=BaseAction.driver.findElementByXpath(locator.getElement());
+//				webElement=BaseAction.driver.findElement(By.xpath(locator.getElement()));
 				
 				/**
 				 * 出现找不到元素的时候，记录日志文件
@@ -235,40 +291,40 @@ public class BaseAction extends TestBaseCase{
 				break;
 			case id:
 				//log.info("find element By xpath");
-//				webElement=driver.findElement(By.id(locator.getElement()));
-				webElement=driver.findElementById(locator.getElement());
+//				webElement=BaseAction.driver.findElement(By.id(locator.getElement()));
+				webElement=BaseAction.driver.findElementById(locator.getElement());
 				break;
 //			case cssSelector:
 //				//log.info("find element By cssSelector");
-////				webElement=driver.findElement(By.cssSelector(locator.getElement()));
+////				webElement=BaseAction.driver.findElement(By.cssSelector(locator.getElement()));
 //				webElement=driver.elementBy(locator.getElement());
 //				break;
 			case name:
 				//log.info("find element By name");
-//				webElement=driver.findElement(By.name(locator.getElement()));
-				webElement=driver.findElementByName(locator.getElement());
+//				webElement=BaseAction.driver.findElement(By.name(locator.getElement()));
+				webElement=BaseAction.driver.findElementByName(locator.getElement());
 				break;
 			case className:
 				//log.info("find element By className");
-				webElement = driver.findElementByClass(locator.getElement());
-//				webElement=driver.findElement(By.className(locator.getElement()));
+				webElement = BaseAction.driver.findElementByClass(locator.getElement());
+//				webElement=BaseAction.driver.findElement(By.className(locator.getElement()));
 				break;
 //			case linkText:
 //				//log.info("find element By linkText");
-//				webElement=driver.findElement(By.linkText(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.linkText(locator.getElement()));
 //				break;
 //			case partialLinkText:
 //				//log.info("find element By partialLinkText");
-//				webElement=driver.findElement(By.partialLinkText(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.partialLinkText(locator.getElement()));
 //				break;
 //			case tagName:
 //				//log.info("find element By tagName");
-//				webElement=driver.findElement(By.partialLinkText(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.partialLinkText(locator.getElement()));
 //				break;
 			default :
 				//log.info("find element By xpath");
-//				webElement=driver.findElement(By.xpath(locator.getElement()));
-				webElement=driver.findElementByXpath(locator.getElement());
+//				webElement=BaseAction.driver.findElement(By.xpath(locator.getElement()));
+				webElement=BaseAction.driver.findElementByXpath(locator.getElement());
 				break;
 
 		}

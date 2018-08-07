@@ -5,9 +5,11 @@ import atx.client.adb.ElementAttribs;
 import atx.client.common.ElementObj;
 import atx.client.model.AndroidElement;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.base.BaseAction;
+import com.zbwx.autotest.ui.base.BasePage;
+import com.zbwx.autotest.ui.base.BaseTest;
 
-public class HomePageSearch extends TestBaseCase{
+public class HomePageSearch extends BasePage{
 	public AndroidElement btn_homeSearch;
 
 	public ElementAdb et_search;
@@ -20,10 +22,10 @@ public class HomePageSearch extends TestBaseCase{
 	public void initElement() {
 		
 		try {
-			this.btn_homeSearch=driver.findElementById(TestBaseCase.mAppMainPackage+":id/tv_search");//首页搜索
-			this.et_search=position.findElementById(TestBaseCase.mAppMainPackage+":id/et_search");//点击输入框
-			this.img_right=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_right");//点击搜索
-			this.img_left=position.findElementById(TestBaseCase.mAppMainPackage+":id/img_left");//点击返回
+			this.btn_homeSearch= BaseAction.driver.findElementById(BaseTest.mAppMainPackage+":id/tv_search");//首页搜索
+			this.et_search=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/et_search");//点击输入框
+			this.img_right=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/img_right");//点击搜索
+			this.img_left=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/img_left");//点击返回
 
 			
 		} catch (Exception e) {
@@ -34,7 +36,7 @@ public class HomePageSearch extends TestBaseCase{
 	}
 	
 	public void searchClick() throws Exception {
-		position.waitForElement(ElementAttribs.TEXT, "客服", 3000);
+		BaseAction.position.waitForElement(ElementAttribs.TEXT, "客服", 3000);
 		btn_homeSearch.click();
 		
 	}

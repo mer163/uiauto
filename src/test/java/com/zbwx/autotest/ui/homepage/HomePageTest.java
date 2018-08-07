@@ -4,18 +4,18 @@ package com.zbwx.autotest.ui.homepage;
 
 import java.util.ArrayList;
 
+import com.zbwx.autotest.ui.base.BaseAction;
+import com.zbwx.autotest.ui.base.BaseTest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.testng.annotations.Test;
 
-import atx.client.adb.AdbDevice;
 import atx.client.adb.ElementAdb;
 import atx.client.adb.ElementAttribs;
 import atx.client.adb.UiDump;
 import atx.client.common.ElementObj;
 import atx.client.enums.AttributeMask;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
 import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.pageobject.QuotationPage;
 import com.zbwx.autotest.ui.utils.Assertion;
@@ -25,7 +25,7 @@ import com.zbwx.autotest.ui.utils.Assertion;
  * @date 2018年8月1日
  * 首页测试
  */
-public class HomePageTest extends TestBaseCase{
+public class HomePageTest extends BaseTest {
     
 
 	
@@ -41,13 +41,13 @@ public class HomePageTest extends TestBaseCase{
 		Thread.sleep(3000);
 		Assertion.VerityTextPresentPrecision("热门商品", "当前处在首页");
 		HomePage mHomePage2 = new HomePage();
-		device.click(mHomePage2.img_homeService);
+		BaseAction.device.click(mHomePage2.img_homeService);
 		
 		Thread.sleep(3000);
 		
-		if (position.waitForElement(ElementAttribs.TEXT, "交易规则",3000)) {
-			ElementAdb mServiceBack = position.findElementById("com.ylmall.app.ui:id/leftBtn");
-			device.click(mServiceBack);
+		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "交易规则",3000)) {
+			ElementAdb mServiceBack = BaseAction.position.findElementById("com.ylmall.app.ui:id/leftBtn");
+			BaseAction.device.click(mServiceBack);
 			
 		}
 	
@@ -65,11 +65,11 @@ public class HomePageTest extends TestBaseCase{
 	public void testHomePageMessage()  throws Exception{
 		Thread.sleep(3000);
 		HomePage mHomePage3 = new HomePage();
-		device.click(mHomePage3.img_homeMessage);
+		BaseAction.device.click(mHomePage3.img_homeMessage);
 		Thread.sleep(3000);
-		if (position.findElementByText("公告提醒") != null) {
-			ElementAdb mMessageBack =position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mMessageBack);
+		if (BaseAction.position.findElementByText("公告提醒") != null) {
+			ElementAdb mMessageBack =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/leftBtn");
+			BaseAction.device.click(mMessageBack);
 		}
 	}
 	@Test(description = "首页轮播")
@@ -78,31 +78,31 @@ public class HomePageTest extends TestBaseCase{
 		HomePage mHomePage4 = new HomePage();
 		for (int i = 0; i < 3; i++) {
 			Thread.sleep(3000);
-			if (position.findElementByText("热门商品") != null) {
-				device.click(mHomePage4.vp_homeCbLoopViewPager);
+			if (BaseAction.position.findElementByText("热门商品") != null) {
+				BaseAction.device.click(mHomePage4.vp_homeCbLoopViewPager);
 				Thread.sleep(3000);
 				
 			}
 			Thread.sleep(3000);
-			device.click(position.findElementById(TestBaseCase.mAppMainPackage+":id/baseweb_back"));
+			BaseAction.device.click(BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/baseweb_back"));
 		}
 	}
 	@Test(description = "首页盈利播报")
 	public void testHomePageMoreylName()  throws Exception{
 		Thread.sleep(3000);
-		ArrayList<ElementAdb> buoBao0 = position.findElementsByText("恭喜****4419果礼镍0.08吨盈利+511.28");
+		ArrayList<ElementAdb> buoBao0 = BaseAction.position.findElementsByText("恭喜****4419果礼镍0.08吨盈利+511.28");
 		Thread.sleep(3000);
-		ArrayList<ElementAdb> buoBao1 = position.findElementsByText("恭喜****2998祖玛香水盈利+7.30");
+		ArrayList<ElementAdb> buoBao1 = BaseAction.position.findElementsByText("恭喜****2998祖玛香水盈利+7.30");
 		Assertion.VerityBoolean(buoBao0.equals(buoBao1), false, "播报切换成功");
 		
 		HomePage mHomePage3 = new HomePage();
-		if (position.waitForElement(ElementAttribs.TEXT, "热门商品", 3000)) {			
-			device.click(mHomePage3.tv_homeMoreylName);
+		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "热门商品", 3000)) {
+			BaseAction.device.click(mHomePage3.tv_homeMoreylName);
 		}
 		Thread.sleep(3000);
-		if (position.waitForElement(ElementAttribs.TEXT, "排名", 3000)) {
-			ElementAdb mMoreylBack = position.findElementById(TestBaseCase.mAppMainPackage+":id/leftBtn");
-			device.click(mMoreylBack);
+		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "排名", 3000)) {
+			ElementAdb mMoreylBack = BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/leftBtn");
+			BaseAction.device.click(mMoreylBack);
 		}
 	}
 	

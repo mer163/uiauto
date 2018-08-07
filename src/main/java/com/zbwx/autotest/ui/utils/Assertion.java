@@ -1,11 +1,12 @@
 package com.zbwx.autotest.ui.utils;
 
+import com.zbwx.autotest.ui.base.BaseAction;
+import com.zbwx.autotest.ui.base.BasePage;
 import org.openqa.selenium.*;
 import org.testng.Assert;
 
 import atx.client.AtxClient;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
 import com.zbwx.autotest.ui.model.Locator;
 
 import java.text.SimpleDateFormat;
@@ -18,7 +19,7 @@ import java.util.List;
  * @author admin
  *
  */
-public class Assertion extends TestBaseCase {
+public class Assertion  {
 	//收集断言异常用于报表日志展示
 	public static List<Error> errors=new ArrayList<Error>();
 	//收集断言信息文本，用于报表展示
@@ -36,9 +37,9 @@ public class Assertion extends TestBaseCase {
 	private static void snapshotInfo() throws Exception
 	{
 //		WebDriver driver=(WebDriver) TestBaseCase.driver;
-		AtxClient driver = TestBaseCase.driver;
+		AtxClient driver = BaseAction.driver;
 		
-		ScreenShot screenShot=new ScreenShot(TestBaseCase.driver);
+		ScreenShot screenShot=new ScreenShot(BaseAction.driver);
 		//设置截图名字
 		Date nowDate=new Date();
 		screenShot.setscreenName(Assertion.formatDate(nowDate));
@@ -254,11 +255,11 @@ public class Assertion extends TestBaseCase {
 		try {
 			exceptStr="//*[contains(@text,'"+exceptStr+"')]";
 			log.info("定位信息："+exceptStr);
-//			driver.findElements(By.xpath(exceptStr));
-//			if (driver.findElements(By.xpath(exceptStr)).size()>0) {
+//			BaseAction.driver.findElements(By.xpath(exceptStr));
+//			if (BaseAction.driver.findElements(By.xpath(exceptStr)).size()>0) {
 //				flag=true;
 //			}
-			if (driver.findElementByName(exceptStr) ==null) {
+			if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 				flag=false;
 			}
 			
@@ -305,14 +306,14 @@ public class Assertion extends TestBaseCase {
 			//app查找是否出现某文本用@text属性，如果是web需是text()
 			exceptStr="//*[contains(@text,'"+exceptStr+"')]";
 			System.out.println(exceptStr);
-//			List<WebElement> webElements= driver.findElements(By.xpath(exceptStr));
+//			List<WebElement> webElements= BaseAction.driver.findElements(By.xpath(exceptStr));
 //			if (webElements.size()>0) {
 //				flag=true;
 //			}
 //			else {
 //				flag=false;
 //			}
-			if (driver.findElementByName(exceptStr) ==null) {
+			if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 				flag=false;
 			}
 			
@@ -356,13 +357,13 @@ public class Assertion extends TestBaseCase {
 		log.info(verityStr);
 //		try {
 //			exceptStr="//*[contains(.,'"+exceptStr+"')]";
-//			driver.findElement(By.xpath(exceptStr));
+//			BaseAction.driver.findElement(By.xpath(exceptStr));
 //			flag=false;
 //		} catch (NoSuchElementException e) {
 //			// TODO: handle exception
 //			flag=true;
 //		}
-		if (driver.findElementByName(exceptStr) ==null) {
+		if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
@@ -401,7 +402,7 @@ public class Assertion extends TestBaseCase {
 		log.info(Message+":"+verityStr);
 //		try {
 //			exceptStr="//*[contains(.,'"+exceptStr+"')]";
-//			driver.findElement(By.xpath(exceptStr));
+//			BaseAction.driver.findElement(By.xpath(exceptStr));
 //			flag=false;
 //			System.out.println(flag);
 //		} catch (NoSuchElementException e) {
@@ -409,7 +410,7 @@ public class Assertion extends TestBaseCase {
 //			flag=true;
 //			System.out.println(flag);
 //		}
-		if (driver.findElementByName(exceptStr) ==null) {
+		if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
@@ -451,7 +452,7 @@ public class Assertion extends TestBaseCase {
 //			//app查找是否出现某文本用@text属性，如果是web需是text()
 //			exceptStr="//*[@text=\""+exceptStr+"\"]";
 //			System.out.println(exceptStr);
-//			driver.findElement(By.xpath(exceptStr));
+//			BaseAction.driver.findElement(By.xpath(exceptStr));
 //			flag=true;
 //		} catch (NoSuchElementException e) {
 //			// TODO: handle exception
@@ -460,7 +461,7 @@ public class Assertion extends TestBaseCase {
 //			e.printStackTrace();
 //			///AssertFailedLog();
 //		}
-		if (driver.findElementByName(exceptStr) ==null) {
+		if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 			flag=false;
 		}
 		
@@ -499,14 +500,14 @@ public class Assertion extends TestBaseCase {
 //		try {
 //			//app查找是否出现某文本用@text属性，如果是web需是text()
 //			exceptStr="//*[@text=\""+exceptStr+"\"]";
-//			WebElement webElement=driver.findElement(By.xpath(exceptStr));
+//			WebElement webElement=BaseAction.driver.findElement(By.xpath(exceptStr));
 //			System.out.println(exceptStr);
 //			flag=true;
 //		} catch (NoSuchElementException e) {
 //			// TODO: handle exception
 //			flag=false;
 //		}
-		if (driver.findElementByName(exceptStr) ==null) {
+		if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 			flag=false;
 		}
 		
@@ -549,7 +550,7 @@ public class Assertion extends TestBaseCase {
 //			//app查找是否出现某文本用@text属性，如果是web需是text()
 //			exceptStr="//*[@text=\""+exceptStr+"\"]";
 //			System.out.println(exceptStr);
-//			driver.findElement(By.xpath(exceptStr));
+//			BaseAction.driver.findElement(By.xpath(exceptStr));
 //			flag=false;
 //		} catch (NoSuchElementException e) {
 //			// TODO: handle exception
@@ -558,7 +559,7 @@ public class Assertion extends TestBaseCase {
 //			e.printStackTrace();
 //			///AssertFailedLog();
 //		}
-		if (driver.findElementByName(exceptStr) ==null) {
+		if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		
@@ -598,13 +599,13 @@ public class Assertion extends TestBaseCase {
 //			//app查找是否出现某文本用@text属性，如果是web需是text()
 //			exceptStr="//*[@text=\""+exceptStr+"\"]";
 //			System.out.println(exceptStr);
-//			driver.findElement(By.xpath(exceptStr));
+//			BaseAction.driver.findElement(By.xpath(exceptStr));
 //			flag=false;
 //		} catch (NoSuchElementException e) {
 //			// TODO: handle exception
 //			flag=true;
 //		}
-		if (driver.findElementByName(exceptStr) ==null) {
+		if (BaseAction.driver.findElementByName(exceptStr) ==null) {
 			flag=true;
 		}
 		

@@ -120,7 +120,7 @@ package com.zbwx.autotest.ui.base;
 //	 * @param x
 //	 * @param y
 //	 */
-//	public  void longPressPosition(int x,int y)
+//	public  void longPressBaseAction.position(int x,int y)
 //	{
 //		touchAction.longPress(x,y);
 //
@@ -131,7 +131,7 @@ package com.zbwx.autotest.ui.base;
 //	 * @param x
 //	 * @param y
 //	 */
-//	public  void pressPosition(int x,int y)
+//	public  void pressBaseAction.position(int x,int y)
 //	{
 //		touchAction.press(x,y);
 //
@@ -358,14 +358,14 @@ package com.zbwx.autotest.ui.base;
 //	 */
 //	public String  getSelectOptionValue(Locator selectLocator,String optinText)
 //	{
-//		WebElement webElement=driver.findElement(By.xpath(selectLocator.getElement()+"//option[text()='"
+//		WebElement webElement=BaseAction.driver.findElement(By.xpath(selectLocator.getElement()+"//option[text()='"
 //				+ optinText
 //				+ "']"));
 //		return webElement.getAttribute("value");
 //	}
 //	public String getSelectOptionText(Locator selectLocator,String optinValue)
 //	{
-//		WebElement webElement=driver.findElement(By.xpath(selectLocator.getElement()+"//option[text()='"
+//		WebElement webElement=BaseAction.driver.findElement(By.xpath(selectLocator.getElement()+"//option[text()='"
 //				+ optinValue
 //				+ "']"));
 //		return webElement.getText();
@@ -796,31 +796,31 @@ package com.zbwx.autotest.ui.base;
 //		switch (locator.getBy())
 //		{
 //			case xpath :
-//				webElement=driver.findElement(By.xpath(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.xpath(locator.getElement()));
 //				break;
 //			case id:
-//				webElement=driver.findElement(By.id(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.id(locator.getElement()));
 //				break;
 //			case cssSelector:
-//				webElement=driver.findElement(By.cssSelector(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.cssSelector(locator.getElement()));
 //				break;
 //			case name:
-//				webElement=driver.findElement(By.name(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.name(locator.getElement()));
 //				break;
 //			case className:
-//				webElement=driver.findElement(By.className(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.className(locator.getElement()));
 //				break;
 //			case linkText:
-//				webElement=driver.findElement(By.linkText(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.linkText(locator.getElement()));
 //				break;
 //			case partialLinkText:
-//				webElement=driver.findElement(By.partialLinkText(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.partialLinkText(locator.getElement()));
 //				break;
 //			case tagName:
-//				webElement=driver.findElement(By.tagName(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.tagName(locator.getElement()));
 //				break;
 //			default :
-//				webElement=driver.findElement(By.xpath(locator.getElement()));
+//				webElement=BaseAction.driver.findElement(By.xpath(locator.getElement()));
 //				break;
 //
 //		}
@@ -843,34 +843,34 @@ package com.zbwx.autotest.ui.base;
 //		switch (locator.getBy())
 //		{
 //			case xpath :
-//				webElements=driver.findElements(By.xpath(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.xpath(locator.getElement()));
 //				/**
 //				 * 出现找不到元素的时候，记录日志文件
 //				 */
 //				break;
 //			case id:
-//				webElements=driver.findElements(By.id(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.id(locator.getElement()));
 //				break;
 //			case cssSelector:
-//				webElements=driver.findElements(By.cssSelector(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.cssSelector(locator.getElement()));
 //				break;
 //			case name:
-//				webElements=driver.findElements(By.name(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.name(locator.getElement()));
 //				break;
 //			case className:
-//				webElements=driver.findElements(By.className(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.className(locator.getElement()));
 //				break;
 //			case linkText:
-//				webElements=driver.findElements(By.linkText(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.linkText(locator.getElement()));
 //				break;
 //			case partialLinkText:
-//				webElements=driver.findElements(By.partialLinkText(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.partialLinkText(locator.getElement()));
 //				break;
 //			case tagName:
-//				webElements=driver.findElements(By.partialLinkText(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.partialLinkText(locator.getElement()));
 //				break;
 //			default :
-//				webElements=driver.findElements(By.xpath(locator.getElement()));
+//				webElements=BaseAction.driver.findElements(By.xpath(locator.getElement()));
 //				break;
 //
 //		}

@@ -1,19 +1,23 @@
 package com.zbwx.autotest.ui;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.zbwx.autotest.ui.base.TestBaseCase;
+import com.zbwx.autotest.ui.base.BaseTest;
 import com.zbwx.autotest.ui.pageobject.OrderPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import atx.client.adb.ElementAttribs;
 
-public class TestOrder extends TestBaseCase {
+import static com.zbwx.autotest.ui.base.BaseAction.mClickReturnButton;
+import static com.zbwx.autotest.ui.base.BaseAction.mReturnHomePage;
+
+public class TestOrder extends BaseTest {
 
 	@BeforeClass
 	public void beforeClass(){
-		driver.startUiAutomator();
+		BaseAction.driver.startUiAutomator();
 	}
 	
 	@Test(description = "打开‘定购’主页")
@@ -28,9 +32,9 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.customerService);
+		BaseAction.device.click(o.customerService);
 		Assertion.VerityTextPresentPrecision("客服中心", "是否进入客服中心页面");
-		device.click(position.findElementById("com.ylmall.app.ui:id/leftBtn"));
+		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/leftBtn"));
 		mReturnHomePage();
 	}
 	
@@ -39,7 +43,7 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.messageButton);
+		BaseAction.device.click(o.messageButton);
 		Assertion.VerityTextPresentPrecision("消息中心", "是否进入消息中心...");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
@@ -51,7 +55,7 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o1 = new OrderPage();
-		device.click(o1.commodity_Cu);
+		BaseAction.device.click(o1.commodity_Cu);
 		Assertion.VerityTextPresentPrecision("果礼铜0.02吨", "验证是否成功切换商品...");
 		mReturnHomePage();
 	}
@@ -61,8 +65,8 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o1 = new OrderPage();
-		device.click(o1.k_M5);
-		Assertion.VerityBoolean(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
+		BaseAction.device.click(o1.k_M5);
+		Assertion.VerityBoolean(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
 		mReturnHomePage();
 	}
 	
@@ -71,8 +75,8 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o1 = new OrderPage();
-		device.click(o1.k_M15);
-		Assertion.VerityBoolean(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
+		BaseAction.device.click(o1.k_M15);
+		Assertion.VerityBoolean(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
 		mReturnHomePage();
 	}
 	
@@ -81,8 +85,8 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o1 = new OrderPage();
-		device.click(o1.k_H1);
-		Assertion.VerityBoolean(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
+		BaseAction.device.click(o1.k_H1);
+		Assertion.VerityBoolean(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
 		mReturnHomePage();
 	}
 	
@@ -91,8 +95,8 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o1 = new OrderPage();
-		device.click(o1.k_D1);
-		Assertion.VerityBoolean(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
+		BaseAction.device.click(o1.k_D1);
+		Assertion.VerityBoolean(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
 		mReturnHomePage();
 	}
 	
@@ -101,10 +105,10 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o1 = new OrderPage();
-		device.click(o1.k_M5);
-		Assertion.VerityBoolean(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
-		device.click(o1.k_Timeshare);
-		Assertion.VerityBoolean(position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_time_hour_1", 3000), true, "K线显示切换");
+		BaseAction.device.click(o1.k_M5);
+		Assertion.VerityBoolean(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_view5_1", 3000), true, "K线显示切换");
+		BaseAction.device.click(o1.k_Timeshare);
+		Assertion.VerityBoolean(BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/newcfd_my_charts_time_hour_1", 3000), true, "K线显示切换");
 		mReturnHomePage();
 	}
 	
@@ -113,7 +117,7 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.rechargeButton);
+		BaseAction.device.click(o.rechargeButton);
 		Assertion.VerityTextPresentPrecision("充值查询", "跳转充值页面...");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
@@ -125,7 +129,7 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.myOrder);
+		BaseAction.device.click(o.myOrder);
 		Assertion.VerityTextPresentPrecision("我的订单", "跳转我的订单页面...");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
@@ -138,11 +142,11 @@ public class TestOrder extends TestBaseCase {
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
 		Assertion.VerityTextPresentPrecision("果礼镍0.01吨", "默认选择10KG...");
-		device.click(o.type_80);
+		BaseAction.device.click(o.type_80);
 		Assertion.VerityTextPresentPrecision("果礼镍0.08吨", "选择80KG...");
-		device.click(o.type_400);
+		BaseAction.device.click(o.type_400);
 		Assertion.VerityTextPresentPrecision("果礼镍0.4吨", "选择400KG...");
-		device.click(o.type_10);
+		BaseAction.device.click(o.type_10);
 		Assertion.VerityTextPresentPrecision("果礼镍0.01吨", "选择10KG...");
 		mReturnHomePage();
 	}
@@ -152,7 +156,7 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.presentPriceOrder);
+		BaseAction.device.click(o.presentPriceOrder);
 		Assertion.VerityTextPresentPrecision("下单", "是否进入下单页面");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
@@ -164,7 +168,7 @@ public class TestOrder extends TestBaseCase {
 		OrderPage order = new OrderPage();
 		order.mOpenOrderPage();
 		OrderPage o = new OrderPage();
-		device.click(o.settlementPriceOrder);
+		BaseAction.device.click(o.settlementPriceOrder);
 		Assertion.VerityTextPresentPrecision("下单", "是否进入下单页面");
 		mClickReturnButton();
 		Assertion.VerityTextPresentPrecision("现价定购", "是否返回定购页面...");
