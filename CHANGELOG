@@ -1,0 +1,3 @@
+ 1、添加id查找时省略packageName查找
+ 2、添加根据设备自动保存xml文件  优化base实现
+ 3、修复bug
