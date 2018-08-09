@@ -16,7 +16,7 @@ public class CopyReportResources {
      {
          this.copyFile("src/main/resources/reportResources/back.gif", "test-output/back.gif");
          this.copyFile("src/main/resources/reportResources/close.gif", "test-output/close.gif");
-         this.copyFile("src/main/resources/reportResources//logo1.png", "test-output/logo1.png");
+         this.copyFile("src/main/resources/reportResources//logo.jpeg", "test-output/logo.jpeg");
          this.copyFile("src/main/resources/reportResources/Chart.js", "test-output/Chart.js");
          this.copyFile("src/main/resources/reportResources/jquery-1.7.1.min.js", "test-output/jquery-1.7.1.min.js");
          this.copyFile("src/main/resources/reportResources/loadxmldoc.js", "test-output/loadxmldoc.js");

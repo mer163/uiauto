@@ -1,5 +1,6 @@
 package com.zbwx.autotest.ui.utils;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -20,12 +21,12 @@ public class TestListener  extends TestListenerAdapter{
 	Log log=new Log(this.getClass());
 	//输出失败结果详情
 	public static StringBuffer sb=new StringBuffer("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<failed>\n");
-	String path="test-output\\failed.xml";
+	String path="test-output"+ File.separator + "failed.xml";
 	File file=new File(path);
 	FileWriter fileWriter=null;
 	//输出成功结果详细信息
 	public static StringBuffer sb2=new StringBuffer("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<passed>\n");
-	String path2="test-output\\passed.xml";
+	String path2="test-output"+ File.separator  +"passed.xml";
 	File file2=new File(path2);
 	FileWriter fileWriter2=null;
 	FileManger fileManger=new FileManger();
@@ -46,11 +47,15 @@ public class TestListener  extends TestListenerAdapter{
 		//this.handAssertion(tr);
 		BaseTest testBaseCase=(BaseTest) tr.getInstance();
 //		WebDriver driver=testBaseCase.driver;
-//		ScreenShot screenShot=new ScreenShot(driver);
+		ScreenShot screenShot=new ScreenShot(BaseAction.driver);
 //		//设置截图名字
-//		screenShot.setscreenName(tr.getMethod().getDescription()+Assertion.errorIndex.toString());
+		screenShot.setscreenName(TimeUtil.formatTime(System.currentTimeMillis()) + "_" + tr.getMethod().getDescription() + "failed");
 		log.error(Assertion.errorIndex.toString());
-//		screenShot.takeScreenshot();
+		try {
+			screenShot.takeScreenshot();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		for(int i=0;i<Assertion.messageList.size();i++)
 		{
 			if (tr.getParameters().length>0) {
@@ -140,11 +145,11 @@ public class TestListener  extends TestListenerAdapter{
 	}
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		BaseTest testBaseCase=(BaseTest) tr.getInstance();
+//		BaseTest testBaseCase=(BaseTest) tr.getInstance();
 //		WebDriver driver=testBaseCase.driver;
-//		ScreenShot screenShot=new ScreenShot(driver);
+		ScreenShot screenShot=new ScreenShot(BaseAction.driver);
 //		//设置截图名字
-//		screenShot.setscreenName(tr.getMethod().getDescription());
+		screenShot.setscreenName(TimeUtil.formatTime(System.currentTimeMillis()) + "_" + tr.getMethod().getDescription() + "skipped");
 //		screenShot.takeScreenshot();
 		log.warn("测试用例: "+tr.getMethod().getDescription()+"--skipped");
 		log.info("测试用例:"+tr.getMethod().getDescription()+"---end");
