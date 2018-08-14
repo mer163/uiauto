@@ -3,12 +3,13 @@ package com.zbwx.autotest.ui.homepage;
 import java.util.ArrayList;
 
 import com.zbwx.autotest.ui.base.BaseTest;
+import com.zbwx.autotest.ui.pageobject.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.zbwx.autotest.ui.pageobject.HomePage;
-import com.zbwx.autotest.ui.pageobject.HomePage1;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import atx.client.adb.ElementAdb;
@@ -20,18 +21,46 @@ public class HomePageTest1 extends BaseTest {
 
 	
 	@BeforeClass
-	public void beforeclass() throws Exception{
-	
-		Thread.sleep(3000);
+	public void beforeClass() {
+
 	}
-	
-	@Test(description = "点击我的")
-	public void testHomePageService() throws Exception{
-		HomePage1 mHomePage1 = new HomePage1();
-		Thread.sleep(3000);
+
+	@BeforeMethod
+	public void beforeMethod(){
+		//每个方法执行前执行
+
+	}
+
+	@AfterMethod
+	public void aftermthod(){
+		//每个方法执行完后执行
+	}
+
+	@AfterClass
+	public void afterClass() {
+		//所有测试方法执行完后执行
+
+	}
+
+	@Test(description = "test")
+	public void testLoginSuccess() throws Exception{
+		//进入我的页面
+		HomePage1.verify().clickMy();
+
+		//点击头像，进入登录页面
+		MyPage.verify().clickHeadImage();
+		//点击密码登录，跳转至密码登录页面
+		LoginWithSmsPage.verify().passwordLogin.click();
+
+		LoginWithPassword.verify().login();
+
+
+
+//		HomePage1 mHomePage1 = new HomePage1();
+//		Thread.sleep(3000);
 //		PageFactory.initElements(mHomePage1, driver);
-		mHomePage1.my.click();
-		Thread.sleep(3000);
+//		mHomePage1.my.click();
+//		Thread.sleep(3000);
 //		Assertion.VerityTextPresentPrecision("热门商品", "当前处在首页");
 //		HomePage mHomePage2 = new HomePage();
 //		BaseAction.device.click(mHomePage2.img_homeService);
@@ -46,10 +75,10 @@ public class HomePageTest1 extends BaseTest {
 	
 		
 	}
-	
-	
-	@AfterClass
-	public void afterClassResult() {
-		
-	}
+
+	@Test
+	public void testLoginFail(){
+
+    }
+
 }

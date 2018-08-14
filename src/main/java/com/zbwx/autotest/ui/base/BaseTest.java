@@ -103,12 +103,7 @@ public class BaseTest {
 		
 		log.info("-------------结束测试，并关闭退出driver,关闭uiautomator-------------");
 	}
-	
-	@BeforeClass
-	public void beforeClass() {
-		log.info("beforeClass ");
-		
-	}
+
 	
 	private void initOperators(String udid,String apkName,String deviceIp,String platformName, String sdkVersion, String appPackageName,String appStartActivity) throws MalformedURLException {
 		

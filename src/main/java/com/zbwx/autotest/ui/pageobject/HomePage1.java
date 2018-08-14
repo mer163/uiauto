@@ -17,7 +17,7 @@ import atx.client.remote.PageFactory;
 
 public class HomePage1 extends BasePage{
 
-	@FindElementBy(text="我的aa",verify = true)
+	@FindElementBy(text="我的")
 	public AndroidElement my;
 
 	@FindElementBy(id= "id/first_text")		//verify=true时 id必须为不包含包名的id，减少与服务器交互次数
@@ -25,13 +25,19 @@ public class HomePage1 extends BasePage{
 	
 
 
-	public HomePage1(){
+	protected HomePage1(){
 		super();
 
 	}
 
 	public static HomePage1 verify(){
+
 		return  new HomePage1();
 	}
-	
+
+
+	//点击我的 按钮
+	public void clickMy(){
+		this.my.click();
+	}
 }
