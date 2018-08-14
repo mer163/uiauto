@@ -1,103 +1,91 @@
 package com.zbwx.autotest.ui.pageobject;
 
-import java.util.ArrayList;
-
-import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
-import atx.client.adb.ElementAdb;
-import atx.client.adb.ElementAttribs;
+import atx.client.internal.FindElementBy;
+import atx.client.model.AndroidElement;
 
-import static com.zbwx.autotest.ui.base.BaseAction.mWaitOpenApp;
-
+//下单页面
 public class Order_xiadanPage extends BasePage {
 
-	public ElementAdb messageButton;//消息按钮
-	public ElementAdb selectOrderButton;//下拉选择商品
-	public ElementAdb selectCoupon;//选择卡券
-	public ElementAdb selectType;//选择种类
-	public ElementAdb orderNumber_add;//增加购买手数
-	public ElementAdb orderNumber_subtract;//减少购买手数
-	public ElementAdb rechargeButton;//充值按钮
-	public ElementAdb presentPriceOrder;//现价定购按钮
-	public ElementAdb settlementPriceOrder;//结算价定购按钮
-	public ElementAdb orderNumber;//购买手数
+	@FindElementBy(id="id/rightBtn")//消息按钮
+	public AndroidElement mMessageButton;
+	
+	@FindElementBy(id="id/below_order_big_type_image")//下拉选择商品
+	public AndroidElement mSelectOrderButton;
+	
+	@FindElementBy(id="id/below_order_coupon_text")//选择卡券
+	public AndroidElement mSelectCoupon;
+	
+	@FindElementBy(id="id/below_order_small_type_iamge")//选择种类
+	public AndroidElement mSelectType;
+	
+	@FindElementBy(id="id/below_order_add")//增加购买手数
+	public AndroidElement mOrderNumber_add;
+	
+	@FindElementBy(id="id/below_order_move")//减少购买手数
+	public AndroidElement mOrderNumber_subtract;
+	
+	@FindElementBy(id="id/below_order_pay")//充值按钮
+	public AndroidElement mRechargeButton;
+	
+	@FindElementBy(text="现价定购")//现价定购按钮
+	public AndroidElement mPresentPriceOrder;
+	
+	@FindElementBy(text="结算价定购")//结算价定购按钮
+	public AndroidElement mSettlementPriceOrder;
+	
+	@FindElementBy(id="id/below_order_edit")//购买手数
+	public AndroidElement mOrderNumber;
+	
+	@FindElementBy(text="16.0")//止盈16.0
+	public AndroidElement mStopProfit_16_0;
+	
+	@FindElementBy(text="2.4")//止损2.4
+	public AndroidElement mStopLoss_2_4;
 	
 	public Order_xiadanPage(){
-		initElementsXD();
+		super();
 	}
-	
-	
-	public void initElementsXD(){
-		try{
-			this.messageButton = BaseAction.position.findElementById("com.ylmall.app.ui:id/rightBtn");
-			this.selectOrderButton = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_big_type_image");
-			this.selectCoupon = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_coupon_text");
-			this.selectType = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_small_type_iamge");
-			this.orderNumber_add = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_add");
-			this.orderNumber_subtract = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_move");
-			this.rechargeButton = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_pay");
-			this.presentPriceOrder = BaseAction.position.findElementByText("现价定购");
-			this.settlementPriceOrder = BaseAction.position.findElementByText("结算价定购");
-			this.orderNumber = BaseAction.position.findElementById("com.ylmall.app.ui:id/below_order_edit");
-			
-		}catch (Exception e){
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+
+	public static Order_xiadanPage verify(){
+		return  new Order_xiadanPage();
 	}
-	
-	/**
-	 * 点击‘现价定购’进入下单页面(果礼镍)
-	 * @throws Exception
-	 */
-	public void mOpenOrder_xiadan() throws Exception{
-		mWaitOpenApp();
-		BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
-		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/deal_img"));
-		BaseAction.device.click(BaseAction.position.findElementByText("果礼镍"));
-		BaseAction.device.click(BaseAction.position.findElementByText("现价定购"));
-		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
-		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
-	}
-	
-	/**
-	 * 点击‘结算价定购’进入下单页面(果礼镍)
-	 * @throws Exception
-	 */
-	public void mOpenOrder_xiadan_JS() throws Exception{
-		mWaitOpenApp();
-		BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
-		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/deal_img"));
-		BaseAction.device.click(BaseAction.position.findElementByText("果礼镍"));
-		BaseAction.device.click(BaseAction.position.findElementByText("结算价定购"));
-		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
-		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
-	}
-	
-	/**
-	 * 从首页开始，进入我的订单页面获取总成本text
-	 * @return
-	 */
-	public ArrayList<String> mGegCost(){
-		mWaitOpenApp();
-		BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/deal_img", 3000);
-		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/deal_img"));
-		BaseAction.device.click(BaseAction.position.findElementById("com.ylmall.app.ui:id/order_dingzhi"));
-		ArrayList<String> costText = BaseAction.position.getTextById("com.ylmall.app.ui:id/mogen_chicang_zongchengben");
-		return costText;		
-	}
+
+	DSa_Method ds = new DSa_Method();
 	
 	/**
 	 * 下单页面，获取当前购买手数
 	 * @return
 	 * @throws Exception
 	 */
-	public ArrayList<String> mGegOrderNumber() throws Exception{
-		Assertion.VerityTextPresentPrecision("下单", "当前是否在下单页面...");
-		ArrayList<String> text = BaseAction.position.getTextById("com.ylmall.app.ui:id/below_order_edit");
-		return text;		
+	public String mGetOrderNumber() throws Exception{
+		return ds.mGetTextById("com.ylmall.app.ui:id/below_order_edit");
+	}
+	
+	/**
+	 * 下单页面，恢复下单页面初始(返回上一页面重新进入)
+	 * @throws Exception 
+	 */
+	public void mRecoveryXiaDanPgae() throws Exception{
+		ds.mClickReturnButton();
+		mOpenOrder_xiadan();
+	}
+	
+	/**
+	 * 首页开始,点击‘现价定购’进入下单页面(果礼镍)
+	 * @throws Exception
+	 */
+	public void mOpenOrder_xiadan() throws Exception{
+		ds.mOpenOrderPage();
+		OrderPage order = new OrderPage();
+		order.mPresentPriceOrder.click();
+		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
+		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
+	}
+	
+	public void mClearAndReinput(String id ){
+		
 	}
 }
