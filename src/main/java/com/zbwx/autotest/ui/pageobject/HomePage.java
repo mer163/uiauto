@@ -19,13 +19,13 @@ import static com.zbwx.autotest.ui.base.BaseAction.mReturn;
 
 public class HomePage extends BasePage{
 	
-	@FindElementBy(text = "定购", verify = true)
+	@FindElementBy(text = "定购")
 	public AndroidElement order;
 
-	@FindElementBy(text = "发现", verify = true)
+	@FindElementBy(text = "发现")
 	public AndroidElement find;
 
-	@FindElementBy(text = "我的", verify = true)
+	@FindElementBy(text = "我的")
 	public AndroidElement my;
 
 	@FindElementBy(id = "id/first_text")// verify=true时 id必须为不包含包名的id，减少与服务器交互次数	
@@ -85,7 +85,23 @@ public class HomePage extends BasePage{
 	@FindElementBy(id = "id/ll_gonggao")
 	// 公告
 	public AndroidElement ll_homeGongGao;
+	
 
+	protected HomePage() {
+		super();
+
+	}
+
+	public static HomePage verify() {
+		return new HomePage();
+	}
+	//点击搜索
+	public void clickSearch(){
+		this.btn_homeSearch.click();
+		BaseAction.device.sendText("cccc");		
+	}
+	
+	
 	// 商城精选
 	public void mallSeclect() throws Exception {
 		((AndroidElement)BaseAction.driver.findElementById(BaseTest.mAppMainPackage + ":id/ll_show1")).click();// 新品上架	
@@ -110,14 +126,19 @@ public class HomePage extends BasePage{
 		BaseAction.mReturn();
 	}
 
-	public HomePage() {
-		super();
-
-	}
-
-	public static HomePage verify() {
-		return new HomePage();
-	}
 
 	
+	//点击定购按钮 
+	public void clickOrder(){
+		this.order.click();
+	}
+	//点击发现按钮 
+	public void clickFind(){
+		this.find.click();
+	}
+	//点击发现按钮 
+	public void clickMy(){
+		this.my.click();
+	}
+		
 }
