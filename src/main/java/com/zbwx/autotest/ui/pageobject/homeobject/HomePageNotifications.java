@@ -1,51 +1,39 @@
 package com.zbwx.autotest.ui.pageobject.homeobject;
 
-import atx.client.adb.ElementAdb;
-import atx.client.adb.ElementAttribs;
-import atx.client.common.ElementObj;
+import atx.client.internal.FindElementBy;
 import atx.client.model.AndroidElement;
 
-import com.zbwx.autotest.ui.base.BaseAction;
-import com.zbwx.autotest.ui.base.BaseTest;
 
+import com.zbwx.autotest.ui.base.BaseTest;
+/**
+ * 消息
+ * @author zbwx
+ *
+ */
 public class HomePageNotifications extends BaseTest {
  
-	public static AndroidElement img_homeMessage;
+	@FindElementBy(id= "id/leftBtn")	
+	public AndroidElement mMessageBackBtn;
 	
-	public static ElementAdb mNoticeContainer;
-	public static ElementAdb mTixianContainer;
-	public static ElementAdb mDealContainer;
+	@FindElementBy(id= "id/notice_container")
+	public AndroidElement mNoticeContainer;
 	
-	public static ElementAdb mMessageBack;
+	@FindElementBy(id= "id/tixian_container")	
+	public AndroidElement mTixianContainer;
 	
-	public HomePageNotifications(){
-		initElements();
+	@FindElementBy(id= "id/deal_container")	
+	public AndroidElement mDealContainer;
+	
+
+	
+
+	protected HomePageNotifications(){
+		super();
+
 	}
 
-	public void initElements() {
-		
-		try {
-			this.img_homeMessage= BaseAction.driver.findElementById(BaseTest.mAppMainPackage+":id/img_tixing");//首页消息
-			
-			this.mNoticeContainer=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/notice_container");//公告提醒
-			
-			this.mTixianContainer=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/tixian_container");//提现提醒
-			
-			this.mDealContainer=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/deal_container");//成交提醒
-			this.mMessageBack=BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/newcfd_message_back");//成交提醒
-
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+	public static HomePageNotifications verify(){
+		return  new HomePageNotifications();
 	}
-	public void newCentre() {		
-		BaseAction.position.waitForElement(ElementAttribs.TEXT, "消息中心", 3000);
-	}
-	public void newClick() throws Exception {
-		BaseAction.position.waitForElement(ElementAttribs.TEXT, "消息", 3000);
-		img_homeMessage.click();
-	}
+	
 }
