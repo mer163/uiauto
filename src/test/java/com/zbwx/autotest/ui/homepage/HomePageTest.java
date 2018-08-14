@@ -1,24 +1,21 @@
 package com.zbwx.autotest.ui.homepage;
 
-
-
-import java.util.ArrayList;
+import atx.client.model.AndroidElement;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
+import com.zbwx.autotest.ui.pageobject.CommodityListPage;
+import com.zbwx.autotest.ui.pageobject.HomePage;
+import com.zbwx.autotest.ui.pageobject.homeobject.HomePageSearch;
+import com.zbwx.autotest.ui.utils.Assertion;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import atx.client.adb.ElementAdb;
-import atx.client.adb.ElementAttribs;
-import atx.client.adb.UiDump;
-import atx.client.common.ElementObj;
-import atx.client.enums.AttributeMask;
 
-import com.zbwx.autotest.ui.pageobject.HomePage;
-import com.zbwx.autotest.ui.pageobject.QuotationPage;
-import com.zbwx.autotest.ui.utils.Assertion;
 /**
  * 
  * @author zbwx
@@ -28,110 +25,111 @@ import com.zbwx.autotest.ui.utils.Assertion;
 public class HomePageTest extends BaseTest {
     
 
-	
 	@BeforeClass
-	public void beforeclass() throws Exception{
-	
+	public void beforeClass() throws Exception {
+		BaseAction.driver.startUiAutomator();
 		Thread.sleep(3000);
 	}
-	
+
+	@BeforeMethod
+	public void beforeMethod() throws Exception{
+		//每个方法执行前执行
+		Assertion.VerityTextPresentPrecision("热门商品", "当前为首页......");
+	}
+
+	@AfterMethod
+	public void aftermthod() throws Exception{
+		//每个方法执行完后执行		
+		Thread.sleep(3000);
+	}
+
+	@AfterClass
+	public void afterClass() throws Exception{
+		//所有测试方法执行完后执行		
+		Assertion.VerityTextPresentPrecision("热门商品", "当前为首页......");
+	}
+		
 	@Test(description = "点击客服")
 	public void testHomePageService() throws Exception{
-		HomePage mHomePage1 = new HomePage();
-		Thread.sleep(3000);
-		Assertion.VerityTextPresentPrecision("热门商品", "当前处在首页");
-		HomePage mHomePage2 = new HomePage();
-		BaseAction.device.click(mHomePage2.img_homeService);
-		
-		Thread.sleep(3000);
-		
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "交易规则",3000)) {
-			ElementAdb mServiceBack = BaseAction.position.findElementById("com.ylmall.app.ui:id/leftBtn");
-			BaseAction.device.click(mServiceBack);
-			
-		}
-	
+		//点击首页客服按钮进入客服中心
+		HomePage.verify().img_homeService.click();
+		//点击客服中心返回按钮 返回首页
+		BaseAction.mClickReturnButton();
 		
 	}
 	
 	@Test(description = "点击搜索")
 	public void testHomePageSearch()  throws Exception{
-		Thread.sleep(3000);
-		HomePage mHomePage2 = new HomePage();
-		mHomePage2.search();
+		//点击首页的搜索框 
+		HomePage.verify().clickSearch();
+		//点击搜索按钮
+		HomePageSearch.verify().clickImgRight();
+		//点击返回按钮返回首页
+		BaseAction.mClickReturnButton();
 		
-	}
-	@Test(description = "点击消息")
-	public void testHomePageMessage()  throws Exception{
-		Thread.sleep(3000);
-		HomePage mHomePage3 = new HomePage();
-		BaseAction.device.click(mHomePage3.img_homeMessage);
-		Thread.sleep(3000);
-		if (BaseAction.position.findElementByText("公告提醒") != null) {
-			ElementAdb mMessageBack =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/leftBtn");
-			BaseAction.device.click(mMessageBack);
-		}
-	}
-	@Test(description = "首页轮播")
-	public void testHomePageViewPager()  throws Exception{
-		Thread.sleep(3000);
-		HomePage mHomePage4 = new HomePage();
-		for (int i = 0; i < 3; i++) {
-			Thread.sleep(3000);
-			if (BaseAction.position.findElementByText("热门商品") != null) {
-				BaseAction.device.click(mHomePage4.vp_homeCbLoopViewPager);
-				Thread.sleep(3000);
-				
-			}
-			Thread.sleep(3000);
-			BaseAction.device.click(BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/baseweb_back"));
-		}
-	}
-	@Test(description = "首页盈利播报")
-	public void testHomePageMoreylName()  throws Exception{
-		Thread.sleep(3000);
-		ArrayList<ElementAdb> buoBao0 = BaseAction.position.findElementsByText("恭喜****4419果礼镍0.08吨盈利+511.28");
-		Thread.sleep(3000);
-		ArrayList<ElementAdb> buoBao1 = BaseAction.position.findElementsByText("恭喜****2998祖玛香水盈利+7.30");
-		Assertion.VerityBoolean(buoBao0.equals(buoBao1), false, "播报切换成功");
-		
-		HomePage mHomePage3 = new HomePage();
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "热门商品", 3000)) {
-			BaseAction.device.click(mHomePage3.tv_homeMoreylName);
-		}
-		Thread.sleep(3000);
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "排名", 3000)) {
-			ElementAdb mMoreylBack = BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/leftBtn");
-			BaseAction.device.click(mMoreylBack);
-		}
 	}
 	
+	@Test(description = "点击消息")
+	public void testHomePageMessage()  throws Exception{
+		//点击首页消息按钮跳转消息中心页面
+		HomePage.verify().img_homeMessage.click();
+		//点击返回按钮返回首页
+		BaseAction.mClickReturnButton();
+	}
+	
+	@Test(description = "首页轮播")
+	public void testHomePageViewPager()  throws Exception{
+		//点击轮播图跳转详情
+		HomePage.verify().vp_homeCbLoopViewPager.click();
+		//点击返回首页
+		BaseAction.mClickReturnButton();
+	}
+	
+	@Test(description = "首页盈利播报")
+	public void testHomePageMoreylName()  throws Exception{
+		//获取盈利播报的内容
+		String str1 = HomePage.verify().getTextById(BaseTest.mAppMainPackage+":id/textswitch");
+		Thread.sleep(2000);
+		String str2 = HomePage.verify().getTextById(BaseTest.mAppMainPackage+":id/textswitch");
+		Assertion.VerityBoolean(str1.equals(str2), false, "播报是否变动...");
+		Thread.sleep(2000);
+		//点击盈利播报的更多按钮跳转盈利榜
+		HomePage.verify().tv_homeMoreylName.click();
+		//点击返回首页
+		BaseAction.mClickReturnButton();
+	}
+	
+		
 	@Test(description = "热门商品")
 	public void testHomeHotCommodity()  throws Exception{
-		Thread.sleep(3000);
-		HomePage mHomePage3 = new HomePage();
-		mHomePage3.hotCommodity();
-		Assertion.VerityTextPresentPrecision("热门商品", "已返回首页");
+		//点击首页全部商品
+		HomePage.verify().tv_homeAllProduct.click();
+		//点击返回
+		CommodityListPage.verify().mReturn_Button.click();
+		//点击热门商品
+		Thread.sleep(2000);
+		HomePage.verify().clickHotProduct();
 		
 	}
 	
 	@Test(description = "商城精选")
 	public void testHomeMallSelected()  throws Exception{
-		//新品上架
-		Thread.sleep(3000);
-		HomePage mHomePage3 = new HomePage();
-		mHomePage3.mallSeclect();
-		Assertion.VerityTextPresentPrecision("热门商品", "已返回首页");
+		//点击商城精选的各个商品跳转商品详情页
+		HomePage.verify().mallSeclect();
+		
 		
 	}
    
 	@Test(description = "为您推荐")
 	public void testHomeForTuiJian()  throws Exception{
-		
-		Thread.sleep(3000);
-		HomePage mHomePage3 = new HomePage();
-		mHomePage3.forYouTuiJian();
-		Assertion.VerityTextPresentPrecision("首页", "已返回首页");
+		//点击商城情报
+		((AndroidElement) BaseAction.driver.findElementByName("商城情报")).click();
+		//点击公告
+		((AndroidElement) BaseAction.driver.findElementByName("公告")).click();
+		//点击购买指南
+		((AndroidElement) BaseAction.driver.findElementByName("购买指南")).click();
+
+	
 	}
 	
 	@AfterClass
