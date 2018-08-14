@@ -16,8 +16,15 @@ import atx.client.enums.AttributeMask;
 import atx.client.internal.FindElementBy;
 import atx.client.model.AndroidElement;
 import static com.zbwx.autotest.ui.base.BaseAction.mReturn;
-
+/**
+ * 首页
+ * @author zbwx
+ *
+ */
 public class HomePage extends BasePage{
+	
+	@FindElementBy(text = "首页")
+	public AndroidElement homepage;
 	
 	@FindElementBy(text = "定购")
 	public AndroidElement order;
@@ -28,28 +35,27 @@ public class HomePage extends BasePage{
 	@FindElementBy(text = "我的")
 	public AndroidElement my;
 
-	@FindElementBy(id = "id/first_text")// verify=true时 id必须为不包含包名的id，减少与服务器交互次数	
-	public AndroidElement home_bottom;
+	@FindElementBy(id = "id/first_text")
+	public AndroidElement home_bottom;// verify=true时 id必须为不包含包名的id，减少与服务器交互次数	
 
-	@FindElementBy(id = "id/tv_search")// 搜索	
-	public AndroidElement btn_homeSearch;
+	@FindElementBy(id = "id/tv_search")	
+	public AndroidElement btn_homeSearch;// 搜索
 
 	@FindElementBy(id = "id/img_kefu")
 	public AndroidElement img_homeService; // 客服
 	
-	@FindElementBy(id = "id/img_tixing")// 消息	
-	public AndroidElement img_homeMessage;
+	@FindElementBy(id = "id/img_tixing")
+	public AndroidElement img_homeMessage;// 消息	
 
-	@FindElementBy(id = "id/cbLoopViewPager")// 轮播图	
-	public AndroidElement vp_homeCbLoopViewPager;
-
+	@FindElementBy(id = "id/cbLoopViewPager")	
+	public AndroidElement vp_homeCbLoopViewPager;// 轮播图
+	
 	@FindElementBy(text = "更多")
-	public AndroidElement tv_homeMoreylName;
-
+	public AndroidElement tv_homeMoreylName;//更多
+	
 	// 首页热门商品
 	@FindElementBy(id = "id/tv_allproduct")
-	// 首页全部商品点这里
-	public AndroidElement tv_homeAllProduct;
+	public AndroidElement tv_homeAllProduct;// 首页全部商品点这里
 	@FindElementBy(text = "果礼镍")
 	public AndroidElement tv_homeNie;
 	@FindElementBy(text = "果礼铜")
@@ -83,8 +89,7 @@ public class HomePage extends BasePage{
 	@FindElementBy(id = "id/ll_storeinfo")
 	public AndroidElement ll_homeStoreInfo;// 商城情报
 	@FindElementBy(id = "id/ll_gonggao")
-	// 公告
-	public AndroidElement ll_homeGongGao;
+	public AndroidElement ll_homeGongGao;	// 公告
 	
 
 	protected HomePage() {
@@ -95,39 +100,19 @@ public class HomePage extends BasePage{
 	public static HomePage verify() {
 		return new HomePage();
 	}
+	
 	//点击搜索
-	public void clickSearch(){
+	public void clickSearch() throws Exception{
 		this.btn_homeSearch.click();
-		BaseAction.device.sendText("cccc");		
+		BaseAction.device.sendText("cccc");
+		Thread.sleep(3000);
 	}
 	
 	
-	// 商城精选
-	public void mallSeclect() throws Exception {
-		((AndroidElement)BaseAction.driver.findElementById(BaseTest.mAppMainPackage + ":id/ll_show1")).click();// 新品上架	
-		Thread.sleep(3000);
-		BaseAction.mReturn();
-		Thread.sleep(3000);
-		((AndroidElement) BaseAction.driver.findElementById(BaseTest.mAppMainPackage + ":id/ll_show2")).click();//
-		Thread.sleep(3000);
-		BaseAction.mReturn();
-		Thread.sleep(3000);
-		((AndroidElement) BaseAction.driver.findElementById(BaseTest.mAppMainPackage + ":id/ll_show3")).click();// 	
-		Thread.sleep(3000);
-		BaseAction.mReturn();
-		Thread.sleep(3000);
-		// 发现好货
-		((AndroidElement) BaseAction.driver.findElementById(BaseTest.mAppMainPackage + ":id/img_find1")).click();// 发现好货
-		Thread.sleep(3000);
-		BaseAction.mReturn();
-		Thread.sleep(3000);
-		((AndroidElement) BaseAction.driver.findElementById(BaseTest.mAppMainPackage + ":id/img_find2")).click();
-		Thread.sleep(3000);
-		BaseAction.mReturn();
+	//点击首页按钮 
+	public void clickHomePage(){
+		this.homepage.click();
 	}
-
-
-	
 	//点击定购按钮 
 	public void clickOrder(){
 		this.order.click();
@@ -139,6 +124,71 @@ public class HomePage extends BasePage{
 	//点击发现按钮 
 	public void clickMy(){
 		this.my.click();
+	}
+	
+	
+	
+	//点击热门商品
+	public void clickHotProduct() throws Exception {
+		this.tv_homeNie.click();
+		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		this.tv_homeTong.click();
+		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		this.tv_homeYin.click();
+		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		this.tv_homeJapan.click();
+		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		this.tv_homeEngland.click();
+		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		this.tv_homeEurope.click();
+		BaseAction.mClickReturnButton();
+	}
+	
+	
+	// 商城精选
+	public void mallSeclect() throws Exception {
+		//新品上架
+		this.ll_homeShow1.click();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
+		Thread.sleep(2000);
+		this.ll_homeShow2.click();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
+		Thread.sleep(2000);
+		this.ll_homeShow3.click();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
+		Thread.sleep(2000);
+		// 发现好货
+		this.img_homeFind1.click();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
+		Thread.sleep(2000);
+		this.img_homeFind2.click();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
+	}
+
+
+
+
+
+	
+	
+	/**
+	 * 获取ID元素文本信息
+	 * @param str
+	 * @return
+	 */
+	public String getTextById(String str){
+		AndroidElement text = BaseAction.driver.findElementById(str);
+		return text.getText();		
 	}
 		
 }
