@@ -25,7 +25,7 @@ public class DSa_Method extends BaseTest {
 	/**
 	 * 检查当前是否处于行情页面,如果不是,则返回首页后重新进入果礼镍的行情页面
 	 */
-	public void mReturnQuotesPage(){
+	public void mCheckQuotesPage(){
 		if(!BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/mogen_price", 3000)){
 			mReturnHomePage();
 			mOpenQuotesPage();
