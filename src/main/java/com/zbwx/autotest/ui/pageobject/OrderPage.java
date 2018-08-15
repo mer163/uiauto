@@ -1,6 +1,9 @@
 package com.zbwx.autotest.ui.pageobject;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;
+import com.zbwx.autotest.ui.utils.Assertion;
+
 import atx.client.internal.FindElementBy;
 import atx.client.model.AndroidElement;
 
@@ -58,7 +61,7 @@ public class OrderPage extends BasePage {
 	@FindElementBy(id="id/below_order_tobuy")//结算价定购
 	public AndroidElement mSettlementPriceOrder;
 
-	public OrderPage(){
+	protected OrderPage(){
 		super();
 	}
 
@@ -66,4 +69,54 @@ public class OrderPage extends BasePage {
 		return  new OrderPage();
 	}
 	
+	
+	/**
+	 * 点击客服按钮
+	 */
+	public void mClickCustomerService(){
+		this.mCustomerService.click();
+	}
+	
+	/**
+	 * 点击消息按钮
+	 */
+	public void mClickMessage(){
+		this.mMessageButton.click();
+	}
+	
+	/**
+	 * 点击充值按钮
+	 */
+	public void mClickRecharge(){
+		this.mRechargeButton.click();
+	}
+	
+	/**
+	 * 点击我的订单
+	 */
+	public void mClickMyOrder(){
+		this.mMyOrder.click();
+	}
+	
+	/**
+	 * 根据输入10、80、400来选择果礼镍商品规格：10KG、80KG、400KG
+	 * @param str
+	 * @throws Exception
+	 */
+	public void mClickSelectType(String str) throws Exception{
+		switch (str) {
+		case "10":
+			this.mType_10.click();
+			break;
+		case "80":
+			this.mType_80.click();
+			break;
+		case "400":
+			this.mType_400.click();
+			break;
+		default:
+			Assertion.VerityBoolean(false, true, "输入错误...");
+			break;
+		}
+	}
 }
