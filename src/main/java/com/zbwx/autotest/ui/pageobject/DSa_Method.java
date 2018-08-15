@@ -14,39 +14,43 @@ import atx.client.model.AndroidElement;
 public class DSa_Method extends BaseTest {
 	
 	/**
-	 * 从首页进入行情页面(打开商品‘果礼镍’)
-	 * @throws Exception
+	 * 从首页开始，进入果礼镍的行情页面
 	 */
-	public void mOpenQuotationPage() throws Exception{	
-		HomePage hp = new HomePage();
-		hp.tv_homeAllProduct.click();
-		BaseAction.position.waitForElement(ElementAttribs.TEXT, "商品列表", 2000);
-		CommodityListPage clp = new CommodityListPage();
-		clp.mCommodity_Ni.click();
-		Assertion.VerityNotTextPresentPrecision("行情");
+	public void mOpenQuotesPage(){
+		HomePage.verify().tv_homeAllProduct.click();
+		BaseAction.driver.findElementByName("果礼镍").click();
 	}
 	
 	/**
-	 * 行情页面，恢复行情页面初始(分点点击果礼镍和分时线)
+	 * 检查当前是否处于行情页面,如果不是,则返回首页后重新进入果礼镍的行情页面
 	 */
-	public void mRecoveryQuotesPgae(){
-		QuotesPage quotes_page = new QuotesPage();
-		quotes_page.mCommodity_Ni.click();
-		quotes_page.mK_Timeshare.click();
+	public void mReturnQuotesPage(){
+		if(!BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/mogen_price", 3000)){
+			mReturnHomePage();
+			mOpenQuotesPage();
+		}
 	}
-
+	
 	/**
 	 * 从首页开始，进入‘定购’首页
 	 * @throws Exception
 	 */
 	public void mOpenOrderPage() throws Exception{
-		HomePage home = new HomePage();
-		home.order.click();
+		BaseAction.driver.findElementById("com.ylmall.app.ui:id/deal_img").click();
 		boolean bl = BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/yl_textswitch", 2000);
 		Assertion.VerityBoolean(bl, true, "当前是否在‘定购’首页...");
 	}
 	
-
+	/**
+	 * 首页开始,点击‘现价定购’进入下单页面(果礼镍)
+	 * @throws Exception
+	 */
+	public void mOpenOrder_xiadan() throws Exception{
+		mOpenOrderPage();
+		BaseAction.driver.findElementById("com.ylmall.app.ui:id/below_order_buyup").click();
+		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
+		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
+	}
 	
 	/**
 	 * 首页开始,点击‘结算价定购’进入下单页面(果礼镍)
@@ -54,10 +58,38 @@ public class DSa_Method extends BaseTest {
 	 */
 	public void mOpenOrder_xiadan_JS() throws Exception{
 		mOpenOrderPage();
-		OrderPage order = new OrderPage();
-		order.mSettlementPriceOrder.click();
+		BaseAction.driver.findElementById("com.ylmall.app.ui:id/below_order_tobuy").click();
 		Assertion.VerityTextPresentPrecision("下单", "是否已进入下单页面...");
 		Assertion.VerityTextPresentPrecision("果礼镍", "商品是否为果礼镍...");	
+	}
+	
+	/**
+	 * 检查当前是否处于下单页面,如果不是,则返回首页后点击‘现价定购’进入下单页面(果礼镍)
+	 * @throws Exception
+	 */
+	public void mCheckTestXiaDanPage() throws Exception{
+		if(!BaseAction.position.waitForElement(ElementAttribs.TEXT, "选择种类", 3000)){
+			mReturnHomePage();
+			mOpenOrder_xiadan();
+		}
+	}
+	
+	/**
+	 * 检查当前是否处于定购首页，如果不是，则返回到首页后重新进入定购首页
+	 * @throws Exception
+	 */
+	public void mCheckTestOrderPage() throws Exception{
+		if(!BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID, "com.ylmall.app.ui:id/yl_textswitch", 3000)){
+			mReturnHomePage();
+			mOpenOrderPage();
+		}
+	}
+	
+	/**
+	 * 初始化定购页面(点击果礼镍)
+	 */
+	public void mRecoveryOrderPage(){
+		BaseAction.driver.findElementByName("果礼镍").click();
 	}
 	
 	/**
@@ -115,5 +147,53 @@ public class DSa_Method extends BaseTest {
 		BaseAction.driver.press("back");
 	}
 	
-
+	/**
+	 * 根据输入点击：M5、M15、H1、D1、分时线
+	 * @param KX
+	 * @throws Exception
+	 */
+	public void mClickKX(String KX) throws Exception{
+		switch (KX) {
+		case "M5":
+			BaseAction.driver.findElementById("com.ylmall.app.ui:id/newcfd_line_5").click();
+			break;
+		case "M15":
+			BaseAction.driver.findElementById("com.ylmall.app.ui:id/newcfd_line_15").click();
+			break;
+		case "H1":
+			BaseAction.driver.findElementById("com.ylmall.app.ui:id/newcfd_line_60").click();
+			break;
+		case "D1":
+			BaseAction.driver.findElementById("com.ylmall.app.ui:id/newcfd_line_day").click();
+			break;
+		case "分时线":
+			BaseAction.driver.findElementById("com.ylmall.app.ui:id/newcfd_line_fen").click();
+			break;
+		default:
+			Assertion.VerityBoolean(false, true, "输入错误...");
+			break;
+		}
+	}
+		
+	/**
+	 * 切换商品（点击果礼铜）
+	 */
+	public void mSwitchCu(){
+		BaseAction.driver.findElementByName("果礼铜").click();
+	}
+	
+	
+	/**
+	 * 点击现价定购按钮
+	 */
+	public void mClickPresentPrice(){
+		BaseAction.driver.findElementById("com.ylmall.app.ui:id/below_order_buyup").click();
+	}
+	
+	/**
+	 * 点击结算价定购按钮
+	 */
+	public void mClickSettlementPrice(){
+		BaseAction.driver.findElementById("com.ylmall.app.ui:id/below_order_tobuy").click();
+	}
 }
