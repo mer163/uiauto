@@ -1,4 +1,4 @@
-package com.zbwx.autotest.ui.pageobject;
+package com.zbwx.autotest.ui.pageobject.orderobject;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;

@@ -1,4 +1,4 @@
-package com.zbwx.autotest.ui.pageobject;
+package com.zbwx.autotest.ui.pageobject.orderobject;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ import org.eclipse.jetty.websocket.api.util.QuoteUtil;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
+import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import atx.client.adb.ElementAttribs;
