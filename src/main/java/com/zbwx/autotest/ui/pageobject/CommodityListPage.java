@@ -17,7 +17,7 @@ public class CommodityListPage extends BasePage {
 	@FindElementBy(text="果礼镍")//果礼镍
 	public AndroidElement mCommodity_Ni;
 
-	public CommodityListPage(){
+	protected CommodityListPage(){
 		super();
 	}
 
