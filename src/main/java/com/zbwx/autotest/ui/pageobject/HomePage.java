@@ -3,19 +3,10 @@ package com.zbwx.autotest.ui.pageobject;
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
 
-import com.zbwx.autotest.ui.base.BaseTest;
-import com.zbwx.autotest.ui.utils.Assertion;
-
-import atx.client.AtxClient;
-import atx.client.adb.ElementAdb;
-import atx.client.adb.ElementAttribs;
-import atx.client.common.ElementObj;
-import atx.client.enums.AttributeMask;
 import atx.client.internal.FindElementBy;
 import atx.client.model.AndroidElement;
-import static com.zbwx.autotest.ui.base.BaseAction.mReturn;
+
 /**
  * 首页
  * @author zbwx
@@ -154,30 +145,26 @@ public class HomePage extends BasePage{
 	public void mallSeclect() throws Exception {
 		//新品上架
 		this.ll_homeShow1.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		this.ll_homeShow2.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		this.ll_homeShow3.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		// 发现好货
 		this.img_homeFind1.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		this.img_homeFind2.click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		BaseAction.mReturn();
 	}
-
-
-
-
 
 	
 	
