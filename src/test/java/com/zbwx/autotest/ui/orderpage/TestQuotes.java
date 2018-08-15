@@ -21,14 +21,14 @@ public class TestQuotes extends BaseTest {
 	
 	@BeforeClass//所有方法开始前执行
 	public void beforeClass() throws Exception {
-		//进入行情页面
-		ds.mOpenQuotesPage();
+		//检查当前是否处于行情页面,如果不是,则返回首页后重新进入果礼镍的行情页面
+		ds.mCheckQuotesPage();
 	}
 	
 	@BeforeMethod//每个方法执行前执行
 	public void beforeMethod() throws Exception{
 		//检查当前是否处于行情页面,如果不是,则返回首页后重新进入果礼镍的行情页面
-		ds.mReturnQuotesPage();
+		ds.mCheckQuotesPage();
 	}
 
 	@AfterMethod//每个方法执行完后执行

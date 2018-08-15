@@ -21,8 +21,8 @@ public class TestOrder extends BaseTest {
 	
 	@BeforeClass//所有方法开始前执行
 	public void beforeClass() throws Exception {
-		//点击‘现价定购’进入下单页面(果礼镍)
-		ds.mOpenOrderPage();
+		//检查当前是否处于下单页面,如果不是,则返回首页后点击‘现价定购’进入下单页面(果礼镍)
+		ds.mCheckTestOrderPage();
 	}
 	
 	@BeforeMethod//每个方法执行前执行
