@@ -40,11 +40,25 @@ public class QuotesPage extends BasePage {
 	@FindElementBy(id="id/newcfd_fragdeal_xiadan")//定购按钮
 	public AndroidElement mOrderButton;
 
-	public QuotesPage(){
+	protected QuotesPage(){
 		super();
 	}
 
 	public static QuotesPage verify(){
 		return  new QuotesPage();
+	}
+	
+	/**
+	 * 点击消息按钮
+	 */
+	public void mClickMessage(){
+		this.mMessageButton.click();
+	}
+	
+	/**
+	 * 点击定购按钮
+	 */
+	public void mDingGou(){
+		this.mOrderButton.click();
 	}
 }
