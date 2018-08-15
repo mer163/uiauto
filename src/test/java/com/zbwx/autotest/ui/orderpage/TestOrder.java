@@ -1,4 +1,4 @@
-package com.zbwx.autotest.ui;
+package com.zbwx.autotest.ui.orderpage;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 
@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.zbwx.autotest.ui.base.BaseTest;
-import com.zbwx.autotest.ui.pageobject.DSa_Method;
-import com.zbwx.autotest.ui.pageobject.OrderPage;
+import com.zbwx.autotest.ui.pageobject.orderobject.DSa_Method;
+import com.zbwx.autotest.ui.pageobject.orderobject.OrderPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import atx.client.adb.ElementAttribs;

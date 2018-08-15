@@ -1,4 +1,4 @@
-package com.zbwx.autotest.ui;
+package com.zbwx.autotest.ui.orderpage;
 
 import org.junit.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -7,8 +7,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.zbwx.autotest.ui.base.BaseTest;
-import com.zbwx.autotest.ui.pageobject.DSa_Method;
-import com.zbwx.autotest.ui.pageobject.Order_xiadanPage;
+import com.zbwx.autotest.ui.pageobject.orderobject.DSa_Method;
+import com.zbwx.autotest.ui.pageobject.orderobject.Order_xiadanPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 public class TestOrder_xiadan extends BaseTest {

@@ -4,9 +4,9 @@ import atx.client.model.AndroidElement;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
-import com.zbwx.autotest.ui.pageobject.CommodityListPage;
 import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.pageobject.homeobject.HomePageSearch;
+import com.zbwx.autotest.ui.pageobject.orderobject.CommodityListPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import org.junit.AfterClass;
