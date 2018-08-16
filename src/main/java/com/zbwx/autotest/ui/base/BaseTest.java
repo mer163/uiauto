@@ -32,7 +32,7 @@ public class BaseTest {
 	public Log log=new Log(this.getClass().getSuperclass());
 	@BeforeSuite
 	@Parameters({"udid","driverName","appName","apkName","deviceIp","sdkVersion","appMainPackage","appActivity","platformName","install"})
-	public void  setup(String udid, String driverName,String appName,String apkName, String deviceIp,String sdkVersion,String appMainPackage,String appActivity,String platformName,String install) throws MalformedURLException {
+	public void  setup(String udid, String driverName,String appName,String apkName, String deviceIp,String sdkVersion,String appMainPackage,String appActivity,String platformName,String install) throws  InterruptedException {
 
 		mAppMainPackage=appMainPackage;
 		
@@ -83,8 +83,10 @@ public class BaseTest {
 			if (apkName !=null || apkName!=""){
 				//安装app
 			}
-			
-
+			//解锁屏幕
+			BaseAction.device.unlock_device();
+			//启动app
+			BaseAction.device.startApp(appMainPackage);
 		}
 
 	}

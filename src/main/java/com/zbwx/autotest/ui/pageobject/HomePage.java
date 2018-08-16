@@ -47,7 +47,10 @@ public class HomePage extends BasePage{
 	// 首页热门商品
 	@FindElementBy(id = "id/tv_allproduct")
 	public AndroidElement tv_homeAllProduct;// 首页全部商品点这里
-	@FindElementBy(text = "果礼镍")
+
+//	@FindElementBy(text = "果礼镍")
+	@FindElementBy(id = "id/tv_productname",index = 0)
+	
 	public AndroidElement tv_homeNie;
 	@FindElementBy(text = "果礼铜")
 	public AndroidElement tv_homeTong;
