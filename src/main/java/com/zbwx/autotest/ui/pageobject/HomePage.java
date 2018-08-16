@@ -4,6 +4,9 @@ import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;
 
 
+import com.zbwx.autotest.ui.pageobject.homeobject.HomePageService;
+import com.zbwx.autotest.ui.pageobject.orderobject.CommodityListPage;
+
 import atx.client.internal.FindElementBy;
 import atx.client.model.AndroidElement;
 
@@ -14,16 +17,18 @@ import atx.client.model.AndroidElement;
  */
 public class HomePage extends BasePage{
 	
-	@FindElementBy(text = "首页")
+	@FindElementBy(text="首页")
 	public AndroidElement homepage;
 	
-	@FindElementBy(text = "定购")
+	@FindElementBy(text="定购")
 	public AndroidElement order;
 
-	@FindElementBy(text = "发现")
-	public AndroidElement find;
+	/*@FindElementBy(text="发现")
+	public AndroidElement dfind;*/
+	@FindElementBy(id = "id/quanzi_img")
+	public AndroidElement dfind;
 
-	@FindElementBy(text = "我的")
+	@FindElementBy(text="我的")
 	public AndroidElement my;
 
 	@FindElementBy(id = "id/first_text")
@@ -38,6 +43,9 @@ public class HomePage extends BasePage{
 	@FindElementBy(id = "id/img_tixing")
 	public AndroidElement img_homeMessage;// 消息	
 
+	@FindElementBy(id = "id/textswitch")	
+	public AndroidElement tv_TextSwitch;// 播报
+	
 	@FindElementBy(id = "id/cbLoopViewPager")	
 	public AndroidElement vp_homeCbLoopViewPager;// 轮播图
 	
@@ -47,17 +55,18 @@ public class HomePage extends BasePage{
 	// 首页热门商品
 	@FindElementBy(id = "id/tv_allproduct")
 	public AndroidElement tv_homeAllProduct;// 首页全部商品点这里
-	@FindElementBy(text = "果礼镍")
+	
+	@FindElementBy(id = "id/tv_productname",index=0)
 	public AndroidElement tv_homeNie;
-	@FindElementBy(text = "果礼铜")
+	@FindElementBy(id = "id/tv_productname",index=1)
 	public AndroidElement tv_homeTong;
-	@FindElementBy(text = "果礼银")
+	@FindElementBy(id = "id/tv_productname",index=2)
 	public AndroidElement tv_homeYin;
-	@FindElementBy(text = "日本清酒")
+	@FindElementBy(id = "id/tv_productname",index=3)
 	public AndroidElement tv_homeJapan;
-	@FindElementBy(text = "英国香水")
+	@FindElementBy(id = "id/tv_productname",index=4)
 	public AndroidElement tv_homeEngland;
-	@FindElementBy(text = "欧洲红酒")
+	@FindElementBy(id = "id/tv_productname",index=5)
 	public AndroidElement tv_homeEurope;
 
 	// 商城精选 新品上架
@@ -74,13 +83,7 @@ public class HomePage extends BasePage{
 	@FindElementBy(id = "id/img_find2")
 	public AndroidElement img_homeFind2;
 
-	// 为您推荐
-	@FindElementBy(id = "id/ll_buyzhinan")
-	public AndroidElement ll_homeBuyZhiNan;// 购买指南
-	@FindElementBy(id = "id/ll_storeinfo")
-	public AndroidElement ll_homeStoreInfo;// 商城情报
-	@FindElementBy(id = "id/ll_gonggao")
-	public AndroidElement ll_homeGongGao;	// 公告
+
 	
 
 	protected HomePage() {
@@ -96,7 +99,7 @@ public class HomePage extends BasePage{
 	public void clickSearch() throws Exception{
 		this.btn_homeSearch.click();
 		BaseAction.device.sendText("cccc");
-		Thread.sleep(3000);
+		
 	}
 	
 	
@@ -110,7 +113,7 @@ public class HomePage extends BasePage{
 	}
 	//点击发现按钮 
 	public void clickFind(){
-		this.find.click();
+		this.dfind.click();
 	}
 	//点击发现按钮 
 	public void clickMy(){
@@ -122,22 +125,29 @@ public class HomePage extends BasePage{
 	//点击热门商品
 	public void clickHotProduct() throws Exception {
 		this.tv_homeNie.click();
-		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
 		Thread.sleep(2000);
 		this.tv_homeTong.click();
-		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
 		Thread.sleep(2000);
 		this.tv_homeYin.click();
-		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
 		Thread.sleep(2000);
 		this.tv_homeJapan.click();
-		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
 		Thread.sleep(2000);
 		this.tv_homeEngland.click();
-		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
 		Thread.sleep(2000);
 		this.tv_homeEurope.click();
-		BaseAction.mClickReturnButton();
+		Thread.sleep(2000);
+		BaseAction.mReturn();
+		
 	}
 	
 	
@@ -147,20 +157,20 @@ public class HomePage extends BasePage{
 		this.ll_homeShow1.click();
 		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(3000);
+		
 		this.ll_homeShow2.click();
 		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(3000);
+		
 		this.ll_homeShow3.click();
 		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(3000);
+		
 		// 发现好货
 		this.img_homeFind1.click();
 		Thread.sleep(3000);
 		BaseAction.mReturn();
-		Thread.sleep(3000);
+		
 		this.img_homeFind2.click();
 		Thread.sleep(3000);
 		BaseAction.mReturn();
