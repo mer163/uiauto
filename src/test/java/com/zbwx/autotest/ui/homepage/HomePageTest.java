@@ -2,11 +2,13 @@ package com.zbwx.autotest.ui.homepage;
 
 
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
 import com.zbwx.autotest.ui.pageobject.HomePage;
-import com.zbwx.autotest.ui.pageobject.homeobject.HomePageNotifications;
+
 import com.zbwx.autotest.ui.pageobject.homeobject.HomePageSearch;
 import com.zbwx.autotest.ui.pageobject.homeobject.HomePageService;
+
 import com.zbwx.autotest.ui.utils.Assertion;
 
 import org.junit.AfterClass;
@@ -49,43 +51,44 @@ public class HomePageTest extends BaseTest {
 		Assertion.VerityTextPresentPrecision("热门商品", "当前为首页......");
 	}
 		
-	@Test(description = "点击客服")
+	@Test(description = "点击首页客服进入客服中心以及返回首页")
 	public void testHomePageService() throws Exception{
 		//点击首页客服按钮进入客服中心
 		HomePage.verify().img_homeService.click();
+		Thread.sleep(2000);
 		//点击客服中心返回按钮 返回首页
 		HomePageService.verify().mBtnBackService.click();
 		
 	}
 	
-	@Test(description = "点击搜索")
+	@Test(description = "点击首页搜索进入商品搜索页面以及返回首页")
 	public void testHomePageSearch()  throws Exception{
 		//点击首页的搜索框 
 		HomePage.verify().clickSearch();
-		//点击搜索按钮
+		//点击"搜索"按钮
 		HomePageSearch.verify().clickImgRight();
 		//点击返回按钮返回首页
-		HomePageService.verify().mBtnBackService.click();
+		BaseAction.mReturn();
 		
 	}
 	
-	@Test(description = "点击消息")
+	@Test(description = "点击首页消息按钮进入消息中心页面以及返回首页")
 	public void testHomePageMessage()  throws Exception{
 		//点击首页消息按钮跳转消息中心页面
 		HomePage.verify().img_homeMessage.click();
-		//点击返回按钮返回首页
-		HomePageNotifications.verify().mMessageBackBtn.click();
+		//点击消息中心返回按钮返回首页
+		BaseAction.mReturn();
 	}
 	
-	@Test(description = "首页轮播")
+	@Test(description = "点击滑动首页轮播是否可以跳转详情页面以及返回首页")
 	public void testHomePageViewPager()  throws Exception{
 		//点击轮播图跳转详情
 		HomePage.verify().vp_homeCbLoopViewPager.click();
 		//点击返回首页
-		HomePageService.verify().mBtnBackService.click();
+		BaseAction.mReturn();
 	}
 	
-	@Test(description = "首页盈利播报")
+	@Test(description = "首页盈利播报校验播报内容点击更多跳转盈利榜单页面以及返回首页")
 	public void testHomePageMoreylName()  throws Exception{
 		//获取盈利播报的内容
 		String str1 = HomePage.verify().getTextById(BaseTest.mAppMainPackage+":id/textswitch");
@@ -100,39 +103,25 @@ public class HomePageTest extends BaseTest {
 	}
 	
 		
-	@Test(description = "热门商品")
+	@Test(description = "热门商品的全部商品的点击跳转以及返回首页")
 	public void testHomeHotCommodity()  throws Exception{
 		//点击首页全部商品
 		HomePage.verify().tv_homeAllProduct.click();
-		//点击返回
-		HomePageService.verify().mBtnBackService.click();
+		BaseAction.mReturn();
 		//点击热门商品
 		Thread.sleep(2000);
 		HomePage.verify().clickHotProduct();
 		
 	}
 	
-	@Test(description = "商城精选")
+	@Test(description = "首页商城精选点击商品跳转商品详情页以及返回首页")
 	public void testHomeMallSelected()  throws Exception{
 		//点击商城精选的各个商品跳转商品详情页
 		HomePage.verify().mallSeclect();
-		/*Ylmall.mSwipe(1);//向上滑半屏
-		Thread.sleep(3000);*/
+		
 		
 	}
-   
-	@Test(description = "为您推荐")
-	public void testHomeForTuiJian()  throws Exception{
-		
-		//点击商城情报
-		HomePage.verify().ll_homeStoreInfo.click();
-		//点击公告
-		HomePage.verify().ll_homeGongGao.click();
-		//点击购买指南
-		HomePage.verify().ll_homeBuyZhiNan.click();
 
-	
-	}
 	
 	@AfterClass
 	public void afterClassResult() {
