@@ -26,7 +26,7 @@ public class HomePage extends BasePage{
 	/*@FindElementBy(text="发现")
 	public AndroidElement dfind;*/
 	@FindElementBy(id = "id/quanzi_img")
-	public AndroidElement dfind;
+	public AndroidElement mFind;
 
 	@FindElementBy(text="我的")
 	public AndroidElement my;
@@ -113,7 +113,7 @@ public class HomePage extends BasePage{
 	}
 	//点击发现按钮
 	public void clickFind(){
-		this.dfind.click();
+		this.mFind.click();
 	}
 	//点击发现按钮
 	public void clickMy(){
