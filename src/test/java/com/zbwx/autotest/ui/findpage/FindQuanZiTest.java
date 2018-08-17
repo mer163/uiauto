@@ -10,29 +10,30 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.zbwx.autotest.ui.pageobject.FindPage;
+
+
 import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.pageobject.ZiXunPage;
-
 import com.zbwx.autotest.ui.utils.Assertion;
 
 public class FindQuanZiTest extends BaseTest {
 	
 	@BeforeClass    
-	public void beforeclass() throws Exception{	//所有方法开始前执行
-		Thread.sleep(3000);
+	public void beforeclass() throws Exception{	//所有方法开始前执行		
 		//启动后点击主页面的发现按钮进入发现页面
-		HomePage.verify().clickFind();
+
+		HomePage.verify().mFind.click();
 		
 	}
 	
 	@BeforeMethod
 	public void beforeMethod() throws Exception{//每个方法执行前执行
 		//当前是否处于发现页面，如果不是返回首页重新点击发现
-		/*if (!FindPage.verify().mFindGuanZhu.getText().equals("关注")) {
+		if (!FindPage.verify().mFindGuanZhu.getText().equals("关注")) {
 			
 			HomePage.verify().clickFind();
 		
-		}*/
+		}
 			
 	}
 
@@ -49,10 +50,10 @@ public class FindQuanZiTest extends BaseTest {
 	}
 
 	@Test(description = "发现圈子资讯点击相互切换")
-	public void testFindQuanZiAndZiXun() throws Exception {
-		
+	public void testFindQuanZiZiXun() throws Exception {		
 		//首先点击咨询再点击圈子确认可以相互切换
 		FindPage.verify().mChiCangZiXun.click();
+		Thread.sleep(2000);
 		FindPage.verify().mChiCangQuanZi.click();
 		Thread.sleep(2000);
 		//点击话题里面的任意一张图片进入对应的话题页面点击返回按钮返回圈子页面
@@ -67,9 +68,8 @@ public class FindQuanZiTest extends BaseTest {
 		FindPage.verify().mChiCangZiXun.click();
 		Thread.sleep(2000);
 		//点击咨讯页面的购买指南，商城情报，公告进行页面内容切换
-		ZiXunPage.verify().ll_homeStoreInfo.click();
-		ZiXunPage.verify().ll_homeGongGao.click();
-		ZiXunPage.verify().ll_homeBuyZhiNan.click();
+		FindPage.verify().mClick();
+		FindPage.verify().mChiCangQuanZi.click();
 		
 	}
 	@Test(description = "点击发现热门关注全部进行切换页面")
