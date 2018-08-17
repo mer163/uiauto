@@ -3,7 +3,6 @@ package com.zbwx.autotest.ui.pageobject;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;
-import com.zbwx.autotest.ui.pageobject.homeobject.HomePageService;
 
 import atx.client.internal.FindElementBy;
 import atx.client.model.AndroidElement;
@@ -12,10 +11,10 @@ public class FindPage extends BasePage{
 
 	
 	//发现页面圈子
-	@FindElementBy(id = "id/chicang_quanzi")
+	@FindElementBy(text="圈子")
 	public AndroidElement mChiCangQuanZi; 
 	//发现页面资讯
-	@FindElementBy(id = "id/chicang_zixun")
+	@FindElementBy(text="资讯")
 	public AndroidElement mChiCangZiXun; 
 	//发现页面话题
 	@FindElementBy(id = "id/newcfd_huatilist")
@@ -52,10 +51,22 @@ public class FindPage extends BasePage{
 		return new FindPage();
 	}
 	
+	//切换购买指南，商城情报，公告页面
+	public void mClick() throws Exception{
+		ZiXunPage.verify().ll_homeStoreInfo.click();
+		Thread.sleep(2000);
+		ZiXunPage.verify().ll_homeGongGao.click();
+		Thread.sleep(2000);
+		ZiXunPage.verify().ll_homeBuyZhiNan.click();
+		Thread.sleep(2000);
+	}
+	
 	public void mClickFind() throws Exception{	
 		//点击关注和全部进行切换页面
 		this.mFindGuanZhu.click();
+		
 		this.mFindAll.click();
+		
 		this.mFindReMen.click();
 		//循环点击点赞按钮是否可以点赞和取消点赞
 		for (int i = 0; i < 3; i++) {
