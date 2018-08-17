@@ -49,7 +49,7 @@ public class ScreenShot {
 		File dir = new File("test-output" + File.separator +driver.getUdid() + File.separator +"snapshot" );
 		if (!dir.exists())
 		{dir.mkdirs();}
-		String screenPath = dir.getAbsolutePath() + "/" + screenName;
+		String screenPath = dir.getAbsolutePath() + File.separator  + screenName;
 		this.takeScreenshot(screenPath);
 	}
 
