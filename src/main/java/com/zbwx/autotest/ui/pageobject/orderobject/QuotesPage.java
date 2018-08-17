@@ -7,20 +7,21 @@ import atx.client.model.AndroidElement;
 
 //行情页面
 public class QuotesPage extends BasePage {
+	
 	@FindElementBy(id="id/leftBtn")//返回按钮
 	public AndroidElement mReturnButton;
 	
 	@FindElementBy(id="id/rightBtn")//消息按钮(图标)
 	public AndroidElement mMessageButton;
 
-	@FindElementBy(text="果礼镍")//果礼镍
-	public AndroidElement mCommodity_Ni;
+	@FindElementBy(id="id/listitem_diagram_title")//第一个商品
+	public AndroidElement mCommodity_1;
 	
-	@FindElementBy(text="果礼铜")//果礼铜
-	public AndroidElement mCommodity_Cu;
+	@FindElementBy(id="id/listitem_diagram_title",index=1)//第二个商品
+	public AndroidElement mCommodity_2;
 
-	@FindElementBy(text="日本清酒")//日本清酒
-	public AndroidElement mCommodity_ClearWine;
+	@FindElementBy(id="id/listitem_diagram_title",index=2)//第三个商品
+	public AndroidElement mCommodity_3;
 	
 	@FindElementBy(id="id/newcfd_line_fen")//分时线
 	public AndroidElement mK_Timeshare;
@@ -40,6 +41,9 @@ public class QuotesPage extends BasePage {
 	@FindElementBy(id="id/newcfd_fragdeal_xiadan")//定购按钮
 	public AndroidElement mOrderButton;
 
+	@FindElementBy(id="id/mogen_price")//当前选择商品价格
+	public AndroidElement mMogenPrice;
+	
 	protected QuotesPage(){
 		super();
 	}
@@ -48,17 +52,4 @@ public class QuotesPage extends BasePage {
 		return  new QuotesPage();
 	}
 	
-	/**
-	 * 点击消息按钮
-	 */
-	public void mClickMessage(){
-		this.mMessageButton.click();
-	}
-	
-	/**
-	 * 点击定购按钮
-	 */
-	public void mDingGou(){
-		this.mOrderButton.click();
-	}
 }
