@@ -1,15 +1,22 @@
 package com.zbwx.autotest.ui.homepage;
 
+
+
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import atx.client.adb.ElementAdb;
-import atx.client.adb.ElementAttribs;
-
+import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.pageobject.homeobject.HomePageService;
+import com.zbwx.autotest.ui.pageobject.homeobject.JiBenAnalysisService;
+import com.zbwx.autotest.ui.pageobject.homeobject.JiShuAnalysisService;
+import com.zbwx.autotest.ui.pageobject.homeobject.ShopGongLueService;
+import com.zbwx.autotest.ui.pageobject.homeobject.ZiZhuService;
 import com.zbwx.autotest.ui.utils.Assertion;
 /**
  * 
@@ -19,155 +26,99 @@ import com.zbwx.autotest.ui.utils.Assertion;
  */
 public class ServiceTest extends BaseTest {
 
-	@BeforeClass
-	public void beforeclass() throws Exception{
-		BaseAction.driver.startUiAutomator();
-		Thread.sleep(3000);
+	
+	@BeforeClass    
+	public void beforeclass() throws Exception{	//所有方法开始前执行
+		//从首页进入客服中心页面
+		HomePage.verify().img_homeService.click();
+		
+	}
+	
+	@BeforeMethod
+	public void beforeMethod() throws Exception{//每个方法执行前执行
+		//当前是否处于客服中心页面，否则返回首页点击客服客服重新进入
+		if (!HomePageService.verify().mKeFuGuiZe.getText().equals("交易规则")) {
+			
+			BaseAction.mReturnHomePage();
+			HomePage.verify().img_homeService.click();
+		
+		}
+			
+	}
+
+	@AfterMethod //每个方法执行完后执行
+	public void aftermthod() throws Exception{
+		
+		Assertion.VerityTextPresentPrecision("客服中心", "当前为客服中心页面......");
+		BaseAction.mReturnHomePage();
+		HomePage.verify().img_homeService.click();
+	}
+
+	@AfterClass
+	public void afterClass() throws Exception{
+		//所有测试方法执行完后执行			
 	}
 	
 	@Test(description = "客服中心贴心小助手")
 	public void testServiceCentreZhuShou() throws Exception{
-		HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();
-		Thread.sleep(3000);
-		Assertion.VerityTextPresentPrecision("交易规则", "进入客服中心页面");
-		HomePageService mHomePageService1 = new HomePageService();
-		mHomePageService1.mServicesBanner.click();;
 		
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "发送", 3000)) {
-			BaseAction.device.click(BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/tx_back"));
-		}
-		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		BaseAction.mReturnHomePage();
+		//点击贴心小助手
+		HomePageService.verify().mServicesBanner.click();
+		//((AndroidElement) BaseAction.driver.findElementById("com.ylmall.app.ui:id/newcfd_activity_kf_banner")).click();		
+		Thread.sleep(3000);
+		//发送内容给客服
+		ZiZhuService.verify().mSendContener();
+		Thread.sleep(3000);
+		ZiZhuService.verify().mTvZiZhuServiceBack.click();		
+		
+		
 	}
 	
 	@Test(description = "客服中心交易规则")
 	public void testServiceCentreGuiZe() throws Exception{
-				
-		HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();
-		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
-		HomePageService mHomePageService1 = new HomePageService();
-		BaseAction.device.click(mHomePageService1.mKeFuGuiZe);
-		Thread.sleep(3000);
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "交易规则", 3000)) {
-			BaseAction.device.click(BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/baseweb_back"));
-		}
-		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		BaseAction.mReturnHomePage();
+		//点击客服中心交易规则
+		HomePageService.verify().mClickKeFuGuiZe();
+		HomePageService.verify().mBtnBackService.click();
+		
+		
+
 	}
 	@Test(description = "客服中心找回密码")
 	public void testServiceCentreFindMiMa() throws Exception{
-		HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();
-		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
-		HomePageService mHomePageService1 = new HomePageService();
-		BaseAction.device.click(mHomePageService1.mPassWordFind);
-		Thread.sleep(3000);
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "找回登录密码", 3000)) {
-			BaseAction.device.click(BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/leftBtn"));
-		}
-		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		BaseAction.mReturnHomePage();
+		//点击找回密码
+		HomePageService.verify().mPassWordFind.click();
+		HomePageService.verify().mBtnBackService.click();
 	}
 	@Test(description = "客服中心购物攻略")
-	public void testServiceCentreGongLue() throws Exception{		
-		HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();
-		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
-		HomePageService mHomePageService1 = new HomePageService();
-		for (int i = 0; i < 3; i++) {
-			BaseAction.device.click(mHomePageService1.mHelpGuide1);
-			Thread.sleep(3000);
-		}
-		Thread.sleep(3000);
-		HomePageService mHomePageService2 = new HomePageService();
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "入门攻略", 3000)) {
-			BaseAction.device.click(mHomePageService2.mHelpGuideHuangJin_1);
-		}
-		Thread.sleep(3000);
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "入门攻略", 3000)) {
-			BaseAction.device.click(mHomePageService2.mKeFuBack);
-		}
-		Thread.sleep(3000);
-		if (BaseAction.position.waitForElement(ElementAttribs.TEXT, "新手常见问题", 3000)) {
-			BaseAction.device.click(mHomePageService2.mHelpGuideHuangJin_2);
-		}
-		Thread.sleep(3000);
-		Assertion.VerityTextPresentPrecision("新手常见问题", "进入新手常见问题页面....");
-		HomePageService mHomePageService6 = new HomePageService();
-		BaseAction.device.click(mHomePageService6.mKeFuBack);
-		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		BaseAction.device.click(mHomePageService1.mHelpGuide1);
-		BaseAction.mReturnHomePage();
+	public void testServiceCentreGongLue() throws Exception{
+		//点击购物攻略		
+		HomePageService.verify().mClickHelpGuide1();
+		Thread.sleep(2000);		
+		ShopGongLueService.verify().mClick();
+		Thread.sleep(2000);
+		HomePageService.verify().mHelpGuide1.click();
+		
 	}
 	
 	@Test(description = "客服中心基本面分析")
 	public void testServiceCentreJiBenFenXi() throws Exception{
-		HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();
-		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
-		HomePageService mHomePageService1 = new HomePageService();
-		for (int i = 0; i < 3; i++) {
-			BaseAction.device.click(mHomePageService1.mHelpGuide6);
-			Thread.sleep(3000);
-		}
+		//点击基本面分析	
+		HomePageService.verify().mClickHelpGuide6();
 		Thread.sleep(3000);
-		HomePageService homePageService2 = new HomePageService();
-		homePageService2.keFuSecondaryListJB();
-		BaseAction.device.click(homePageService2.mHelpGuideJiBen_1);
-		Assertion.VerityTextPresentPrecision("基本面分析简介", "进入基本面分析简介页面");
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		Thread.sleep(3000);
-		homePageService2.keFuSecondaryListJB();
-		BaseAction.device.click(homePageService2.mHelpGuideJiBen_2);
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		homePageService2.keFuSecondaryListJB();
-		BaseAction.device.click(homePageService2.mHelpGuideJiBen_3);
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		homePageService2.keFuSecondaryListJB();
-		BaseAction.device.click(homePageService2.mHelpGuideJiBen_4);
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		homePageService2.keFuSecondaryListJB();
-		BaseAction.device.click(mHomePageService1.mHelpGuide6);
-		BaseAction.mReturnHomePage();
+		JiBenAnalysisService.verify().mClick();
+		Thread.sleep(2000);
+		HomePageService.verify().mHelpGuide6.click();
+
 	}
 	@Test(description = "客服中心技术分析")
 	public void testServiceCentreJiShuFenXi() throws Exception{
-		HomePageService mHomePageService = new HomePageService();
-		mHomePageService.kefuClick();
-		Assertion.VerityTextPresentPrecision("客服中心", "当前客服中心页面");
-		HomePageService mHomePageService1 = new HomePageService();
-		for (int i = 0; i < 3; i++) {
-			BaseAction.device.click(mHomePageService1.mHelpGuide7);
-			Thread.sleep(3000);
-		}
-		Thread.sleep(3000);
-		HomePageService homePageService2 = new HomePageService();
-		homePageService2.keFuSecondaryListJS();
-		BaseAction.device.click(homePageService2.mHelpGuideJiShu_1);
-		Assertion.VerityTextPresentPrecision("技术分析", "进入技术分析简介页面");
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		Thread.sleep(3000);
-		homePageService2.keFuSecondaryListJS();
-		BaseAction.device.click(homePageService2.mHelpGuideJiShu_2);
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		Thread.sleep(3000);
-		homePageService2.keFuSecondaryListJS();
-		BaseAction.device.click(homePageService2.mHelpGuideJiShu_3);
-		Thread.sleep(3000);
-		BaseAction.mClickReturnButton();
-		Assertion.VerityTextPresentPrecision("客服中心", "返回客服中心页面");
-		homePageService2.keFuSecondaryListJS();
-		BaseAction.device.click(mHomePageService1.mHelpGuide7);
-		BaseAction.mReturnHomePage();
+		//点击技术分析
+		HomePageService.verify().mClickHelpGuide7();
+		Thread.sleep(2000);
+		JiShuAnalysisService.verify().mClick();
+		Thread.sleep(2000);		
+		HomePageService.verify().mHelpGuide7.click();
+		
 	}
 	@AfterClass
 	public void afterClassResult() {

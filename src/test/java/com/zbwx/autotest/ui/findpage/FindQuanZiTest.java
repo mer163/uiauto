@@ -2,62 +2,81 @@ package com.zbwx.autotest.ui.findpage;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.zbwx.autotest.ui.pageobject.FindPage;
+
+
 import com.zbwx.autotest.ui.pageobject.HomePage;
+import com.zbwx.autotest.ui.pageobject.ZiXunPage;
 import com.zbwx.autotest.ui.utils.Assertion;
 
 public class FindQuanZiTest extends BaseTest {
-	@BeforeClass
-	public void beforeclass() throws Exception {
-		BaseAction.driver.startUiAutomator();
-		Thread.sleep(3000);
+	
+	@BeforeClass    
+	public void beforeclass() throws Exception{	//所有方法开始前执行		
+		//启动后点击主页面的发现按钮进入发现页面
+
+		HomePage.verify().mFind.click();
+		
+	}
+	
+	@BeforeMethod
+	public void beforeMethod() throws Exception{//每个方法执行前执行
+		//当前是否处于发现页面，如果不是返回首页重新点击发现
+		if (!FindPage.verify().mFindGuanZhu.getText().equals("关注")) {
+			
+			HomePage.verify().clickFind();
+		
+		}
+			
 	}
 
-	@Test(description = "发现圈子资讯")
-	public void testFindQuanZiAndZiXun() throws Exception {
-		FindPage findPage = new FindPage();
-		findPage.mClickFindDaoHang();
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认圈子页面...");
-		FindPage findPage1 = new FindPage();
-		BaseAction.device.click(findPage1.mChiCangZiXun);
-		Assertion.VerityTextPresentPrecision("购买指南", "当前处于资讯页面.....");
-		BaseAction.device.click(findPage1.mChiCangQuanZi);
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认圈子页面...");
-		BaseAction.mReturnHomePage();
+	@AfterMethod //每个方法执行完后执行
+	public void aftermthod() throws Exception{
+		
+		Assertion.VerityTextPresentPrecision("圈子", "当前为发现页面......");		
+	
 	}
 
-	@Test(description = "发现话题")
-	public void testFindHuaTi() throws Exception {
-		FindPage findPage = new FindPage();
-		findPage.mClickFindDaoHang();
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认圈子页面...");
-		FindPage findPage1 = new FindPage();
-		BaseAction.device.click(findPage1.mHuaTiImg);
-		Thread.sleep(3000);
-		FindPage findPage2 = new FindPage();
-		BaseAction.device.click(findPage2.mHuaTitx_back);
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认圈子页面...");
-		BaseAction.mReturnHomePage();
-
+	@AfterClass
+	public void afterClass() throws Exception{
+		//所有测试方法执行完后执行			
 	}
-	@Test(description = "发现热门关注全部")
+
+	@Test(description = "发现圈子资讯点击相互切换")
+	public void testFindQuanZiZiXun() throws Exception {		
+		//首先点击咨询再点击圈子确认可以相互切换
+		FindPage.verify().mChiCangZiXun.click();
+		Thread.sleep(2000);
+		FindPage.verify().mChiCangQuanZi.click();
+		Thread.sleep(2000);
+		//点击话题里面的任意一张图片进入对应的话题页面点击返回按钮返回圈子页面
+		FindPage.verify().mHuaTiImg.click();
+		BaseAction.mReturn();
+
+		
+	}
+	@Test(description = "点击切换发现资讯")
+	public void  testFindZiXun() throws Exception{
+		//点击发现页面的资讯进入资讯页面
+		FindPage.verify().mChiCangZiXun.click();
+		Thread.sleep(2000);
+		//点击咨讯页面的购买指南，商城情报，公告进行页面内容切换
+		FindPage.verify().mClick();
+		FindPage.verify().mChiCangQuanZi.click();
+		
+	}
+	@Test(description = "点击发现热门关注全部进行切换页面")
 	public void testFindReMenGuanZhuAll() throws Exception {
-		FindPage findPage = new FindPage();
-		findPage.mClickFindDaoHang();
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认圈子页面...");
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认热门页面...");
-		FindPage findPage1 = new FindPage();
-		BaseAction.device.click(findPage1.mFindGuanZhu);
-		Thread.sleep(3000);
-		BaseAction.device.click(findPage1.mFindAll);
-		Thread.sleep(3000);
-		BaseAction.device.click(findPage1.mFindReMen);
-		Assertion.VerityTextPresentPrecision("话题", "当前处于发现页面..默认热门页面...");
-		BaseAction.mReturnHomePage();
+		//默认在热门页面点击关注，全部热门进行操作
+		FindPage.verify().mClickFind();
+		
 	}
 	@AfterClass
 	public void afterClassResult() {

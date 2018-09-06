@@ -200,7 +200,7 @@ public class TestReport implements IReporter{
 			sb.append("<div id=\"content\">\n");
 
 			sb.append("<div id=\"report_title\">\n");
-			sb.append("<div id=\"logo\"><img src=\"logo1.png\"></img></div>\n");
+			sb.append("<div id=\"logo\"><img src=\"logo.jpeg\"></img></div>\n");
 			sb.append("<div style=\"clear:both\"><div id=\"time\">\n");
 			sb.append("<div style=\"pading-top:20px\">开始时间："
 					+ this.formatDate(fullResults.get(0).getStartMillis())
@@ -602,7 +602,7 @@ public class TestReport implements IReporter{
 				sb2.append("<body>\n");
 				sb2.append("<div id=\"content\">\n");
 				sb2.append("<div id=\"report_title\">\n");
-				sb2.append("<div id=\"logo\"><img src=\"http://www.webdriver.org/template/time_6th_travel/src/logo.png\"></img></div>\n");
+				sb2.append("<div id=\"logo\"><img src=\"http://192.168.0.24/logo.jpeg\"></img></div>\n");
 				sb2.append("<div style=\"clear:both\"><div id=\"time\">\n");
 				sb2.append("<div style=\"pading-top:20px\">开始时间："
 						+ this.formatDate(fullResults.get(0).getStartMillis())
@@ -932,7 +932,7 @@ public class TestReport implements IReporter{
 		return sb.toString();
 
 	}
-	private String getTestngParametersValue(String path,String ParametersName) throws DocumentException, IOException
+	public String getTestngParametersValue(String path,String ParametersName) throws DocumentException, IOException
 	{
 		File file = new File(path);
 		if (!file.exists()) {

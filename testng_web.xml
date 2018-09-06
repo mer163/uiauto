@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="WEBUIAUTO" parallel="tests" thread-count="4">
+<!-- browserversion 48.0.2564.109 50.0.2661.75 172.30.232.132 58.0.3029.81 192.168.99.100  55.0.2883.75-->
+
+    <!--基础配置项-->
+    <parameter name="driverName" value="web" />   <!--driver驱动：AtxDriver，appium,web-->
+    <parameter name="nodeURL" value="127.0.0.1:4723" /> <!--appium-server 地址-->
+    <parameter name="appName" value="商品交易" />  <!--app名字-->
+    <parameter name="install" value="3" />  <!--安装方式 1、先卸载再安装  2、覆盖安装  3、不安装-->
+    <parameter name="apkName" value="ylmall.apk" />  <!--app包名字-->
+    <parameter name="platformName" value="Android" /> <!--app运行平台:安卓，IOS-->
+    <parameter name="deviceName" value="127.0.0.1:62001" /> <!--手机或者虚拟机设备名字-->
+    <parameter name="udid" value="da38d28" /> <!--手机或者虚拟机序列号-->
+    <parameter name="remoteIP" value="192.168.0.24" /> <!--手机设备ip 129.28.65.165-->
+
+    <parameter name="browsertype" value="chrome" />
+    <parameter name="browserversion" value="48.0.2564.109" />
+    <parameter name="testh5" value="yes" />  <!--是否测试为h5，默认为no测试web-->
+
+    <parameter name="sdkVersion" value="5.1" /><!--安卓,IOS SDK版本-->
+    <parameter name="appMainPackage" value="com.ylmall.app.ui" /><!--app主包名-->
+    <parameter name="appActivity" value="'com.ylmall.app.activity.WelcomActivity" /> <!--app 主类名-->
+    <parameter name="UserName" value="" /> <!-- 系统登录用户名-->
+    <parameter name="PassWord" value="" />  <!-- 系统登录密码-->
+    <parameter name="sendmail" value="no" />  <!-- 是否发送邮件：yes发送，no不发送-->
+    <parameter name="smtpUserName" value="automail@zbwxkj.com" />  <!-- 测试报告邮件发送：smtp身份证验证-->
+    <parameter name="smtpPassWord" value="test123@zbwxkj.com" />  <!-- 测试报告邮件发送：smtp身份证验证-->
+    <parameter name="smtpHost" value="smtp.mxhichina.com" />  <!-- 测试报告邮件发送：smtp主机地址-->
+    <parameter name="smtpPort" value="465" />  <!-- 测试报告邮件发送：smtp主机端口-->
+    <parameter name="mailTitle" value="zbwx-自动化测试报告" />  <!-- 测试报告邮件发送：邮件标题-->
+    <parameter name="logUrl" value="" />  <!-- 测试报告邮件发送：用例运行日志url-->
+    <parameter name="reportUrl" value="" />  <!-- 测试报告邮件发送：完整测试报告url-->
+    <parameter name="recipients" value="zhicheng.ma@zbwxkj.com" /> <!-- 测试报告邮件发送：收件人，多个用,号隔开-->
+    <parameter name="reportTitle" value="zbwx-自动化测试报告" />  <!--测试报告标题-->
+
+    <listeners>
+        <listener class-name="com.zbwx.autotest.ui.utils.TestListener"/>
+        <listener class-name="com.zbwx.autotest.ui.utils.TestReport"/>
+    </listeners>
+
+
+    <test name="chrome48">
+
+        <classes>
+            <class name="com.zbwx.autotest.ui.WebTest" />
+        </classes>
+    </test>
+
+
+ 	<!-- <test name="chrome58">
+        <parameter name="browsertype" value="chrome" />
+        <parameter name="browserversion" value="58.0.3029.81" />
+        <parameter name="remoteIP" value="129.28.65.165" />
+        <classes>
+            <class name="com.tn.automation.testngcase.RunCase" />
+        </classes>
+    </test> -->
+
+   <!--  <test name="ff47">
+        <parameter name="browsertype" value="firefox" />
+        <parameter name="browserversion" value="47.0" />
+        <parameter name="remoteIP" value="192.168.99.100" />
+        <classes>
+            <class name="com.tn.automation.testngcase.RunCase" />
+        </classes>
+    </test>
+
+	<test name="ff52">
+        <parameter name="browsertype" value="firefox" />
+        <parameter name="browserversion" value="52.0" />
+        <parameter name="remoteIP" value="192.168.99.100" />
+        <classes>
+            <class name="com.tn.automation.testngcase.RunCase" />
+        </classes>
+    </test> -->
+</suite>

@@ -16,21 +16,28 @@ import atx.client.model.AndroidElement;
 import atx.client.remote.PageFactory;
 
 public class HomePage1 extends BasePage{
-	
-	@FindElementBy(id="com.ylmall.app.ui:id/first_text")
-	public AndroidElement home_bottom;
-	
+
 	@FindElementBy(text="我的")
 	public AndroidElement my;
 
-	public HomePage1(){
+	@FindElementBy(id= "id/first_text")		//verify=true时 id必须为不包含包名的id，减少与服务器交互次数
+	public AndroidElement home_bottom;
+	
+
+
+	protected HomePage1(){
 		super();
+
 	}
 
-//	public HomePage1() {
-//		PageFactory.initElements(this, driver);
-//	}
-	
+	public static HomePage1 verify(){
 
-	
+		return  new HomePage1();
+	}
+
+
+	//点击我的 按钮
+	public void clickMy(){
+		this.my.click();
+	}
 }

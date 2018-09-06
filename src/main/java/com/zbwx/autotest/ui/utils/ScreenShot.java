@@ -4,6 +4,7 @@ import com.google.common.io.Files;
 
 import atx.client.AtxClient;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -31,7 +32,7 @@ public class ScreenShot {
 	
 	
 	private void takeScreenshot(String screenPath) throws Exception {
-		driver.takeScreenshot(screenPath);
+		BaseAction.driver.takeScreenshot(screenPath);
 //		File scrFile=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 //		
 //		try {
@@ -45,10 +46,10 @@ public class ScreenShot {
 
 	public  void takeScreenshot() throws Exception {
 		String screenName =this.screenName+ ".jpg";
-		File dir = new File("test-output\\snapshot");
+		File dir = new File("test-output" + File.separator +driver.getUdid() + File.separator +"snapshot" );
 		if (!dir.exists())
 		{dir.mkdirs();}
-		String screenPath = dir.getAbsolutePath() + "\\" + screenName;
+		String screenPath = dir.getAbsolutePath() + File.separator  + screenName;
 		this.takeScreenshot(screenPath);
 	}
 

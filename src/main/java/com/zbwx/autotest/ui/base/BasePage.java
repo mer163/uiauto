@@ -3,10 +3,7 @@ package com.zbwx.autotest.ui.base;
 import atx.client.AtxClient;
 import atx.client.remote.PageFactory;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
 import com.zbwx.autotest.ui.utils.Log;
-
-import java.util.logging.Logger;
 
 public class BasePage {
 

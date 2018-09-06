@@ -2,12 +2,16 @@ package com.zbwx.autotest.ui.homepage;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BaseTest;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import atx.client.adb.ElementAttribs;
 
+
+import com.zbwx.autotest.ui.pageobject.HomePage;
 import com.zbwx.autotest.ui.pageobject.homeobject.HomePageNotifications;
 import com.zbwx.autotest.ui.pageobject.homeobject.HomePageService;
 import com.zbwx.autotest.ui.utils.Assertion;
@@ -19,54 +23,48 @@ import com.zbwx.autotest.ui.utils.Assertion;
  */
 public class NotificationsTest extends BaseTest {
 	
-	@BeforeClass
+	@BeforeClass   //所有方法开始前执行
 	public void beforeclass() throws Exception{
-		BaseAction.driver.startUiAutomator();
-		Thread.sleep(3000);
+		//从首页进入客服中心页面
+		HomePage.verify().img_homeService.click();
 	}
-	@Test(description = "消息中心公告提醒")
-	public void testNotificationsGG() throws Exception{
-		HomePageNotifications mHomePageNotifications = new HomePageNotifications();
-		mHomePageNotifications.newClick();
-		Thread.sleep(3000);
-		Assertion.VerityTextPresentPrecision("公告提醒", "进入消息中心页面");
-		HomePageNotifications mHomePageNotifications1 = new HomePageNotifications();
-		BaseAction.device.click(mHomePageNotifications1.mNoticeContainer);
-		HomePageNotifications mHomePageNotifications2 = new HomePageNotifications();
-		if (BaseAction.position.waitForElement(ElementAttribs.RESOURCE_ID,BaseTest.mAppMainPackage+":id/item_message_time",3000)) {
-			BaseAction.device.click(mHomePageNotifications2.mMessageBack);
+	@BeforeMethod   //每个方法执行前执行
+	public void beforeMethod() throws Exception{
+		
+		//当前是否处于消息中心页面，否则返回首页点击消息中心重新进入
+		if(!HomePageNotifications.verify().mNoticeContainer.getText().equals("公告提醒")){			
+			HomePageService.verify().mBtnBackService.click();
+			HomePage.verify().img_homeMessage.click();
 		}
-		BaseAction.mReturnHomePage();
+	}
+
+	@AfterMethod
+	public void aftermthod() throws Exception{
+		//每个方法执行完后执行
+		Assertion.VerityTextPresentPrecision("消息中心", "当前为消息中心页面......");
+		BaseAction.mReturn();
+		HomePage.verify().img_homeService.click();
+	}
+
+	@AfterClass
+	public void afterClass() throws Exception{
+		//所有测试方法执行完后执行		
+		//回首页
+		
 	}
 	
-	@Test(description = "消息中心提现提醒")
-	public void testNotificationsTX() throws Exception{
-		HomePageNotifications mHomePageNotifications = new HomePageNotifications();
-		mHomePageNotifications.newClick();
-		HomePageNotifications mHomePageNotifications1 = new HomePageNotifications();
-		mHomePageNotifications1.newCentre();
-		HomePageNotifications mHomePageNotifications2 = new HomePageNotifications();
-		BaseAction.device.click(mHomePageNotifications2.mTixianContainer);
+	@Test(description = "消息中心公告提醒")
+	public void testNotificationsGG() throws Exception{
+		//点击首页消息
+		HomePage.verify().img_homeMessage.click();
 		Thread.sleep(3000);
-		Assertion.VerityTextPresentPrecision("充值提现提醒", "进入充值提现提醒页面");
-		HomePageNotifications mHomePageNotifications3 = new HomePageNotifications();
-		BaseAction.device.click(mHomePageNotifications3.mMessageBack);
-		BaseAction.mReturnHomePage();
+		//点击公告提醒，提现提醒，成交提醒
+		HomePageNotifications.verify().mClickNoti();
+		HomePageService.verify().mBtnBackService.click();
+		
 	}
-	@Test(description = "消息中心成交提醒")
-	public void testNotificationsCJ() throws Exception{
-		HomePageNotifications mHomePageNotifications = new HomePageNotifications();
-		mHomePageNotifications.newClick();
-		HomePageNotifications mHomePageNotifications3 = new HomePageNotifications();
-		mHomePageNotifications3.newCentre();
-		HomePageNotifications mHomePageNotifications1 = new HomePageNotifications();
-		BaseAction.device.click(mHomePageNotifications1.mDealContainer);
-		Assertion.VerityTextPresentPrecision("成交提醒", "进入成交提醒页面");
-		Thread.sleep(3000);
-		HomePageNotifications mHomePageNotifications2 = new HomePageNotifications();
-		BaseAction.device.click(mHomePageNotifications2.mMessageBack);
-		BaseAction.mReturnHomePage();
-	}
+
+
 	@AfterClass
 	public void afterClassResult() {
 		

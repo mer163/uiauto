@@ -1,71 +1,86 @@
 package com.zbwx.autotest.ui.pageobject;
 
-import java.util.ArrayList;
-
-import atx.client.adb.ElementAdb;
-import atx.client.common.ElementObj;
-import atx.client.model.AndroidElement;
 
 import com.zbwx.autotest.ui.base.BaseAction;
 import com.zbwx.autotest.ui.base.BasePage;
-import com.zbwx.autotest.ui.base.BaseTest;
+
+import atx.client.internal.FindElementBy;
+import atx.client.model.AndroidElement;
 
 public class FindPage extends BasePage{
-	public AndroidElement mDaoHangFaXian;
+
 	
-	public ElementAdb mChiCangQuanZi;
-	public ElementAdb mChiCangZiXun;
+	//发现页面圈子
+	@FindElementBy(text="圈子")
+	public AndroidElement mChiCangQuanZi; 
+	//发现页面资讯
+	@FindElementBy(text="资讯")
+	public AndroidElement mChiCangZiXun; 
+	//发现页面话题
+	@FindElementBy(id = "id/newcfd_huatilist")
+	public AndroidElement mHuaTiList; 
+	//发现页面话题图片
+	@FindElementBy(id = "id/huatigoods_img")
+	public AndroidElement mHuaTiImg; 
+	//发现页面热门
+	@FindElementBy(id = "id/newcfd_tzjl_butten1")
+	public AndroidElement mFindReMen; 
+	//发现页面关注
+	@FindElementBy(id = "id/newcfd_tzjl_butten2")
+	public AndroidElement mFindGuanZhu; 
+	//发现页面全部
+	@FindElementBy(id = "id/newcfd_tzjl_butten3")
+	public AndroidElement mFindAll;
+	//发现页面点赞
+	@FindElementBy(id = "id/dianzhan")
+	public AndroidElement mFindDianZan; 
+	//发现页面评论
+	@FindElementBy(id = "id/pinglun")
+	public AndroidElement mFindPingLun; 
 	
-	public ElementAdb mHuaTiList;
-	public ElementAdb mHuaTiImg;
-	public ElementAdb mHuaTitx_back;
+	//点击发现页面发言图标
+	@FindElementBy(id = "id/frag_tzq_jiaoliu_send_topic")
+	public AndroidElement mFindSendTopic; 
 	
-	public ElementAdb mFindReMen;
-	public ElementAdb mFindGuanZhu;
-	public ElementAdb mFindKongBai;
-	public ElementAdb mFindAll;
-	
-	public ElementAdb mFindTaoLunTime;
-	public ElementAdb mFindDianZan;
-	public ElementAdb mFindPingLun;
-	
-	public ElementAdb mFindFaYan;
-	public FindPage(){
-		initElements();
+	protected FindPage() {
+		super();
+
 	}
 
-	public void initElements() {
+	public static FindPage verify() {
+		return new FindPage();
+	}
+	
+	//切换购买指南，商城情报，公告页面
+	public void mClick() throws Exception{
+		ZiXunPage.verify().ll_homeStoreInfo.click();
+		Thread.sleep(2000);
+		ZiXunPage.verify().ll_homeGongGao.click();
+		Thread.sleep(2000);
+		ZiXunPage.verify().ll_homeBuyZhiNan.click();
+		Thread.sleep(2000);
+	}
+	
+	public void mClickFind() throws Exception{	
+		//点击关注和全部进行切换页面
+		this.mFindGuanZhu.click();
 		
-		try {
-			this.mDaoHangFaXian = BaseAction.driver.findElementById(BaseTest.mAppMainPackage+":id/daohang_zixun");//导航发现
-			
-			this.mChiCangQuanZi =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/chicang_quanzi");//圈子
-			this.mChiCangZiXun =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/chicang_zixun");//资讯
-			
-			this.mHuaTiList =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/newcfd_huatilist");//话题
-			this.mHuaTiImg =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/huatigoods_img");//话题
-			this.mHuaTitx_back =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/tx_back");//话题返回
-			
-			this.mFindReMen =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/newcfd_tzjl_butten1");//热门
-			this.mFindGuanZhu =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/newcfd_tzjl_butten2");//关注
-			this.mFindKongBai =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/empty_image");//关注空白
-			
-			this.mFindAll =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/newcfd_tzjl_butten3");//全部
-			
-			this.mFindTaoLunTime =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/sentertime");//热门讨论时间
-			this.mFindDianZan =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/dianzhan");//热门点赞
-			this.mFindPingLun =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/pinglun");//热门评论
-			
-			this.mFindFaYan =BaseAction.position.findElementById(BaseTest.mAppMainPackage+":id/frag_tzq_jiaoliu_send_topic");//发言
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		this.mFindAll.click();
+		
+		this.mFindReMen.click();
+		//循环点击点赞按钮是否可以点赞和取消点赞
+		for (int i = 0; i < 3; i++) {
+			this.mFindDianZan.click();
 		}
-		
-	}
-	public void mClickFindDaoHang() throws Exception{
-		BaseAction.mWaitOpenApp();
-		mDaoHangFaXian.click();
-		
-	}
+		//点击评论按钮跳转到发言详情页面
+		this.mFindPingLun.click();
+		Thread.sleep(2000);
+		//点击发言详情页面的返回按钮返回圈子页面
+		BaseAction.mReturn();
+		Thread.sleep(2000);
+		//点击发现页面发言图标进入发言页面进行发布话题
+		this.mFindSendTopic.click();
+		//点击发言页面的返回按钮返回圈子页面
+		BaseAction.mReturn();
+}
 }

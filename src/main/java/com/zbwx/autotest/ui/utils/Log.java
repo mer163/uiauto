@@ -1,5 +1,6 @@
 package com.zbwx.autotest.ui.utils;
 
+import com.zbwx.autotest.ui.base.BaseAction;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -36,7 +37,7 @@ public class Log
         prop.setProperty("log4j.appender.CONSOLE.layout", "org.apache.log4j.PatternLayout");
         prop.setProperty("log4j.appender.CONSOLE.layout.ConversionPattern", "[%d{YYYY-MM-dd HH:mm:ss,SSS}] %-5p %c %m%n");
 
-        String src="test-output/log";
+        String src="test-output" + File.separator + "log";
         //设置日期格式
         SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
         //获取当前日期
