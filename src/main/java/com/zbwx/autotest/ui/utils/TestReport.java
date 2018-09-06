@@ -932,7 +932,7 @@ public class TestReport implements IReporter{
 		return sb.toString();
 
 	}
-	private String getTestngParametersValue(String path,String ParametersName) throws DocumentException, IOException
+	public String getTestngParametersValue(String path,String ParametersName) throws DocumentException, IOException
 	{
 		File file = new File(path);
 		if (!file.exists()) {

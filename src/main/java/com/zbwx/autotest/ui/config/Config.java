@@ -15,6 +15,7 @@ import java.util.Iterator;
 
 public class Config {
 	public static String path="testng.xml";
+	public static String path1="testng_web.xml";
 	public static void main(String[] args) {
 		// TODO 自动生成的方法存根
 
